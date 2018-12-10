@@ -19,7 +19,7 @@ this is spring boot sample with groovy spock
   5-2. spock testcase 생성 -> /src/test/java 디렉토리에 
   package com.sbk.springsample
 
-<code>
+```
   import spock.lang.Specification
 
   class ControllerTest extends Specification {
@@ -36,6 +36,6 @@ this is spring boot sample with groovy spock
         result == 4
     }
   }
-</code>  
+```
   
     
