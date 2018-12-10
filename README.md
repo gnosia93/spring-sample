@@ -1,5 +1,5 @@
-# spring-sample
-this is spring boot sample with groovy spock
+### spring-sample
+스프링 부트 단위 테스트를 spock 을 이용한 예제이다. 
 
 !! Prerequisite
 1. 이클립스에서 spring boot 프로젝트를 생성한다.
