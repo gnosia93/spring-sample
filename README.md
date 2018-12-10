@@ -6,7 +6,7 @@
 1. jspresso 를 이용하여 spock nature 을 enable 시킨다.
 1. 팝업 convert 메뉴에서 groovy 프로젝트로 convert 한다. 
 1. spring boot 어플리케이션 시작 테스트를 한다. 
-1. src/test/java 디렉토리에 샘플 spock 테스트 케이스를 아래와 같이 작성한다. 
+1. src/test/java 디렉토리에 샘플 spock 테스트 케이스를 아래와 같이 작성하고, maven 에 spock-core 라이브러리에 대한 의존성을 추가한다. 
   
   1.maven 의존추가
   ```
@@ -40,4 +40,8 @@
   }
 ```
   
+  
+  
+MVC 단위 테스트 예제
+https://memorynotfound.com/unit-test-spring-mvc-rest-service-junit-mockito/#unit-test-http-post
     
