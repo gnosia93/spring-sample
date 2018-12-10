@@ -9,7 +9,7 @@ this is spring boot sample with groovy spock
 5. src/test/java 디렉토리에 샘플 spock 테스트 케이스를 아래와 같이 작성한다. 
   - maven 의존추가
   ```
-  <dependency>
+                 <dependency>
 		    <groupId>org.spockframework</groupId>
 		    <artifactId>spock-core</artifactId>
 		    <version>1.0-groovy-2.4</version>
