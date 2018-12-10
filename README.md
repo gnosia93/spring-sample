@@ -7,17 +7,17 @@ this is spring boot sample with groovy spock
 3. 팝업 convert 메뉴에서 groovy 프로젝트로 convert 한다. 
 4. spring boot 어플리케이션 시작 테스트를 한다. 
 5. src/test/java 디렉토리에 샘플 spock 테스트 케이스를 아래와 같이 작성한다. 
-  - maven 의존추가
+  1.maven 의존추가
   ```
-                 <dependency>
-		    <groupId>org.spockframework</groupId>
-		    <artifactId>spock-core</artifactId>
-		    <version>1.0-groovy-2.4</version>
-		    <scope>test</scope>
-		</dependency>
+	<dependency>
+	   <groupId>org.spockframework</groupId>
+	    <artifactId>spock-core</artifactId>
+	    <version>1.0-groovy-2.4</version>
+	    <scope>test</scope>
+	</dependency>
   ```		
   
-  - spock testcase 생성 -> /src/test/java 디렉토리에 
+  2.spock testcase 생성 -> /src/test/java 디렉토리에 
   
 
 ``
