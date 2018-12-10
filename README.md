@@ -1,7 +1,7 @@
 ### spring-sample
 스프링 부트 단위 테스트를 spock 을 이용한 예제이다. 
 
-# Prerequisite
+### Prerequisite
 1. 이클립스에서 spring boot 프로젝트를 생성한다.
 1. jspresso 를 이용하여 spock nature 을 enable 시킨다.
 1. 팝업 convert 메뉴에서 groovy 프로젝트로 convert 한다. 
