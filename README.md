@@ -19,9 +19,8 @@ this is spring boot sample with groovy spock
   ```		
   
   2.spock testcase 생성 -> /src/test/java 디렉토리에 
-  
-
-``
+ 
+```
   package com.sbk.springsample`
   import spock.lang.Specification
 
