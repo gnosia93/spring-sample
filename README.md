@@ -40,4 +40,8 @@
   }
 ```
   
+  
+  
+MVC 단위 테스트 예제
+https://memorynotfound.com/unit-test-spring-mvc-rest-service-junit-mockito/#unit-test-http-post
     
