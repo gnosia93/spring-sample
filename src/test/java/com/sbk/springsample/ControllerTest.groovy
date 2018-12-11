@@ -16,9 +16,9 @@ import java.time.Instant
 import org.springframework.http.*;
 import org.springframework.test.web.servlet.MockMvc
 
-import com.sbk.springsample.order.command.AddOrderCommand
-import com.sbk.springsample.order.controller.OrderController
 import com.sbk.springsample.order.domain.Item
+import com.sbk.springsample.ui.order.command.AddOrderCommand
+import com.sbk.springsample.ui.order.controller.OrderController
 
 import spock.lang.Specification
 
