@@ -42,6 +42,10 @@
   
 
 ### boot testing ###
+#### 테스트팅 튜토리얼 ####
+https://www.baeldung.com/spring-boot-testing
+
+#### 부트 테스트 레퍼런스 ####
 https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-testing.html
 
   
