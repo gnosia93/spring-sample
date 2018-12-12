@@ -14,22 +14,23 @@ import java.util.List;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.InjectMocks;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.sbk.springsample.order.domain.Item;
 import com.sbk.springsample.order.service.OrderService;
-import com.sbk.springsample.ui.order.command.AddOrderCommand;
+import com.sbk.springsample.order.service.command.AddOrderCommand;
+import com.sbk.springsample.ui.order.request.AddOrderRequest;
 
 
-@RunWith(SpringJUnit4ClassRunner.class)
-// @WebMvcTest
+@RunWith(SpringRunner.class)
 @SpringBootTest
+@AutoConfigureMockMvc               		 // mock object 를 autowire 하기 위해 추가 
 public class OrderControllerTest {
 
 	@Autowired MockMvc mockMvc;
@@ -37,7 +38,7 @@ public class OrderControllerTest {
 	@Autowired OrderService orderService;
 	
 	
-	private AddOrderCommand makeAddOrderCommand() {
+	private AddOrderRequest getAddOrderRequest() {
 		List<Item> itemList = new ArrayList<>();
 		Item item = new Item();
 		item.setItemId(1);
@@ -45,18 +46,18 @@ public class OrderControllerTest {
 		item.setItemCount(1);
 		itemList.add(item);
 		
-		AddOrderCommand addOrderCommand = new AddOrderCommand();
-		addOrderCommand.setOrderNo(0);
-		addOrderCommand.setTimestamp(Instant.now());
-		addOrderCommand.setItemList(itemList);
+		AddOrderRequest addOrderRequest = new AddOrderRequest();
+		addOrderRequest.setOrderNo(0);
+		addOrderRequest.setTimestamp(Instant.now());
+		addOrderRequest.setItemList(itemList);
 		
-		return addOrderCommand;
+		return addOrderRequest;
 	}
 	
 	@Test
 	public void testCase() throws Exception {
-		AddOrderCommand addOrderCommand = makeAddOrderCommand();
-		String contentBody = objectMapper.writeValueAsString(addOrderCommand);
+		AddOrderRequest orderRequest = getAddOrderRequest();
+		String contentBody = objectMapper.writeValueAsString(orderRequest);
 		
 		mockMvc.perform(post("/order/add")
 				.contentType(MediaType.APPLICATION_JSON_UTF8)

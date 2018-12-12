@@ -1,4 +1,4 @@
-package com.sbk.springsample.ui.order.command;
+package com.sbk.springsample.ui.order.request;
 
 import java.time.Instant;
 import java.util.List;
@@ -9,7 +9,7 @@ import com.sbk.springsample.order.domain.Item;
 import lombok.Data;
 
 @Data
-public class AddOrderCommand {
+public class AddOrderRequest {
 
 	Instant timestamp;
 	long orderNo;

@@ -12,7 +12,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.sbk.springsample.base.CommandResult;
 import com.sbk.springsample.order.service.OrderService;
-import com.sbk.springsample.ui.order.command.AddOrderCommand;
+import com.sbk.springsample.order.service.command.AddOrderCommand;
+import com.sbk.springsample.ui.order.request.AddOrderRequest;
+import com.sbk.springsample.ui.order.request.mapper.AddOrderRequestMapper;
 
 @RestController
 @RequestMapping(value="/order")
@@ -21,10 +23,12 @@ public class OrderController {
 	Logger logger = LoggerFactory.getLogger(this.getClass());
 
 	OrderService orderService;
+	AddOrderRequestMapper orderRequestMapper;
 	
 	@Autowired
-	public OrderController(OrderService service) {
+	public OrderController(OrderService service, AddOrderRequestMapper orderRequestMapper) {
 		this.orderService = service;
+		this.orderRequestMapper = orderRequestMapper;
 	}
 	
 	
@@ -32,12 +36,14 @@ public class OrderController {
 	 * 주문한다.  
 	 */
 	@PostMapping("/add")
-	public ResponseEntity<CommandResult> order(@RequestBody AddOrderCommand addOrderCommand) {
+	public ResponseEntity<CommandResult> order(@RequestBody AddOrderRequest addOrderRequest) {
 		
-		orderService.order();
+		AddOrderCommand command = this.orderRequestMapper.asAddOrderCommand(addOrderRequest);
+		
+		CommandResult commandResult = orderService.order(command);
 		return ResponseEntity.ok()
 				.contentType(MediaType.APPLICATION_JSON_UTF8)
-				.body(CommandResult.success("addOrder()"));
+				.body(commandResult);
 	}
 	
 	

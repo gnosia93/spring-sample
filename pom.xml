@@ -48,6 +48,21 @@
 		    <scope>test</scope>
 		</dependency>
 		
+		<!-- scope provided because the processor is only needed at compile time-->
+		<dependency>
+		    <groupId>fr.xebia.extras</groupId>
+		    <artifactId>selma-processor</artifactId>
+		    <version>1.0</version>
+		    <scope>provided</scope>
+		</dependency>
+		
+		<!-- This is the only real dependency you will have in your binaries -->
+		<dependency>
+		    <groupId>fr.xebia.extras</groupId>
+		    <artifactId>selma</artifactId>
+		    <version>1.0</version>
+		</dependency>
+		
 	</dependencies>
 
 	<build>
@@ -55,6 +70,15 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+			    <groupId>org.apache.maven.plugins</groupId>
+			    <artifactId>maven-compiler-plugin</artifactId>
+			    <configuration>
+			        <showWarnings>true</showWarnings>
+			        <optimize>true</optimize>
+			        <showDeprecation>true</showDeprecation>
+			    </configuration>
 			</plugin>
 		</plugins>
 	</build>
