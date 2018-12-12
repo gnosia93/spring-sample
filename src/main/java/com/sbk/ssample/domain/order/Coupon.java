@@ -1,0 +1,11 @@
+package com.sbk.ssample.domain.order;
+
+import lombok.Data;
+
+@Data
+public class Coupon {
+	int couponNo;
+	int couponName;
+	int discountRatio;
+	Item occupiedItem;
+}

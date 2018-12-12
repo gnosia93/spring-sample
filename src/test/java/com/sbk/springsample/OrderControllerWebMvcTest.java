@@ -23,13 +23,13 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.sbk.springsample.base.CommandResult;
-import com.sbk.springsample.order.domain.Item;
-import com.sbk.springsample.order.service.OrderService;
-import com.sbk.springsample.order.service.command.AddOrderCommand;
-import com.sbk.springsample.ui.order.controller.OrderController;
-import com.sbk.springsample.ui.order.request.AddOrderRequest;
-import com.sbk.springsample.ui.order.request.mapper.AddOrderRequestMapper;
+import com.sbk.ssample.app.order.service.OrderService;
+import com.sbk.ssample.app.order.service.command.AddOrderCommand;
+import com.sbk.ssample.base.CommandResult;
+import com.sbk.ssample.domain.order.Item;
+import com.sbk.ssample.ui.order.controller.OrderController;
+import com.sbk.ssample.ui.order.request.AddOrderRequest;
+import com.sbk.ssample.ui.order.request.mapper.AddOrderRequestMapper;
 
 import fr.xebia.extras.selma.Selma;
 

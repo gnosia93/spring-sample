@@ -1,4 +1,4 @@
-package com.sbk.springsample
+package com.sbk.ssample
 
 import static org.mockito.Mockito.*;
 import static org.springframework.http.HttpStatus.*
@@ -6,19 +6,10 @@ import static org.springframework.test.web.servlet.request.MockHttpServletReques
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 import static org.springframework.test.web.servlet.setup.MockMvcBuilders.*
 
-
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-import org.springframework.http.MediaType;
-
-
-import java.time.Instant
-
 import org.springframework.http.*;
 import org.springframework.test.web.servlet.MockMvc
 
-import com.sbk.springsample.order.domain.Item
-import com.sbk.springsample.order.service.command.AddOrderCommand
-import com.sbk.springsample.ui.order.controller.OrderController
+import com.sbk.ssample.ui.order.controller.OrderController
 
 import spock.lang.Specification
 
