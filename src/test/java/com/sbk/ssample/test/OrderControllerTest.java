@@ -1,4 +1,4 @@
-package com.sbk.springsample;
+package com.sbk.ssample.test;
 
 
 import static org.hamcrest.Matchers.equalTo;

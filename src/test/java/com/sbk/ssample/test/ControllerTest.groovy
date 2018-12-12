@@ -1,4 +1,4 @@
-package com.sbk.ssample
+package com.sbk.ssample.test;
 
 import static org.mockito.Mockito.*;
 import static org.springframework.http.HttpStatus.*
