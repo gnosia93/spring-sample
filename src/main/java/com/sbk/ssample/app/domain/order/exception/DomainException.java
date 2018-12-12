@@ -1,4 +1,4 @@
-package com.sbk.ssample.domain.order.exception;
+package com.sbk.ssample.app.domain.order.exception;
 
 public class DomainException extends RuntimeException {
 

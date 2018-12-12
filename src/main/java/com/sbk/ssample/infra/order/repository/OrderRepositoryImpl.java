@@ -2,8 +2,8 @@ package com.sbk.ssample.infra.order.repository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.sbk.ssample.app.order.service.command.AddOrderCommand;
-import com.sbk.ssample.domain.order.repository.OrderRepository;
+import com.sbk.ssample.app.domain.order.repository.OrderRepository;
+import com.sbk.ssample.app.service.order.command.AddOrderCommand;
 import com.sbk.ssample.infra.order.jpa.entity.OrderEntity;
 import com.sbk.ssample.infra.order.jpa.repository.OrderItemJpaRepository;
 import com.sbk.ssample.infra.order.jpa.repository.OrderJpaRepository;

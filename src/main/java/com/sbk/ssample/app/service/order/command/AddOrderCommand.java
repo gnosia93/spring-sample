@@ -1,10 +1,10 @@
-package com.sbk.ssample.app.order.service.command;
+package com.sbk.ssample.app.service.order.command;
 
 import java.time.Instant;
 import java.util.List;
 
-import com.sbk.ssample.domain.order.Coupon;
-import com.sbk.ssample.domain.order.Item;
+import com.sbk.ssample.app.domain.order.Coupon;
+import com.sbk.ssample.app.domain.order.Item;
 
 import lombok.Data;
 

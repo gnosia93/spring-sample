@@ -22,9 +22,9 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.sbk.ssample.app.order.service.OrderService;
-import com.sbk.ssample.app.order.service.command.AddOrderCommand;
-import com.sbk.ssample.domain.order.Item;
+import com.sbk.ssample.app.domain.order.Item;
+import com.sbk.ssample.app.service.order.OrderService;
+import com.sbk.ssample.app.service.order.command.AddOrderCommand;
 import com.sbk.ssample.ui.order.request.AddOrderRequest;
 
 

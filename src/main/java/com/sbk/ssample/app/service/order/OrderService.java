@@ -1,13 +1,13 @@
-package com.sbk.ssample.app.order.service;
+package com.sbk.ssample.app.service.order;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.sbk.ssample.app.order.service.command.AddOrderCommand;
+import com.sbk.ssample.app.domain.order.Order;
+import com.sbk.ssample.app.service.order.command.AddOrderCommand;
 import com.sbk.ssample.base.CommandResult;
-import com.sbk.ssample.domain.order.Order;
 
 @Service
 public class OrderService {

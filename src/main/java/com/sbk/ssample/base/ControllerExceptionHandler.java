@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.sbk.ssample.domain.order.exception.DomainException;
+import com.sbk.ssample.app.domain.order.exception.DomainException;
 
 @ControllerAdvice
 public class ControllerExceptionHandler {

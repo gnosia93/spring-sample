@@ -1,4 +1,4 @@
-package com.sbk.ssample.domain.order;
+package com.sbk.ssample.app.domain.order;
 
 import lombok.Data;
 
