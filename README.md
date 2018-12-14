@@ -63,6 +63,7 @@ https://memorynotfound.com/unit-test-spring-mvc-rest-service-junit-mockito/#unit
 #### Redis ####
 https://www.baeldung.com/spring-data-redis-tutorial
 https://github.com/spring-projects/spring-data-examples/tree/master/redis/repositories
+https://docs.spring.io/spring-data/data-redis/docs/current/reference/html/
 
 #### ehcache ####
 
