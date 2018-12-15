@@ -7,33 +7,29 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.sbk.ssample.app.domain.order.Buyer;
 import com.sbk.ssample.app.domain.order.BuyerType;
 import com.sbk.ssample.app.domain.order.Order;
 import com.sbk.ssample.app.domain.order.OrderItem;
-import com.sbk.ssample.app.domain.order.OrderStatus;
 import com.sbk.ssample.app.domain.order.ShippingInfo;
 import com.sbk.ssample.app.domain.order.repository.OrderRepository;
 
 
 @RunWith(SpringRunner.class)
-@SpringBootTest
-//@DataJpaTest
+//@SpringBootTest
+@DataJpaTest
 //@AutoConfigureMockMvc               		 // mock object 를 autowire 하기 위해 추가 
 public class OrderRepositoryTest {
 
 	@Autowired OrderRepository orderRepository;
-	Order order;
 	
-	@Before
-	public void prepareOrder() {
+	public Order prepareOrder() {
 		Buyer buyer = new Buyer("testbuyerId", BuyerType.NON_MEMBER, "testMemberId");
 		List<OrderItem> itemList = new ArrayList<>();
 		for(int i = 0; i < 5; i++) {
@@ -42,14 +38,13 @@ public class OrderRepositoryTest {
 		}
 		ShippingInfo shippingInfo = new ShippingInfo("test-name", "test-phoneNumber", "test-addr1", "test-addr2");
 		
-		this.order = new Order(buyer, itemList, shippingInfo);
-		this.order.setOrderStatus(OrderStatus.ORDERED);
+		return new Order(buyer, itemList, shippingInfo);
 	}
 	
 	
 	@Test
-	public void orderSaveAndFindTest() {
-		long id = orderRepository.save(this.order);
+	public void saveAndFind() {
+		long id = orderRepository.save(prepareOrder());
 		
 		// 입력된 것인지.. 확인한다. 
 		Optional<Order> optOrder = orderRepository.findById(id);

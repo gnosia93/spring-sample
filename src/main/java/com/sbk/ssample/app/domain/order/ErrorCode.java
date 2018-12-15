@@ -3,7 +3,8 @@ package com.sbk.ssample.app.domain.order;
 public enum ErrorCode {
 	
 	PARAM_IS_NULL(1, "input parameter is null"),
-	PARAM_IS_EMPTY(2, "input parameter is empty");
+	PARAM_IS_EMPTY(2, "input parameter is empty"),
+	ORDER_SHIPPINGINFO_CHANGE_ERROR(11, "can't chnage cause of order status ");
 	
 	int code;
 	String message;
