@@ -157,7 +157,9 @@ public interface OrderItemEntityMapper {
 }
 ```
 OrderItemEntity asOrderItemEntity(Order order, OrderItem orderItem) 의 경우 Order 와 OrderItem 클래스를 소스로 사용하여 매핑을 하고 있다.
+
 @Field 어노테이션이 말해주는 것처럼 필드명을 나열하면 selma 가 알아서 매핑해 준다. 
+
 buyer.buyerid 의 경우 Order 클래스의 buyer 필드 클래스의 buyerId 프로퍼티이다. 
 
 
