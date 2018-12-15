@@ -18,10 +18,10 @@ public class ControllerExceptionHandler {
 	@ResponseBody
 	@ExceptionHandler(value = {DomainException.class})
 	public ResponseEntity<CommandResult> handleDomainException(
-			HttpServletRequest request, HttpServletResponse response, Exception e) {
+			HttpServletRequest request, HttpServletResponse response, DomainException e) {
 	
 		return ResponseEntity.status(HttpStatus.CONFLICT)
 				.contentType(MediaType.APPLICATION_JSON_UTF8)
-				.body(CommandResult.fail(-1, e.getMessage()));
+				.body(CommandResult.fail(e.getCode(), e.getMessage()));
 	}
 }

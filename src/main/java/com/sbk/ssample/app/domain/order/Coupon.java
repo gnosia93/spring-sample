@@ -7,5 +7,5 @@ public class Coupon {
 	int couponNo;
 	int couponName;
 	int discountRatio;
-	Item occupiedItem;
+	OrderItem occupiedItem;
 }

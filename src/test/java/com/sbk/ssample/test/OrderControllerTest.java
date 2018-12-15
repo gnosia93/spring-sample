@@ -2,7 +2,6 @@ package com.sbk.ssample.test;
 
 
 import static org.hamcrest.Matchers.equalTo;
-import static org.hamcrest.Matchers.is;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
@@ -12,6 +11,7 @@ import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,9 +22,12 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.sbk.ssample.app.domain.order.Item;
+import com.fasterxml.jackson.databind.SerializationFeature;
+import com.sbk.ssample.app.domain.order.Buyer;
+import com.sbk.ssample.app.domain.order.BuyerType;
+import com.sbk.ssample.app.domain.order.OrderItem;
+import com.sbk.ssample.app.domain.order.ShippingInfo;
 import com.sbk.ssample.app.service.order.OrderService;
-import com.sbk.ssample.app.service.order.command.AddOrderCommand;
 import com.sbk.ssample.ui.order.request.AddOrderRequest;
 
 
@@ -37,10 +40,12 @@ public class OrderControllerTest {
 	@Autowired ObjectMapper objectMapper; 
 	@Autowired OrderService orderService;
 	
-	
-	private AddOrderRequest getAddOrderRequest() {
-		List<Item> itemList = new ArrayList<>();
-		Item item = new Item();
+	AddOrderRequest addOrderRequest;
+
+	@Before
+	public void prepareAddOrderRequest() {
+		List<OrderItem> itemList = new ArrayList<>();
+		OrderItem item = new OrderItem();
 		item.setItemId(1);
 		item.setItemName("item name-1");
 		item.setItemCount(1);
@@ -50,21 +55,23 @@ public class OrderControllerTest {
 		addOrderRequest.setOrderNo(0);
 		addOrderRequest.setTimestamp(Instant.now());
 		addOrderRequest.setItemList(itemList);
+		addOrderRequest.setBuyer(new Buyer("buyer0", BuyerType.MEMBER, "member0"));
+		addOrderRequest.setShippingInfo(new ShippingInfo("kwon", "000-0000-0000", "addr1", "addr2"));
 		
-		return addOrderRequest;
+		this.addOrderRequest = addOrderRequest;
 	}
 	
 	@Test
 	public void testCase() throws Exception {
-		AddOrderRequest orderRequest = getAddOrderRequest();
-		String contentBody = objectMapper.writeValueAsString(orderRequest);
+		String contentBody = objectMapper.writeValueAsString(this.addOrderRequest);
+		objectMapper.enable(SerializationFeature.INDENT_OUTPUT);
 		
 		mockMvc.perform(post("/order/add")
 				.contentType(MediaType.APPLICATION_JSON_UTF8)
 				.content(contentBody))
 			.andExpect(status().isOk())
 			.andExpect(jsonPath("$.success", equalTo(true)))
-			.andExpect(jsonPath("$.data", is("addOrder()")))
+			//.andExpect(jsonPath("$.data", is("addOrder()")))
 			.andDo(print());
 	}
 	

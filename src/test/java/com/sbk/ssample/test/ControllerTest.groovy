@@ -16,8 +16,8 @@ import spock.lang.Specification
 
 class ControllerTest extends Specification {
 	
-	def orderController = new OrderController();
-	MockMvc mockMvc = standaloneSetup(orderController).build()
+	//def orderController = new OrderController();
+	//MockMvc mockMvc = standaloneSetup(orderController).build()
 	
 	def "order" () {
 	

@@ -23,12 +23,12 @@ public class OrderController {
 	Logger logger = LoggerFactory.getLogger(this.getClass());
 
 	OrderService orderService;
-	AddOrderRequestMapper orderRequestMapper;
+	AddOrderRequestMapper addOrderRequestMapper;
 	
 	@Autowired
-	public OrderController(OrderService service, AddOrderRequestMapper orderRequestMapper) {
+	public OrderController(OrderService service, AddOrderRequestMapper addOrderRequestMapper) {
 		this.orderService = service;
-		this.orderRequestMapper = orderRequestMapper;
+		this.addOrderRequestMapper = addOrderRequestMapper;
 	}
 	
 	
@@ -37,8 +37,7 @@ public class OrderController {
 	 */
 	@PostMapping("/add")
 	public ResponseEntity<CommandResult> order(@RequestBody AddOrderRequest addOrderRequest) {
-		
-		AddOrderCommand command = this.orderRequestMapper.asAddOrderCommand(addOrderRequest);
+		AddOrderCommand command = this.addOrderRequestMapper.asAddOrderCommand(addOrderRequest);
 		
 		CommandResult commandResult = orderService.order(command);
 		return ResponseEntity.ok()

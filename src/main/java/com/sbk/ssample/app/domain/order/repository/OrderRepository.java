@@ -1,9 +1,14 @@
 package com.sbk.ssample.app.domain.order.repository;
 
-import com.sbk.ssample.app.service.order.command.AddOrderCommand;
+import java.util.Optional;
+
+import com.sbk.ssample.app.domain.order.Order;
 
 public interface OrderRepository {
 
-	public void save(AddOrderCommand addOrderCommand);
+	public long save(Order order);
+	
+	public Optional<Order> findById(long id);
+	
 	
 }
