@@ -22,12 +22,14 @@ import lombok.RequiredArgsConstructor;
 @Data
 @RequiredArgsConstructor
 public class Order {
+	long orderId;
+	
 	@NonNull
 	Buyer buyer;
 	@NonNull
 	List<OrderItem> itemList;
 	@NonNull
-	ShippingInfo shippinInfo;
+	ShippingInfo shippingInfo;
 
 	OrderStatus orderStatus;
 	int totalPrice;
@@ -40,8 +42,8 @@ public class Order {
 	 */
 	private boolean assertShippingInfo(ShippingInfo shippingInfo) {
 		if(shippingInfo == null ||
-		   StringUtils.isEmpty(shippingInfo.getReciverName()) ||
-		   StringUtils.isEmpty(shippingInfo.getReciverPhoneNumber()) )
+		   StringUtils.isEmpty(shippingInfo.getReceiverName()) ||
+		   StringUtils.isEmpty(shippingInfo.getReceiverPhoneNumber()) )
 			return true;
 		
 		return false;
@@ -51,13 +53,17 @@ public class Order {
 		if(assertShippingInfo(shippingInfo))
 			throw new DomainException(ErrorCode.PARAM_IS_NULL);
 		
-		this.shippinInfo = shippingInfo;
+		this.shippingInfo = shippingInfo;
 	}
 	
 	public int getTotalPrice() {
 		return itemList.stream()
 				.map(item -> { return item.getItemCount() * item.getItemPrice(); })
 				.mapToInt(i -> i).sum();
+	}
+	
+	public int getItemCount( ) {
+		return itemList.size();
 	}
 	
 	public void cancelOrder() {

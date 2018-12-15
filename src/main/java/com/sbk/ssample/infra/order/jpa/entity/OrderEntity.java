@@ -20,7 +20,7 @@ import lombok.Data;
 public class OrderEntity {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	long id;
+	long orderId;
 
 	// Buyer
 	String buyerId;

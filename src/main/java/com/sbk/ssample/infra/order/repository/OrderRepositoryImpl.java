@@ -16,6 +16,8 @@ import com.sbk.ssample.infra.order.jpa.entity.OrderEntity;
 import com.sbk.ssample.infra.order.jpa.entity.OrderItemEntity;
 import com.sbk.ssample.infra.order.jpa.repository.OrderItemJpaRepository;
 import com.sbk.ssample.infra.order.jpa.repository.OrderJpaRepository;
+import com.sbk.ssample.infra.order.mapper.OrderEntityMapper;
+import com.sbk.ssample.infra.order.mapper.OrderItemEntityMapper;
 
 
 //@Component("OrderRepository")
@@ -24,50 +26,37 @@ public class OrderRepositoryImpl implements OrderRepository {
 
 	OrderJpaRepository orderJpaRepository;
 	OrderItemJpaRepository orderItemJpaRepository;
+	OrderEntityMapper orderEntityMapper;
+	OrderItemEntityMapper orderItemEntityMapper;
 	
 	@Autowired
 	public OrderRepositoryImpl(OrderJpaRepository orderJpaRepository, 
-							   OrderItemJpaRepository orderItemJpaRepository) {
+							   OrderItemJpaRepository orderItemJpaRepository,
+							   OrderEntityMapper orderEntityMapper,
+							   OrderItemEntityMapper orderItemEntityMapper) {
 	
 		this.orderJpaRepository = orderJpaRepository;
 		this.orderItemJpaRepository = orderItemJpaRepository;
+		this.orderEntityMapper = orderEntityMapper;
+		this.orderItemEntityMapper = orderItemEntityMapper;
 	}
 
 	
 	@Override
 	public long save(Order order) {
-		/*
-		 * Order --> OrderEntity
-		 * Order --> OrderItem List
-		 */
-		OrderEntity orderEntity = new OrderEntity();
-		orderEntity.setBuyerId(order.getBuyer().getBuyerId());
-		orderEntity.setMemberId(order.getBuyer().getMemberId());
-		orderEntity.setBuyerType(order.getBuyer().getBuyerType());
-		
-		orderEntity.setItemCount(order.getItemList().size());
-		
-		orderEntity.setStatus(order.getOrderStatus());
-		orderEntity.setTotalPrice(order.getTotalPrice());
-
-		orderEntity.setReceiverName(order.getShippinInfo().getReciverName());
-		orderEntity.setReceiverPhoneNumber(order.getShippinInfo().getReciverPhoneNumber());
-		orderEntity.setReceiverAddr1(order.getShippinInfo().getRecieverAddr1());
-		orderEntity.setReceiverAddr2(order.getShippinInfo().getReceiverAddr2());
+	
+		OrderEntity orderEntity = this.orderEntityMapper.asOrderEntity(order);
+		orderEntity.setItemCount(order.getItemCount());
 		
 		OrderEntity savedOrderEntity = this.orderJpaRepository.save(orderEntity);
+		order.setOrderId(savedOrderEntity.getOrderId());
 		
-		for(OrderItem item : order.getItemList()) {
-			OrderItemEntity orderItemEntity = 
-									new OrderItemEntity(0, savedOrderEntity.getId(), 
-														order.getBuyer().getBuyerId(), 
-														item.getItemName(), 
-														item.getItemCount(),
-														item.getItemPrice());
-			this.orderItemJpaRepository.save(orderItemEntity);
+		for(OrderItem orderItem : order.getItemList()) {
+			this.orderItemJpaRepository.save(
+					this.orderItemEntityMapper.asOrderItemEntity(order, orderItem));
 		}
 		
-		return savedOrderEntity.getId();
+		return order.getOrderId();
 	}
 	
 	@Override
@@ -75,16 +64,22 @@ public class OrderRepositoryImpl implements OrderRepository {
 		Order order = null;
 		Optional<OrderEntity> optOrderEntity = orderJpaRepository.findById(id);
 		if(optOrderEntity.isPresent()) {
-			List<OrderItemEntity> orderItemEntityList = orderItemJpaRepository.findByOrderId(optOrderEntity.get().getId());
+			List<OrderItemEntity> orderItemEntityList = 
+					orderItemJpaRepository.findByOrderId(optOrderEntity.get().getOrderId());
 				
 			List<OrderItem> itemList = new ArrayList<>();
 			for(OrderItemEntity orderItemEntity : orderItemEntityList) {
+				
+				/*
 				OrderItem orderItem = new OrderItem(
-						orderItemEntity.getId(), 
+						orderItemEntity.getOrderId(), 
 						orderItemEntity.getItemName(),
 						orderItemEntity.getItemCount(),
 						orderItemEntity.getItemPrice());
-				itemList.add(orderItem);
+						
+				itemList.add(orderItem);		
+				*/
+				itemList.add(this.orderItemEntityMapper.asOrderItem(orderItemEntity));
 			}
 			
 			Buyer buyer = new Buyer(optOrderEntity.get().getBuyerId(), 

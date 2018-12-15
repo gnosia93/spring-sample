@@ -8,8 +8,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ShippingInfo {
-	String reciverName;
-	String reciverPhoneNumber;
-	String recieverAddr1;
+	String receiverName;
+	String receiverPhoneNumber;
+	String receiverAddr1;
 	String receiverAddr2;
 }

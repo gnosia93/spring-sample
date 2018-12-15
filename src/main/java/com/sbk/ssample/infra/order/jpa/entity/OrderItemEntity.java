@@ -18,7 +18,7 @@ import lombok.NoArgsConstructor;
 public class OrderItemEntity {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	long id;
+	long orderItemId;
 	long orderId;
 	String buyerId;
 	String itemName;

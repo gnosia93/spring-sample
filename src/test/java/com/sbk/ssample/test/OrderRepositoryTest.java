@@ -22,8 +22,6 @@ import com.sbk.ssample.app.domain.order.OrderStatus;
 import com.sbk.ssample.app.domain.order.ShippingInfo;
 import com.sbk.ssample.app.domain.order.repository.OrderRepository;
 
-import javassist.bytecode.CodeAttribute.RuntimeCopyException;
-
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -36,7 +34,7 @@ public class OrderRepositoryTest {
 	
 	@Before
 	public void prepareOrder() {
-		Buyer buyer = new Buyer("testbuyerId", BuyerType.MEMBER, "testMemberId");
+		Buyer buyer = new Buyer("testbuyerId", BuyerType.NON_MEMBER, "testMemberId");
 		List<OrderItem> itemList = new ArrayList<>();
 		for(int i = 0; i < 5; i++) {
 			OrderItem item = new OrderItem(i, "itemName"+i, i+1, 1000* i);
@@ -48,37 +46,23 @@ public class OrderRepositoryTest {
 		this.order.setOrderStatus(OrderStatus.ORDERED);
 	}
 	
+	
 	@Test
-	public void basicSaveAndFindTest() {
+	public void orderSaveAndFindTest() {
 		long id = orderRepository.save(this.order);
 		
 		// 입력된 것인지.. 확인한다. 
 		Optional<Order> optOrder = orderRepository.findById(id);
 		
-		assertThat(BuyerType.MEMBER, equalTo(optOrder.get().getBuyer().getBuyerType()));
+		assertThat(BuyerType.NON_MEMBER, equalTo(optOrder.get().getBuyer().getBuyerType()));
 		assertThat(5, equalTo(optOrder.get().getItemList().size()));
 	}
-
 
 	@Test(expected=RuntimeException.class)
 	public void EnumColumnTest() {
 		Optional<Order> optOrder = orderRepository.findById(2);
 		optOrder.orElseThrow(() -> {throw new RuntimeException();});
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	
 }
