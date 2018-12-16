@@ -43,6 +43,21 @@ public class OrderRepositoryImpl implements OrderRepository {
 
 	
 	@Override
+	public void cancelOrder(Order order) {
+		
+		/*
+		 * 주문 취소시 Status 필드만 Cancel 로 업데이트 한다.  
+		 * 주문 아이템 데이는 그대로 남겨둔다. 
+		 */
+		Optional<OrderEntity> optOrderEntity = orderJpaRepository.findById(order.getOrderId());
+		optOrderEntity.ifPresent(orderEntity -> {
+			orderJpaRepository.save(orderEntityMapper.asOrderEntity(order));
+		});
+		
+	}
+	
+	
+	@Override
 	public long save(Order order) {
 	
 		OrderEntity orderEntity = this.orderEntityMapper.asOrderEntity(order);
@@ -56,7 +71,7 @@ public class OrderRepositoryImpl implements OrderRepository {
 					this.orderItemEntityMapper.asOrderItemEntity(order, orderItem));
 		}
 		
-		return order.getOrderId();
+		return savedOrderEntity.getOrderId();
 	}
 	
 	@Override
@@ -68,19 +83,9 @@ public class OrderRepositoryImpl implements OrderRepository {
 					orderItemJpaRepository.findByOrderId(optOrderEntity.get().getOrderId());
 				
 			List<OrderItem> itemList = new ArrayList<>();
-			for(OrderItemEntity orderItemEntity : orderItemEntityList) {
-				
-				/*
-				OrderItem orderItem = new OrderItem(
-						orderItemEntity.getOrderId(), 
-						orderItemEntity.getItemName(),
-						orderItemEntity.getItemCount(),
-						orderItemEntity.getItemPrice());
-						
-				itemList.add(orderItem);		
-				*/
+			for(OrderItemEntity orderItemEntity : orderItemEntityList) 
 				itemList.add(this.orderItemEntityMapper.asOrderItem(orderItemEntity));
-			}
+			
 			
 			Buyer buyer = new Buyer(optOrderEntity.get().getBuyerId(), 
 						optOrderEntity.get().getBuyerType(), 
@@ -88,15 +93,33 @@ public class OrderRepositoryImpl implements OrderRepository {
 				
 			ShippingInfo shippingInfo = new ShippingInfo(
 					optOrderEntity.get().getReceiverName(),
-					optOrderEntity.get().getReceiverName(),
+					optOrderEntity.get().getReceiverPhoneNumber(),
 					optOrderEntity.get().getReceiverAddr1(),
 					optOrderEntity.get().getReceiverAddr2());
+	
+			order = Order.builder()
+				.orderId(optOrderEntity.get().getOrderId())
+				.buyer(buyer)
+				.itemList(itemList)
+				.orderStatus(optOrderEntity.get().getStatus())
+				.shippingInfo(shippingInfo)
+				.totalPrice(optOrderEntity.get().getTotalPrice())
+				.build();
 			
-			order = new Order(buyer, itemList, shippingInfo);
+			// 매핑 ???
+			//orderEntityMapper.asOrder(orderEntity)
+			
 		}
 		
 		return Optional.ofNullable(order);
 	}
+	
+	
+	public long getCountOrderItem(long orderId) {
+		
+		return orderItemJpaRepository.countByOrderId(orderId);
+	}
+	
 	
 	
 

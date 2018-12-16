@@ -22,7 +22,7 @@ public class CommandResult {
 		return success("");
 	}
 
-	public static CommandResult success(String data) {
+	public static CommandResult success(Object data) {
 		CommandResult result = new CommandResult();
 		result.setSuccess(true);
 		result.setErrorMessage("");
@@ -38,7 +38,7 @@ public class CommandResult {
 		return fail(erorrCode, errorMessage, "");
 	}
 	
-	public static CommandResult fail(int errorCode, String errorMessage, String data) {
+	public static CommandResult fail(int errorCode, String errorMessage, Object data) {
 		CommandResult result = new CommandResult();
 		result.setSuccess(false);
 		result.setErrorCode(errorCode);

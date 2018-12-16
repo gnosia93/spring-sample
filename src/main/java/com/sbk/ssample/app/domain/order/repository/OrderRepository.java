@@ -8,7 +8,10 @@ public interface OrderRepository {
 
 	public long save(Order order);
 	
+	public void cancelOrder(Order order);
+	
 	public Optional<Order> findById(long id);
 	
+	public long getCountOrderItem(long orderId);
 	
 }

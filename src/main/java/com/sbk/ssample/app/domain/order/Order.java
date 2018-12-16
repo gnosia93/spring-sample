@@ -6,9 +6,8 @@ import org.springframework.util.StringUtils;
 
 import com.sbk.ssample.app.domain.order.exception.DomainException;
 
+import lombok.Builder;
 import lombok.Data;
-import lombok.NonNull;
-import lombok.RequiredArgsConstructor;
 
 
 
@@ -19,6 +18,7 @@ import lombok.RequiredArgsConstructor;
 
 // @Component
 // @Scope("prototype")
+@Builder
 @Data
 public class Order {
 	long orderId;
@@ -29,18 +29,39 @@ public class Order {
 	OrderStatus orderStatus;
 	int totalPrice;
 
-	public Order(Buyer buyer, List<OrderItem> itemList, ShippingInfo shippingInfo) {
-		
+	public Order(long orderId, Buyer buyer, List<OrderItem> itemList, 
+			ShippingInfo shippingInfo, OrderStatus orderStatus,
+			int totalPrice) {
+		this.orderId = orderId;
 		this.buyer = buyer;
 		this.itemList = itemList;
 		this.shippingInfo = shippingInfo;
+		this.orderStatus = orderStatus;
+		this.totalPrice = totalPrice;
 
-		setOrderStatus(OrderStatus.ORDERED);
-		assertConstructor();
+	//	setOrderStatus(OrderStatus.ORDERED);
+		assertConstructorPrameters();
 	}
 	
-	void assertConstructor() {
-		// parameter 값 점검..
+	
+	public Order(Buyer buyer, List<OrderItem> itemList, ShippingInfo shippingInfo) {
+		this(0, buyer, itemList, shippingInfo, OrderStatus.ORDERED, 0);
+	}
+	
+	void assertConstructorPrameters() {
+		if(this.buyer == null)
+			throw new DomainException(ErrorCode.PARAM_IS_NULL, "buyer is null");
+		
+		if(this.itemList == null)
+			throw new DomainException(ErrorCode.PARAM_IS_NULL, "itemList is null");
+	
+		if(this.shippingInfo == null)
+			throw new DomainException(ErrorCode.PARAM_IS_NULL, "shippingInfo is null");
+	
+		
+		if(this.itemList.size() == 0)
+			throw new DomainException(ErrorCode.ORDER_ITEM_COUNT_ZERO);
+		
 	}
 	
 	boolean assertShippingInfo(ShippingInfo shippingInfo) {
@@ -67,6 +88,12 @@ public class Order {
 		return false;
 	}
 	
+	
+	void assertOrderCancelable() {
+		if( this.orderStatus != OrderStatus.ORDERED )
+			throw new DomainException(ErrorCode.ORDER_CANCEL_IMPOSSIBLE, this.orderStatus.toString());
+	}
+	
 
 	// below is public..
 	
@@ -90,8 +117,9 @@ public class Order {
 		return itemList.size();
 	}
 	
-	public void cancelOrder() {
-		
+	public void cancelOrder(long orderId) {
+		assertOrderCancelable();
+		setOrderStatus(OrderStatus.CANCELED);
 	}
 	
 }

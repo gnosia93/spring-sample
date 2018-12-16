@@ -10,7 +10,7 @@ import java.util.Optional;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.sbk.ssample.app.domain.order.Buyer;
@@ -22,8 +22,8 @@ import com.sbk.ssample.app.domain.order.repository.OrderRepository;
 
 
 @RunWith(SpringRunner.class)
-//@SpringBootTest
-@DataJpaTest
+@SpringBootTest
+//@DataJpaTest
 //@AutoConfigureMockMvc               		 // mock object 를 autowire 하기 위해 추가 
 public class OrderRepositoryTest {
 
