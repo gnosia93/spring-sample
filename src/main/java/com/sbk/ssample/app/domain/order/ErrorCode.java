@@ -12,7 +12,9 @@ public enum ErrorCode {
 	
 	
 	ORDER_ITEM_COUNT_ZERO(11, "order item count must bigger than zero"),
-	ORDER_SHIPPINGINFO_CHANGE_ERROR(12, "can't chnage cause of order status ");
+	ORDER_SHIPPINGINFO_CHANGE_ERROR(12, "can't chnage cause of order status "),
+	
+	ORDER_CANCEL_REFUND_SYSTEM_ERROR(13, "refund system error..");
 	
 	
 	int code;
