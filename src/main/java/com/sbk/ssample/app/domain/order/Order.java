@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.util.StringUtils;
 
 import com.sbk.ssample.app.domain.order.exception.DomainException;
+import com.sbk.ssample.app.service.order.RefundService;
 
 import lombok.Builder;
 import lombok.Data;
@@ -117,9 +118,33 @@ public class Order {
 		return itemList.size();
 	}
 	
-	public void cancelOrder(long orderId) {
+	public void cancel(RefundService refundService) {
 		assertOrderCancelable();
 		setOrderStatus(OrderStatus.CANCELED);
+		
+		refundStarted();
+		try {
+			// 외부 서비스를 호출한다.  
+			refundService.refund(this.getOrderId());
+			refundCompleted();
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+			refundFailed();
+			throw e;
+		}
+	}
+	
+	public void refundStarted() {
+		
+	}
+	
+	public void refundCompleted() {
+		
+	}
+	
+	public void refundFailed() {
+		
 	}
 	
 }

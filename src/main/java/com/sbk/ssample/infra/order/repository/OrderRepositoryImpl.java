@@ -86,6 +86,8 @@ public class OrderRepositoryImpl implements OrderRepository {
 			for(OrderItemEntity orderItemEntity : orderItemEntityList) 
 				itemList.add(this.orderItemEntityMapper.asOrderItem(orderItemEntity));
 			
+		//	order = orderEntityMapper.asOrder(optOrderEntity.get());
+		//	order.setItemList(itemList);
 			
 			Buyer buyer = new Buyer(optOrderEntity.get().getBuyerId(), 
 						optOrderEntity.get().getBuyerType(), 
@@ -105,10 +107,6 @@ public class OrderRepositoryImpl implements OrderRepository {
 				.shippingInfo(shippingInfo)
 				.totalPrice(optOrderEntity.get().getTotalPrice())
 				.build();
-			
-			// 매핑 ???
-			//orderEntityMapper.asOrder(orderEntity)
-			
 		}
 		
 		return Optional.ofNullable(order);

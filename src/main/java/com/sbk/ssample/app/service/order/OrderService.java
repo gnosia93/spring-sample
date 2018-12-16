@@ -23,10 +23,12 @@ public class OrderService {
 	Logger logger = LoggerFactory.getLogger(this.getClass());
 	
 	OrderRepository orderRepository;
+	RefundService refundService;
 	
 	@Autowired
-	public OrderService(OrderRepository orderRepository) {
+	public OrderService(OrderRepository orderRepository, RefundService refundService) {
 		this.orderRepository = orderRepository;
+		this.refundService = refundService;
 	}
 	
 	@Transactional
@@ -62,9 +64,10 @@ public class OrderService {
 			throw new DomainException(ErrorCode.ORDER_BUYER_ID_MISSMATCH, cancelOrderCommand.getBuyer().toString() + "  " +
 					order.getBuyer().getBuyerId());	
 		
-		order.cancelOrder(cancelOrderCommand.getOrderId());
-		orderRepository.cancelOrder(order);
 		
+		order.cancel(refundService);
+		orderRepository.cancelOrder(order);
+	
 		return CommandResult.success(cancelOrderCommand.getOrderId() + " order is canceled");
 	}
 	
@@ -78,5 +81,6 @@ public class OrderService {
 	}
 	
 	
+		
 	
 }

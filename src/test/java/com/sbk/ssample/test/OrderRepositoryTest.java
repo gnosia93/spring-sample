@@ -59,5 +59,4 @@ public class OrderRepositoryTest {
 		optOrder.orElseThrow(() -> {throw new RuntimeException();});
 	}
 	
-	
 }
