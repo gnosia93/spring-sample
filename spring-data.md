@@ -171,25 +171,9 @@ public class JpaRepositoryTest {
 ```
 
 ## Entities ##
+엔터티 매니저가 JPA 엔터티를 생성할때 default 생성자를 사용하므로, 모든 엔터티는 디폴트 생성자를 가져야 한다. 
+
 ```
-package io.startup.demo.entity;
-
-import javax.persistence.Column;
-import javax.persistence.Embedded;
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
-import org.springframework.lang.NonNull;
-
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
 
 @Data
 @AllArgsConstructor
@@ -241,16 +225,6 @@ public enum Gender {
 	}
 }
 
-package io.startup.demo.entity;
-
-import javax.persistence.Column;
-import javax.persistence.Embeddable;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 
 @Data
 @AllArgsConstructor
@@ -262,15 +236,6 @@ public class Email {
 	
 }
 
-
-package io.startup.demo.entity;
-
-import javax.persistence.Column;
-import javax.persistence.Embeddable;
-
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 
 @AllArgsConstructor
 @NoArgsConstructor
