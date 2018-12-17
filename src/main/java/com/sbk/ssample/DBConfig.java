@@ -57,6 +57,7 @@ public class DBConfig {
 	 * 하이버 네이트 프로퍼티를 설정한다. 
 	 */
 	Properties jpaProperties() {
+    	
 		Properties properties = new Properties();
 		properties.setProperty("hibernate.hbm2ddl.auto", "create");			// 테이블 자동생성
 		properties.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQL5InnoDBDialect");   // INNODB 

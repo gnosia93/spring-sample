@@ -129,9 +129,10 @@ public class Order {
 			refundCompleted();
 		}
 		catch(Exception e) {
-	//		e.printStackTrace();
+			e.printStackTrace();
 			refundFailed();
-			throw new DomainException(ErrorCode.ORDER_BUYER_ID_MISSMATCH, e);
+			System.out.println("......................" + e.getMessage());
+			throw new DomainException(ErrorCode.ORDER_CANCEL_REFUND_SYSTEM_ERROR, e);
 		}
 	}
 	
