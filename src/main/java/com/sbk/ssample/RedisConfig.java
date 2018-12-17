@@ -7,11 +7,14 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.data.redis.connection.PoolConfig;
 import org.springframework.data.redis.connection.RedisStandaloneConfiguration;
 import org.springframework.data.redis.connection.jedis.JedisClientConfiguration;
 import org.springframework.data.redis.connection.jedis.JedisClientConfiguration.JedisClientConfigurationBuilder;
 import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
 import org.springframework.data.redis.repository.configuration.EnableRedisRepositories;
+
+import redis.clients.jedis.JedisPoolConfig;
 
 @Configuration
 @EnableRedisRepositories
@@ -40,12 +43,22 @@ public class RedisConfig {
 		standaloneConfig.setHostName(redisHost);
 		standaloneConfig.setPort(redisPort);
 		
-		JedisClientConfigurationBuilder clientConfig = JedisClientConfiguration.builder();
-		clientConfig.connectTimeout(Duration.ofSeconds(connectTimeout));
-		clientConfig.readTimeout(Duration.ofSeconds(readTimeout));
+		JedisPoolConfig poolConfig = new JedisPoolConfig();
+		poolConfig.setMaxTotal(10);				// 풀갯수
+		poolConfig.setMinIdle(2);			    // idle 최소
+		poolConfig.setMaxIdle(5);				// idle 최대
+		
+		JedisClientConfiguration clinetConfig = JedisClientConfiguration.builder()
+				.clientName("sample")
+				.connectTimeout(Duration.ofSeconds(connectTimeout))
+				.readTimeout(Duration.ofSeconds(readTimeout))        // JedisClientConfigurationBuilder
+				.usePooling()							// JedisPoolingClientConfigurationBuilder 로 스위칭.
+				.poolConfig(poolConfig).and()           // 풀설정 및 JedisClientConfigurationBuilder 로 전환
+				.build();
 		
 		JedisConnectionFactory jedisConFactory = 
-				new JedisConnectionFactory(standaloneConfig, clientConfig.build());
+				new JedisConnectionFactory(standaloneConfig, clinetConfig);
+		
 		
 		printRedisConfiguration();
 		return jedisConFactory;
