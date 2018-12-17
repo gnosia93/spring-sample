@@ -66,10 +66,17 @@ public class OrderRepositoryImpl implements OrderRepository {
 		OrderEntity savedOrderEntity = this.orderJpaRepository.save(orderEntity);
 		order.setOrderId(savedOrderEntity.getOrderId());
 		
+		System.out.println("....");
+		System.out.println(savedOrderEntity.toString());
+		
+		
 		for(OrderItem orderItem : order.getItemList()) {
 			this.orderItemJpaRepository.save(
 					this.orderItemEntityMapper.asOrderItemEntity(order, orderItem));
+			
 		}
+		
+		System.err.println(orderItemJpaRepository.count());
 		
 		return savedOrderEntity.getOrderId();
 	}
@@ -118,7 +125,9 @@ public class OrderRepositoryImpl implements OrderRepository {
 		return orderItemJpaRepository.countByOrderId(orderId);
 	}
 	
-	
+	public long count() {
+		return orderJpaRepository.count();
+	}
 	
 
 }

@@ -31,7 +31,7 @@ public class OrderService {
 		this.refundService = refundService;
 	}
 	
-	//@Transactional
+	@Transactional
 	public CommandResult order(AddOrderCommand addOrderCommand) {
 		/*
 		 * Command 에 대해 NULL 여부만 체크한다. 
@@ -51,7 +51,7 @@ public class OrderService {
 	 * @param cancelOrderCommand
 	 * @return
 	 */
-	//@Transactional
+	@Transactional
 	public CommandResult cancelOrder(CancelOrderCommand cancelOrderCommand) {	
 		
 		if(cancelOrderCommand == null)

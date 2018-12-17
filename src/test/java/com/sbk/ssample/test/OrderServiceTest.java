@@ -31,7 +31,6 @@ import com.sbk.ssample.base.CommandResult;
 public class OrderServiceTest {
 
 	@Autowired OrderService orderService;	
-
 	
 	AddOrderCommand getAddOrderCommand(int itemCount) {
 		
@@ -60,6 +59,12 @@ public class OrderServiceTest {
 		}
 		
 	}
+	
+	@Test
+	public void order() {
+		prepareOrder(2);
+	}
+	
 	
 	@Test
 	public void cancelOrder() {

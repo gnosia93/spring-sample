@@ -28,6 +28,7 @@ import com.sbk.ssample.app.domain.order.BuyerType;
 import com.sbk.ssample.app.domain.order.OrderItem;
 import com.sbk.ssample.app.domain.order.ShippingInfo;
 import com.sbk.ssample.app.service.order.OrderService;
+import com.sbk.ssample.app.service.order.command.AddOrderCommand;
 import com.sbk.ssample.ui.order.request.AddOrderRequest;
 
 
@@ -38,7 +39,7 @@ public class OrderControllerTest {
 
 	@Autowired MockMvc mockMvc;
 	@Autowired ObjectMapper objectMapper; 
-	@Autowired OrderService orderService;
+//	@Autowired OrderService orderService;
 	
 	AddOrderRequest addOrderRequest;
 

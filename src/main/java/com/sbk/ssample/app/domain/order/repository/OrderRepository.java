@@ -14,4 +14,6 @@ public interface OrderRepository {
 	
 	public long getCountOrderItem(long orderId);
 	
+	public long count();
+	
 }
