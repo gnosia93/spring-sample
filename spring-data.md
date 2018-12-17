@@ -10,11 +10,11 @@ SQL> status
 
 #### application.properties ####
 ```
-spring.datasource.driverClassName=com.mysql.cj.jdbc.Driver
-spring.datasource.jdbcUrl=jdbc:mysql://localhost:3306/sample      # hikari datasource 용 URL
-spring.datasource.url=jdbc:mysql://localhost:3306/sample          # @DataJpaTest 용 URL
+spring.datasource.jdbc-url=jdbc:mysql://localhost:3306/sample?serverTimezone=UTC
 spring.datasource.username=sample
 spring.datasource.password=sample
+spring.datasource.maximum-pool-size=10
+
 ```
 
 #### Entity Manager -> TX Manager -> DataSource 설정 ####
