@@ -102,6 +102,9 @@ public class DBConfig {
 }
 ```
 ### JUnit Test ###
+@DataJpaTest 어노테이션을 사용하는 경우 모든 @Test 오퍼레이션은 자동으로 롤백된다.
+단 Spring Boot Configuration 에 엔터티 매니저 및 트랜잭션 매니저를 설정해야 자동 롤백이 지원된다. 
+
 ```
 package io.startup.demo;
 
@@ -127,7 +130,7 @@ import io.startup.demo.entity.Member;
 import io.startup.demo.entity.repository.MemberRepository;
 
 @RunWith(SpringRunner.class)
-@DataJpaTest											// Jpa test
+@DataJpaTest							// Jpa test
 @AutoConfigureTestDatabase(replace=Replace.NONE)		// replace h2 to mysql
 public class JpaRepositoryTest {
 
