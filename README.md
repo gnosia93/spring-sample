@@ -1,5 +1,5 @@
 ## Redis ##
-[주소에 대한 설명](http://www.google.co.kr)
+[Redis ](https://github.com/gnosia93/spring-sample/blob/master/spring-redis.md)
 
 
 ### spring-sample
