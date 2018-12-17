@@ -1,3 +1,6 @@
+https://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html
+
+
 ### MAVEN ###
 
 jedis client 와 spring-date-redis 의존 관계를 추가한다. 
