@@ -170,6 +170,125 @@ public class JpaRepositoryTest {
 
 ```
 
+## Entities ##
+```
+package io.startup.demo.entity;
+
+import javax.persistence.Column;
+import javax.persistence.Embedded;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import org.springframework.lang.NonNull;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
+
+@Data
+@AllArgsConstructor
+@RequiredArgsConstructor
+@NoArgsConstructor
+@Table(name="tb_member")
+@Entity
+public class Member {
+
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="memb_id")
+	long memberId;
+	
+	@NonNull
+	@Column(name="name", nullable=false, length=100)
+	String name;
+	
+	@NonNull
+	@Enumerated(value=EnumType.STRING)
+	@Column(name="sex", nullable=false, length=10)
+	Gender gender;
+	
+	@NonNull
+	@Embedded
+	Email email;
+	
+	@NonNull
+	@Embedded
+	Address address;
+}
+
+
+package io.startup.demo.entity;
+
+import lombok.Data;
+
+public enum Gender {
+	MALE("M"), FEMAIL("F"), UNKNOWN("NA");
+	
+	String code;
+	
+	private Gender(String code) {
+		this.code = code;
+	}
+	
+	public String getCode() {
+		return this.code;
+	}
+}
+
+package io.startup.demo.entity;
+
+import javax.persistence.Column;
+import javax.persistence.Embeddable;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Embeddable					// 다른 객체에 포함되는 경우 설정.
+public class Email {
+	@Column(length=30)
+	String email;
+	
+}
+
+
+package io.startup.demo.entity;
+
+import javax.persistence.Column;
+import javax.persistence.Embeddable;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@AllArgsConstructor
+@NoArgsConstructor
+@Data
+@Embeddable
+public class Address {
+	@Column(length=100)
+	String addr1;
+	
+	@Column(length=200)
+	String addr2;
+	
+	@Column(name="zip_code", length=5, nullable=false)
+	String zipCode;
+}
+
+
+```
 
 
 
