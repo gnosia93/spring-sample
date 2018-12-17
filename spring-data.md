@@ -1,9 +1,10 @@
 ## MySQL ##
+```
 SQL> create database sample;
 SQL> create user 'sample'@'%' identified by 'sample';
 SQL> grant all privileges on sample.* to 'sample'@'%';
 SQL> status
-
+```
 
 JPA Reference.
 
