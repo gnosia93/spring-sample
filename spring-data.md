@@ -7,6 +7,17 @@ SQL> status
 ```
 
 ## Spring Boot JPA Sample ##
+
+#### application.properties ####
+```
+spring.datasource.driverClassName=com.mysql.cj.jdbc.Driver
+spring.datasource.jdbcUrl=jdbc:mysql://localhost:3306/sample      # hikari datasource 용 URL
+spring.datasource.url=jdbc:mysql://localhost:3306/sample          # @DataJpaTest 용 URL
+spring.datasource.username=sample
+spring.datasource.password=sample
+```
+
+#### Entity Manager -> TX Manager -> DataSource 설정 ####
 ```
 package io.startup.demo;
 
@@ -90,7 +101,74 @@ public class DBConfig {
 	}
 }
 ```
+### JUnit Test ###
+```
+package io.startup.demo;
 
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
+import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase.Replace;
+import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.test.context.transaction.AfterTransaction;
+import org.springframework.test.context.transaction.BeforeTransaction;
+
+import static org.hamcrest.Matchers.*;
+import static org.hamcrest.MatcherAssert.assertThat;
+
+import io.startup.demo.entity.Address;
+import io.startup.demo.entity.Email;
+import io.startup.demo.entity.Gender;
+import io.startup.demo.entity.Member;
+import io.startup.demo.entity.repository.MemberRepository;
+
+@RunWith(SpringRunner.class)
+@DataJpaTest											// Jpa test
+@AutoConfigureTestDatabase(replace=Replace.NONE)		// replace h2 to mysql
+public class JpaRepositoryTest {
+
+	@Autowired MemberRepository memberRepository;
+	
+	@Before
+	public void before() {
+		System.err.println("before() " + memberRepository.count());
+	}
+
+	@After
+	public void after() {
+		System.err.println("after() " + memberRepository.count());
+	}
+	
+	@BeforeTransaction
+	public void beforeTx() {
+		System.err.println("beforeTx() " + memberRepository.count());
+	}
+	
+	@AfterTransaction
+	public void afterTx() {
+		System.err.println("afterTx() " + memberRepository.count());
+	}
+	
+	
+	@Test
+	public void saveAndFind( ) {
+		Member member = new Member("test_name", 
+					Gender.MALE, 
+					new Email("gnosia@naver.com"), 
+					new Address("addr1", "addr2", "00000"));
+		
+		memberRepository.save(member);
+		assertThat(memberRepository.getOne(member.getMemberId()), equalTo(member));
+	}
+}
+
+
+
+```
 
 
 
