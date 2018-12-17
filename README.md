@@ -1,5 +1,5 @@
 ## Redis ##
-[Redis사용하기](https://github.com/gnosia93/spring-sample/blob/master/spring-redis.md)
+[Redis 사용하기](https://github.com/gnosia93/spring-sample/blob/master/spring-redis.md)
 
 
 ### spring-sample
