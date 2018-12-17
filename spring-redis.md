@@ -3,14 +3,14 @@
 jedis client 와 spring-date-redis 의존 관계를 추가한다. 
 
 ```
-		<dependency>
-    		<groupId>org.springframework.data</groupId>
-    		<artifactId>spring-data-redis</artifactId>
-    	</dependency>
-		<dependency>
-    		<groupId>redis.clients</groupId>
-    		<artifactId>jedis</artifactId>
-		</dependency>
+<dependency>
+    <groupId>org.springframework.data</groupId>
+    <artifactId>spring-data-redis</artifactId>
+</dependency>
+<dependency> 
+    <groupId>redis.clients</groupId>
+    <artifactId>jedis</artifactId>                               
+</dependency>
 ```
 
 
@@ -38,6 +38,8 @@ logging.level.root=INFO
 
 
 ### @Configuration JAVA Class ###
+
+아래는 standalone redis 에 연결하는 예제이다. 
 ```
 package com.sbk.ssample;
 
