@@ -1,3 +1,7 @@
+## Redis ##
+[Redis 사용하기](https://github.com/gnosia93/spring-sample/blob/master/spring-redis.md)
+
+
 ### spring-sample
 스프링 부트 단위 테스트를 spock 을 이용한 예제이다. 
 
