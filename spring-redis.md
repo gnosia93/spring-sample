@@ -108,3 +108,8 @@ public class RedisConfig {
 }
 
 ```
+
+
+### Operation Examples ###
+https://www.oodlestechnologies.com/blogs/Configure-Connection-Pooling-With-Redis-In-Spring-Boot
+
