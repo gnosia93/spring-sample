@@ -4,6 +4,8 @@
 
 2. [Redis 사용하기](https://github.com/gnosia93/spring-sample/blob/master/spring-redis.md)
 
+3. [@Cacheable] https://docs.spring.io/spring/docs/current/spring-framework-reference/integration.html#cache
+
 
 
 ### spring-sample
