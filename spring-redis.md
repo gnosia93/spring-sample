@@ -129,6 +129,54 @@ public class RedisConfig {
 ### Operation Examples ###
 https://www.oodlestechnologies.com/blogs/Configure-Connection-Pooling-With-Redis-In-Spring-Boot
 
+#### RedisTemplate ####
+```
+package io.startup.demo.service;
+
+import javax.annotation.Resource;
+
+import org.springframework.data.redis.core.ValueOperations;
+import org.springframework.stereotype.Service;
+
+@Service
+public class CounterService {
+	
+	@Resource(name="redisTemplate")
+	ValueOperations<String, String> valueOps;
+	
+	public Long getVisitCount() {
+		Long count = 0L;
+		try {
+			valueOps.increment("spring:redis:visitcount", 1);
+			count = Long.valueOf(valueOps.get("spring:redis:visitcount"));
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		return count;
+	}
+}
+
+@RunWith(SpringRunner.class)
+@SpringBootTest
+public class SpringredisApplicationTests {
+
+	@Autowired CounterService counterService;
+	
+	@Repeat(10)
+	@Test
+	public void incrementTest() {
+		System.err.println(counterService.getVisitCount());
+		
+	}
+}
+
+```
+
+
+
+
 #### CURD Repository ####
 ```
 @Data
