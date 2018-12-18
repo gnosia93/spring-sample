@@ -1,5 +1,7 @@
 ## 튜토리얼  ##
 
+0. Git https://backlog.com/git-tutorial/kr/stepup/stepup2_1.html
+
 1. [JPA 사용하기](https://github.com/gnosia93/spring-sample/blob/master/spring-jpa.md)
 
 2. [Redis 사용하기](https://github.com/gnosia93/spring-sample/blob/master/spring-redis.md)
