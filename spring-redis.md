@@ -107,6 +107,20 @@ public class RedisConfig {
 		printRedisConfiguration();
 		return jedisConFactory;
 	}
+	
+	// 아래 URL을 방문하면 시리얼라이저를 확인할 수 있다.  
+	//https://docs.spring.io/spring-data/redis/docs/current/api/org/springframework/data/redis/serializer/RedisSerializer.html
+	@Bean
+	public RedisTemplate<String, Object> redisTemplate() {
+		RedisTemplate<String, Object> redisTemplate = new RedisTemplate<>();
+		redisTemplate.setKeySerializer(new StringRedisSerializer());
+		redisTemplate.setValueSerializer(new StringRedisSerializer());     // 스트링 시리얼 라이저로 설정
+		//redisTemplate.setValueSerializer(new JdkSerializationRedisSerializer());
+		redisTemplate.setConnectionFactory(jedisConnectionFactory());		
+		return redisTemplate;
+	}
+	
+	
 }
 
 ```
