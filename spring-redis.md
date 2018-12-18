@@ -115,3 +115,14 @@ public class RedisConfig {
 ### Operation Examples ###
 https://www.oodlestechnologies.com/blogs/Configure-Connection-Pooling-With-Redis-In-Spring-Boot
 
+
+
+### Redis 명령어 ###
+```
+> ping
+> keys *
+> del [keyname]
+> save
+```
+
+
