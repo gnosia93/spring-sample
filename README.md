@@ -1,6 +1,6 @@
 ## 튜토리얼  ##
 
-1. [JPA 사용하기] (https://github.com/gnosia93/spring-sample/blob/master/spring-jpa.md)
+1. [JPA 사용하기](https://github.com/gnosia93/spring-sample/blob/master/spring-jpa.md)
 
 2. [Redis 사용하기](https://github.com/gnosia93/spring-sample/blob/master/spring-redis.md)
 
