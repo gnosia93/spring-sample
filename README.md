@@ -18,7 +18,7 @@
 
 7. [Selma Mapper](https://github.com/gnosia93/spring-sample/blob/master/spring-selma.md)
 
-8. [Spring Boot Testing]
+8. [Spring Testing](https://github.com/gnosia93/spring-sample/blob/master/spring-test.md)
 
 10. [SPOCK](https://github.com/gnosia93/spring-sample/blob/master/spring-spock.md)
 
