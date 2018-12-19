@@ -44,9 +44,9 @@ public class RedisConfig {
 		standaloneConfig.setPort(redisPort);
 		
 		JedisPoolConfig poolConfig = new JedisPoolConfig();
-		poolConfig.setMaxTotal(10);				// 풀갯수
-		poolConfig.setMinIdle(2);			    // idle 최소
-		poolConfig.setMaxIdle(5);				// idle 최대
+		//poolConfig.setMaxTotal(20);				// 풀갯수
+		//poolConfig.setMinIdle(5);			    // idle 최소
+		//poolConfig.setMaxIdle(10);				// idle 최대
 		
 		JedisClientConfiguration clinetConfig = JedisClientConfiguration.builder()
 				.clientName("sample")

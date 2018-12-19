@@ -8,38 +8,38 @@ import lombok.Data;
 
 @Data
 @JsonPropertyOrder({ "timestamp", "success", "errorCode", "errorMessage", "data" })
-public class CommandResult {
+public class CommandResult<T> {
 
 	Instant timestamp = Instant.now();
 	boolean success;
 	int errorCode;
 	String errorMessage;
-	Object data;
+	T data;
 
 	private CommandResult() {}
 	
-	public static CommandResult success() {
-		return success("");
+	public static<T> CommandResult<T> success() {
+		return success(null);
 	}
 
-	public static CommandResult success(Object data) {
-		CommandResult result = new CommandResult();
+	public static<T> CommandResult<T> success(T data) {
+		CommandResult<T> result = new CommandResult<>();
 		result.setSuccess(true);
 		result.setErrorMessage("");
 		result.setData(data);
 		return result;
 	}
 
-	public static CommandResult fail(int errorCode) {
-		return fail(errorCode, "", "");
+	public static<T> CommandResult<T> fail(int errorCode) {
+		return fail(errorCode, "", null);
 	}
 	
-	public static CommandResult fail(int erorrCode, String errorMessage) {
-		return fail(erorrCode, errorMessage, "");
+	public static<T> CommandResult<T> fail(int erorrCode, String errorMessage) {
+		return fail(erorrCode, errorMessage, null);
 	}
 	
-	public static CommandResult fail(int errorCode, String errorMessage, Object data) {
-		CommandResult result = new CommandResult();
+	public static<T> CommandResult<T> fail(int errorCode, String errorMessage, T data) {
+		CommandResult<T> result = new CommandResult<>();
 		result.setSuccess(false);
 		result.setErrorCode(errorCode);
 		result.setErrorMessage(errorMessage);

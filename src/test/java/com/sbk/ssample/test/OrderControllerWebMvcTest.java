@@ -82,7 +82,7 @@ public class OrderControllerWebMvcTest {
 		AddOrderCommand orderCommand = mapper.asAddOrderCommand(orderRequest);
 		// doNothing().when(orderService).order();
 		when(orderRequestMapper.asAddOrderCommand(orderRequest)).thenReturn(mapper.asAddOrderCommand(orderRequest));
-		when(orderService.order(orderCommand)).thenReturn(CommandResult.success("call by mock"));
+		// when(orderService.order(orderCommand)).thenReturn(CommandResult.success("call by mock"));
 		
 		
 		mvc.perform(

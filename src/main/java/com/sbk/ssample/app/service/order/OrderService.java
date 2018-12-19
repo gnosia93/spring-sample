@@ -32,7 +32,7 @@ public class OrderService {
 	}
 	
 	@Transactional
-	public CommandResult order(AddOrderCommand addOrderCommand) {
+	public CommandResult<?> order(AddOrderCommand addOrderCommand) {
 		/*
 		 * Command 에 대해 NULL 여부만 체크한다. 
 		 */
@@ -52,7 +52,7 @@ public class OrderService {
 	 * @return
 	 */
 	@Transactional
-	public CommandResult cancelOrder(CancelOrderCommand cancelOrderCommand) {	
+	public CommandResult<?> cancelOrder(CancelOrderCommand cancelOrderCommand) {	
 		
 		if(cancelOrderCommand == null)
 			throw new DomainException(ErrorCode.PARAM_IS_NULL);
@@ -70,7 +70,7 @@ public class OrderService {
 		return CommandResult.success(cancelOrderCommand.getOrderId() + " order is canceled");
 	}
 	
-	public CommandResult findOrderById(long orderId) {
+	public CommandResult<Optional<Order>> findOrderById(long orderId) {
 		
 		return CommandResult.success(orderRepository.findById(orderId));
 	}

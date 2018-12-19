@@ -17,6 +17,13 @@ public interface Controller {
 		return this.ok("");
 	}
 
+	default ResponseEntity<CommandResult> success(Object data) {
+		return this.ok(data);
+	}
+	
+	default ResponseEntity<CommandResult> success() {
+		return this.ok("");
+	}
 	
 	
 	
