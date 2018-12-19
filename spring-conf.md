@@ -1,6 +1,6 @@
-스프링 프로파일 설정에 대한 예제이다.
+스프링 프로파일 설정에 대한 예제로 application.yml 파일에 정의된 내용이다. 
 
-아래는 active 프로파일을 dev 와 local 로 정의하고 있다.
+active 프로파일을 dev 와 local 로 정의하고 있다.
 
 ```
 spring.profiles.active : dev, local
