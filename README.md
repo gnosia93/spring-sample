@@ -10,7 +10,7 @@ https://docs.spring.io/spring-boot/docs/current/reference/html/common-applicatio
 
 3. [Redis 사용하기](https://github.com/gnosia93/spring-sample/blob/master/spring-redis.md)
 
-4. [@Cacheable](https://github.com/gnosia93/spring-sample/blob/master/spring-cache.md)
+4. [Spring Cache - @Cacheable 어노테이션](https://github.com/gnosia93/spring-sample/blob/master/spring-cache.md)
 
 5. [Spring cloud] https://supawer0728.github.io/2018/03/11/Spring-Cloud-Feign/
 
