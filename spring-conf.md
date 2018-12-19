@@ -27,7 +27,7 @@ public class SpringplaceholderApplication {
 		return "justGet()";
 	}
 	
-	@GetMapping("${spring.api.endpoint.empty:/empty}")
+	@GetMapping("${spring.api.endpoint.empty:/empty}")       ## spring.api.endpoint.empty 값이 없는 경우 /empty 로 설정됨
 	public String emptyGet() {
 		return "emptyGet()";
 	}
