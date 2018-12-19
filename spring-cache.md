@@ -12,6 +12,7 @@
 
 #### application properties ####
 아래는 Redis 관련 프로퍼티 설정값이다.
+
 자바 코드에서 명시적으로 아래 설정값을 설정하지 않는 경우, properties 의 값을 따른다. 
 ```
 #cache
