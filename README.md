@@ -1,5 +1,3 @@
-https://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html
-
 ## 튜토리얼  ##
 
 0. Git https://backlog.com/git-tutorial/kr/stepup/stepup2_1.html
@@ -20,38 +18,14 @@ https://docs.spring.io/spring-boot/docs/current/reference/html/common-applicatio
 
 7. [Selma Mapper](https://github.com/gnosia93/spring-sample/blob/master/spring-selma.md)
 
+8. [Spring Boot Testing]
+
 10. [SPOCK](https://github.com/gnosia93/spring-sample/blob/master/spring-spock.md)
 
 
 
-  
 
-### boot testing ###
-#### 테스트팅 튜토리얼 ####
-https://www.baeldung.com/spring-boot-testing
-
-#### Mockito ####
-http://www.vogella.com/tutorials/Mockito/article.html
-
-
-#### 부트 테스트 레퍼런스 ####
-https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-testing.html
-
-  
-MVC 단위 테스트 예제
-https://memorynotfound.com/unit-test-spring-mvc-rest-service-junit-mockito/#unit-test-http-post
-
-
-
-
-## Cache ##
-#### Redis ####
-https://www.baeldung.com/spring-data-redis-tutorial
-https://github.com/spring-projects/spring-data-examples/tree/master/redis/repositories
-https://docs.spring.io/spring-data/data-redis/docs/current/reference/html/
-
-#### ehcache ####
-
-
+## 레퍼런스 ##
+https://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html
 
     
