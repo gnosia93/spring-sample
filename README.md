@@ -19,9 +19,7 @@
 
 
 
-10. 테스트
-   10-1. JUNIT
-   10-2. [SPOCK](https://github.com/gnosia93/spring-sample/blob/master/spring-spock.md)
+10.[SPOCK](https://github.com/gnosia93/spring-sample/blob/master/spring-spock.md)
 
 
 
