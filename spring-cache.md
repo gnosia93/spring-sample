@@ -127,6 +127,20 @@ public class CacheableService implements Serializable {
 	}	
 }
 
+
+
+*** @Cacheable 어노테이션을 사용하기 위해서는 아래와 같이 @EnableCaching 을 선언해야 한다. 
+
+@EnableCaching
+@SpringBootApplication
+public class StartupApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(StartupApplication.class, args);
+	}
+}
+
+
 ```
 
 #### Redis 값 확인하기 ####
