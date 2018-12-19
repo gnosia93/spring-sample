@@ -1,3 +1,5 @@
+https://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html
+
 ## 튜토리얼  ##
 
 0. Git https://backlog.com/git-tutorial/kr/stepup/stepup2_1.html
