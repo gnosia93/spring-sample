@@ -12,6 +12,10 @@ spring.api:
 Properties 바인딩 및 프로파일 테스트를 위한 예제 코드로, yml 파일에 dev 및 local 만 설정되어 있으므로,
 @Profile("production") 로 설정된 ProductionBean 는 주입되지 않는다. 
 
+@Value 로 주입되는 객체는 yml 에 설정값이 존재하지 않은 경우 null 로 설정된다.
+@Autowired 에 의해 주입되는 객체는 존재하지 않는 경우 스프링 부트가 실행되지 않기 때문에 
+required=false 로 설정하여 optional 임을 표시하고 있다. 
+
 ```
 @RestController
 @Configuration
@@ -22,7 +26,7 @@ public class SpringplaceholderApplication {
 		SpringApplication.run(SpringplaceholderApplication.class, args);
 	}
 
-	@GetMapping("${spring.api.endpoint:/empty}")
+	@GetMapping("${spring.api.endpoint}")
 	public String justGet() {
 		return "justGet()";
 	}
@@ -54,7 +58,7 @@ public class SpringplaceholderApplication {
 			@Autowired ConfigurableEnvironment env;
 			@Autowired(required=false) DevBean devBean;
 			@Autowired(required=false) ProductionBean productionBean;
-			@Value("${spring.api.endpoint:test}") String apiEndPoint;	
+			@Value("${spring.api.endpoint}") String apiEndPoint;	
 
 			@Override
 			public void run(String... args) throws Exception {
