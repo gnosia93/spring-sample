@@ -58,6 +58,12 @@ public class CacheableService implements Serializable {
 
 ```
 
+#### Redis 값 확인하기 ####
+#> redis-cli
+redis> client list
+redis> keys *
+
+
 
 Rerfences
 ```
