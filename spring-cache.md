@@ -1,5 +1,6 @@
 @Caccheable 어노테이션을 사용하여 Redis 서버를 remote Cache 로 사용하는 예제 코드이다.
 
+아래와 같이 Maven 에 spring cache starter를 선언한다.
 MAVEN
 ```
 <dependency>
@@ -8,7 +9,9 @@ MAVEN
 </dependency>
 
 ```
-위와 같이 Maven 에 spring cache starter를 선언한다.
+
+
+
 
 ```
 @RestController
@@ -25,8 +28,6 @@ public class CacheableController implements Controller {
 		return success(result);
 	}
 }
-
-
 
 /*
  * inner 클래스이므로 CacheableService 클래스도 직력화를 구현해야 한다. 
@@ -51,7 +52,6 @@ public class CacheableService implements Serializable {
 	@Cacheable("books")
 	public Book getBook(int id) {
 		slowServiceCode();
-		
 		return new Book(id);
 	}	
 }
