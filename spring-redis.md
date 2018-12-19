@@ -1,3 +1,6 @@
+https://www.journaldev.com/18141/spring-boot-redis-cache
+
+
 ### MAVEN ###
 
 jedis client 와 spring-date-redis 의존 관계를 추가한다. 
