@@ -17,7 +17,7 @@
 7. [Selma Mapper](https://github.com/gnosia93/spring-sample/blob/master/spring-selma.md)
 
 
-10. [JUNIT / SPOCK] 
+10. [JUNIT / SPOCK](https://github.com/gnosia93/spring-sample/blob/master/spring-spock.md)
 
 
 
