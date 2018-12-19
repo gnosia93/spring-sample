@@ -1,4 +1,6 @@
 https://www.journaldev.com/18141/spring-boot-redis-cache
+https://docs.spring.io/spring-data/data-redis/docs/current/reference/html/
+
 
 
 ### MAVEN ###
