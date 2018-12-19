@@ -2,7 +2,7 @@
 
 0. Git https://backlog.com/git-tutorial/kr/stepup/stepup2_1.html
 
-1. [Spring 프로파일 / Environment] 
+1. [Spring 프로파일](https://github.com/gnosia93/spring-sample/blob/master/spring-conf.md)
 
 2. [JPA 사용하기](https://github.com/gnosia93/spring-sample/blob/master/spring-jpa.md)
 
