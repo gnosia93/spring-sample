@@ -2,15 +2,17 @@
 
 0. Git https://backlog.com/git-tutorial/kr/stepup/stepup2_1.html
 
-1. [JPA 사용하기](https://github.com/gnosia93/spring-sample/blob/master/spring-jpa.md)
+1. [Spring 프로파일 / Environment] 
 
-2. [Redis 사용하기](https://github.com/gnosia93/spring-sample/blob/master/spring-redis.md)
+2. [JPA 사용하기](https://github.com/gnosia93/spring-sample/blob/master/spring-jpa.md)
 
-3. [@Cacheable] https://docs.spring.io/spring/docs/current/spring-framework-reference/integration.html#cache
+3. [Redis 사용하기](https://github.com/gnosia93/spring-sample/blob/master/spring-redis.md)
 
-4. [Spring cloud] https://supawer0728.github.io/2018/03/11/Spring-Cloud-Feign/
+4. [@Cacheable] https://docs.spring.io/spring/docs/current/spring-framework-reference/integration.html#cache
 
-5. [Properties] https://www.baeldung.com/properties-with-spring#boot
+5. [Spring cloud] https://supawer0728.github.io/2018/03/11/Spring-Cloud-Feign/
+
+6. [Properties] https://www.baeldung.com/properties-with-spring#boot
 
 ### spring-sample
 스프링 부트 단위 테스트를 spock 을 이용한 예제이다. 
