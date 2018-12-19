@@ -1,7 +1,7 @@
 @Caccheable 어노테이션을 사용하여 Redis 서버를 remote Cache 로 사용하는 예제 코드이다.
 
 아래와 같이 Maven 에 spring cache starter를 선언한다.
-MAVEN
+#### MAVEN ####
 ```
 <dependency>
    <groupId>org.springframework.boot</groupId>
@@ -11,7 +11,7 @@ MAVEN
 ```
 
 
-
+#### Source Code ####
 
 ```
 @RestController
@@ -59,13 +59,16 @@ public class CacheableService implements Serializable {
 ```
 
 #### Redis 값 확인하기 ####
+```
 #> redis-cli
 redis> client list
 redis> keys *
+```
+
+#### Redis Pool 테스트 ####
 
 
-
-Rerfences
+#### Rerfences ####
 ```
 https://spring.io/guides/gs/caching/
 https://docs.spring.io/spring/docs/current/spring-framework-reference/integration.html#cache
