@@ -16,10 +16,7 @@
 
 7. [Selma Mapper](https://github.com/gnosia93/spring-sample/blob/master/spring-selma.md)
 
-
-
-
-10.[SPOCK](https://github.com/gnosia93/spring-sample/blob/master/spring-spock.md)
+10. [SPOCK](https://github.com/gnosia93/spring-sample/blob/master/spring-spock.md)
 
 
 
