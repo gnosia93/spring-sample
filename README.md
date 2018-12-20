@@ -22,7 +22,7 @@
 
 10. [SPOCK](https://github.com/gnosia93/spring-sample/blob/master/spring-spock.md)
 
-11. [스프링 Kafka] https://docs.spring.io/spring-kafka/docs/2.1.6.RELEASE/reference/html/
+11. [스프링 Kafka](https://github.com/gnosia93/spring-sample/blob/master/spring-kafka.md) 
 
 
 
