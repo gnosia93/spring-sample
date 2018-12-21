@@ -25,18 +25,8 @@ public interface EventHandler<T> {
 public interface EventDispather {
 
 	void raise(Event e);
-	
 	void addEventHandler(EventHandler<?> handler);
 
-	
-	class LogicOrderException extends RuntimeException {
-		private static final long serialVersionUID = -357156289244948133L;
-
-		public LogicOrderException() {
-			super("call addEventHandler() before raise()");
-		}
-	}
-	
 	public static SimpleEventDispatcher simpleDispatcher( ) {
 		return new SimpleEventDispatcher();
 	}
@@ -54,6 +44,10 @@ public interface EventDispather {
 		    }
 		};
 		
+		
+		//
+		//  type checking 하도록 하면 하면 에러가 발생하는데 왜 그런지 모르겠다. 
+		//
 		@SuppressWarnings("unchecked")
 		void processEvent(Event e) {
 			List<EventHandler<?>> eventHandlers = localEventHandlers.get();
