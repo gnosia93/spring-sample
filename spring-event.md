@@ -84,6 +84,8 @@ public interface EventDispather {
 			eventHandlers.add(handler);
 		}
 		
+		// ThradLocal 에 있는 객체를 지운다.
+		// 쓰레드시 풀로 반환되기전에 호출한다. 스프링에서는 즈로 @Service 객체의 함수호출 후 리턴 바로 직전.
 		public void reset() {
 			localEventHandlers.remove();
 		}
@@ -159,11 +161,8 @@ public class OrderService {
 		orderRepository.save(order);
 		
 		// 주문 취소 이벤트 발생
-		//eventDispather.raise(new CancelOrderEvent(orderId));
-		
 		eventDispather.addEventHandler(refundService);
 		eventDispather.raise(new CancelOrderEvent(orderId));
-		//eventDispather.raise(new UnCatchedEvent(orderId));
 		eventDispather.reset();
 		
 		/*
