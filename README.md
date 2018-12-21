@@ -26,7 +26,7 @@
 
 12. [JUNIT](https://github.com/gnosia93/spring-sample/blob/master/spring-junit.md)
 
-13. [이벤트 모델 ](https://github.com/gnosia93/spring-sample/blob/master/spring-event.md)
+13. [이벤트 모델 구현](https://github.com/gnosia93/spring-sample/blob/master/spring-event.md)
 
 
 
