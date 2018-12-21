@@ -26,6 +26,8 @@
 
 12. [JUNIT](https://github.com/gnosia93/spring-sample/blob/master/spring-junit.md)
 
+13. application event... http://javaslave.tistory.com/73
+
 
 
 
