@@ -33,7 +33,7 @@ https://docs.spring.io/spring-boot/docs/1.2.3.RELEASE/reference/htmlsingle/#usin
 
 13. [이벤트 모델 구현](https://github.com/gnosia93/spring-sample/blob/master/spring-event.md)
 
-14. [스프링 부트 커스텀 스타터]()
+14. [스프링 부트 커스텀 스타터](https://github.com/gnosia93/spring-sample/blob/master/springboot-custom-starter.md)
 
 
 
