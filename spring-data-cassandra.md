@@ -26,7 +26,7 @@ spring.data.cassandra.jmx-enabled=false
 
 ### 카산드라 자바 컨피그 ###
 
-아래는 테스트 프로그램에서 사용하는 카산드라 자바 Configuration 파일이다. 이렇게 자바 컨피그를 명시적으로 설정하는 경우,
+아래는 카산드라 자바 Configuration 파일로, 이렇게 자바 컨피그를 명시적으로 설정하는 경우,
 
 application.properties 에 선언된 카산드라 관련 속성값 들은 무시되는 듯 하다. 
 
