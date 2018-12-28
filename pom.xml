@@ -105,6 +105,15 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-cache</artifactId>
         </dependency>
+        
+        <!-- cassandra -->
+        <dependency>
+    		<groupId>org.springframework.data</groupId>
+    		<artifactId>spring-data-cassandra</artifactId>
+    	</dependency>
+    	    	
+    	
+        
     </dependencies>
 		
 		
