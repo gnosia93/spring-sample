@@ -1,12 +1,15 @@
+
+### 카산드라 POM ###
 ```
-    <!-- cassandra -->
-    <dependency>
-        <groupId>org.springframework.data</groupId>
-    	<artifactId>spring-data-cassandra</artifactId>
-    </dependency>
+<!-- cassandra -->
+<dependency>
+   <groupId>org.springframework.data</groupId>
+   <artifactId>spring-data-cassandra</artifactId>
+</dependency>
     
 ```
 
+### 카산드라 자바 컨피그 ###
 
 아래의 카산드라 자바 Configuration 파일이다. 이렇게 자바 Config로 등록하는 경우
 
@@ -57,9 +60,10 @@ public class Cassandra {
 	
 }
 
-
-
 ```
+
+
+### 의존 관계 에러 ###
 
 
 아래는 JMX 관련 StackTrace 내용으로 JMXReporter 의존 관계 예외가 발생하였음을 보여주고 있다.  
