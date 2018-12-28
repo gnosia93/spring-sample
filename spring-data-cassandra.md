@@ -1,4 +1,14 @@
-아래의 카산드라 자바 Configuration 파일이다. @Configuration 어노테이션을 사용하여 자바 Config 를 등록하면
+```
+    <!-- cassandra -->
+    <dependency>
+        <groupId>org.springframework.data</groupId>
+    	<artifactId>spring-data-cassandra</artifactId>
+    </dependency>
+    
+```
+
+
+아래의 카산드라 자바 Configuration 파일이다. 이렇게 자바 Config로 등록하는 경우
 
 application.properties 에 선언된 카산드라 관련 속성값들은 무시되는 듯 하다. 
 
