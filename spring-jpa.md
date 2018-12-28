@@ -3,8 +3,44 @@
 SQL> create database sample;
 SQL> create user 'sample'@'%' identified by 'sample';
 SQL> grant all privileges on sample.* to 'sample'@'%';
-SQL> status
+mysql> status
+--------------
+mysql  Ver 14.14 Distrib 5.7.24, for Linux (x86_64) using  EditLine wrapper
+
+Connection id:          12
+Current database:
+Current user:           root@localhost
+SSL:                    Not in use
+Current pager:          stdout
+Using outfile:          ''
+Using delimiter:        ;
+Server version:         5.7.24-0ubuntu0.16.04.1 (Ubuntu)
+Protocol version:       10
+Connection:             Localhost via UNIX socket
+Server characterset:    latin1
+Db     characterset:    latin1
+Client characterset:    utf8
+Conn.  characterset:    utf8
+UNIX socket:            /var/run/mysqld/mysqld.sock
+Uptime:                 3 days 6 hours 12 min 53 sec
+
+Threads: 1  Questions: 21  Slow queries: 0  Opens: 113  Flush tables: 1  Open tables: 32  Queries per second avg: 0.000
+--------------
 ```
+
+status 명령어를 실행하여 DB 캐릭터셋 정보가 utf8 이 아닌 경우, utf8 로 변경해 준다. 
+
+```
+mysql> alter database sample default character set = 'utf8';
+Query OK, 1 row affected (0.00 sec)
+```
+
+최초 MySQL 연결 테스트시 오류가 발생하는 경우는 원인은 다음 두가지 중 하나 이다. 
+
+1. mysql.conf 의 bind 가 0.0.0.0 아 아닌 경우
+
+2. 유저를 생성되었으나, privillege 가 제대로 반영되지 않은 경우 
+
 
 ## Spring Boot JPA Sample ##
 
@@ -275,3 +311,5 @@ JPA Reference.
 https://www.baeldung.com/the-persistence-layer-with-spring-and-jpa
 
 https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#jpa.namespace
+
+https://www.petrikainulainen.net/spring-data-jpa-tutorial/
