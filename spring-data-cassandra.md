@@ -9,19 +9,27 @@
     
 ```
 
+### application properties ###
+```
+#cassandra
+spring.data.cassandra.contact-points = ${server.ip}
+spring.data.cassandra.port = 9042
+spring.data.cassandra.jmx-enabled=false
+```
+
 ### 카산드라 자바 컨피그 ###
 
-아래의 카산드라 자바 Configuration 파일이다. 이렇게 자바 Config로 등록하는 경우
+아래는 테스트 프로그램에서 사용하는 카산드라 자바 Configuration 파일이다. 이렇게 자바 컨피그를 명시적으로 설정하는 경우,
 
-application.properties 에 선언된 카산드라 관련 속성값들은 무시되는 듯 하다. 
+application.properties 에 선언된 카산드라 관련 속성값 들은 무시되는 듯 하다. 
 
-스프링 Auto Configuration 이 어떻게 동작하는지 공부가 필요한 듯 ㅜㅜ
+( 스프링 Auto Configuration 이 어떻식으로 동작하도록 구현되어 있는지 공부가 필요한 듯 ㅜㅜ)
 
-com.codahale.metrics.JmxReporter ClassNotFoundException 이 발생하는 경우 
+여튼, com.codahale.metrics.JmxReporter ClassNotFoundException 이 발생하는 경우 
 
 CassandraCqlClusterFactoryBean 의 setJmxReportingEnabled(false) 함수를 호출하면, 더 이상 JmxReport 클래스를
 
-찾지 않는다. 
+찾지 않게 되고, 아래의 의존 관계 에러를 해결할 수 있다.
 
 ```
 @Configuration
