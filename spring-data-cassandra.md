@@ -11,6 +11,13 @@
 
 ### application properties ###
 ```
+# https://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html
+#
+
+spring.profiles.active = local
+server.ip = 192.168.29.191
+...
+
 #cassandra
 spring.data.cassandra.contact-points = ${server.ip}
 spring.data.cassandra.port = 9042
