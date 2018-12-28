@@ -3,7 +3,7 @@ https://docs.spring.io/spring-boot/docs/1.2.3.RELEASE/reference/htmlsingle/#usin
 
 
 ## 스프링 데이타 ##
-[1.카산드라]()
+[1.카산드라](https://github.com/gnosia93/spring-sample/blob/master/spring-data-cassandra.md)
 
 
 ## 튜토리얼  ##
