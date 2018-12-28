@@ -3,8 +3,39 @@
 SQL> create database sample;
 SQL> create user 'sample'@'%' identified by 'sample';
 SQL> grant all privileges on sample.* to 'sample'@'%';
-SQL> status
+mysql> status
+--------------
+mysql  Ver 14.14 Distrib 5.7.24, for Linux (x86_64) using  EditLine wrapper
+
+Connection id:          12
+Current database:
+Current user:           root@localhost
+SSL:                    Not in use
+Current pager:          stdout
+Using outfile:          ''
+Using delimiter:        ;
+Server version:         5.7.24-0ubuntu0.16.04.1 (Ubuntu)
+Protocol version:       10
+Connection:             Localhost via UNIX socket
+Server characterset:    latin1
+Db     characterset:    latin1
+Client characterset:    utf8
+Conn.  characterset:    utf8
+UNIX socket:            /var/run/mysqld/mysqld.sock
+Uptime:                 3 days 6 hours 12 min 53 sec
+
+Threads: 1  Questions: 21  Slow queries: 0  Opens: 113  Flush tables: 1  Open tables: 32  Queries per second avg: 0.000
+--------------
 ```
+
+status 명령어를 실행하여 DB 캐릭터셋 정보가 utf8 이 아닌 경우, utf8 로 변경해 준다. 
+
+```
+mysql> alter database sample default character set = 'utf8';
+Query OK, 1 row affected (0.00 sec)
+```
+
+
 
 ## Spring Boot JPA Sample ##
 
