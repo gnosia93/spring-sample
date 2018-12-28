@@ -35,6 +35,9 @@ mysql> alter database sample default character set = 'utf8';
 Query OK, 1 row affected (0.00 sec)
 ```
 
+최초 MySQL 의 연결 테스트시 오류가 발생하는 경우는 다음 두가지 경우이다. 
+1. mysql.conf 의 bind 가 0.0.0.0 아 아닌 경우
+2. 유저를 생성되었으나, privillege 가 제대로 반영되지 않은 경우 
 
 
 ## Spring Boot JPA Sample ##
