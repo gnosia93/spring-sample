@@ -1,3 +1,5 @@
+### 레퍼런스 ###
+https://docs.spring.io/spring-data/cassandra/docs/2.1.3.RELEASE/reference/html/#cassandra.modules
 
 ### 카산드라 POM ###
 ```
