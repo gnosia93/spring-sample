@@ -53,7 +53,7 @@ public class Cassandra {
 
 	    CassandraCqlClusterFactoryBean cluster = new CassandraCqlClusterFactoryBean();
 	    cluster.setContactPoints("192.168.29.191");
-	    //cluster.setJmxReportingEnabled(false);                      <-- com.codahale.metrics.JmxReporter ClassNotFoundException 
+	    cluster.setJmxReportingEnabled(false);           // <-- com.codahale.metrics.JmxReporter 기능을 disable 처리.
 	    System.err.println("cassandra:" + contactPoints);
 	    
 	    return cluster;
