@@ -30,8 +30,6 @@ https://docs.spring.io/spring-boot/docs/1.2.3.RELEASE/reference/htmlsingle/#usin
 
 8. [Spring Testing](https://github.com/gnosia93/spring-sample/blob/master/spring-test.md)
 
-10. [SPOCK](https://github.com/gnosia93/spring-sample/blob/master/spring-spock.md)
-
 11. [스프링 Kafka](https://github.com/gnosia93/spring-sample/blob/master/spring-kafka.md) 
 
 12. [JUNIT](https://github.com/gnosia93/spring-sample/blob/master/spring-junit.md)
