@@ -23,7 +23,7 @@ https://docs.spring.io/spring-boot/docs/1.2.3.RELEASE/reference/htmlsingle/#usin
 2. [DataSource]
 
      
-
+- attribute converter https://thoughts-on-java.org/jpa-21-type-converter-better-way-to/
 
 
 5. [Spring cloud] https://supawer0728.github.io/2018/03/11/Spring-Cloud-Feign/
