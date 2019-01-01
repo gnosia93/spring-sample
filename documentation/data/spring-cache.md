@@ -1,4 +1,4 @@
-@Caccheable 어노테이션을 사용하여 Redis 서버를 remote Cache 로 사용하는 예제 코드이다.
+@Cacheable 어노테이션을 사용하여 Redis 서버를 remote Cache 로 사용하는 예제 코드이다.
 
 아래와 같이 Maven 에 spring cache starter를 선언한다.
 #### MAVEN ####
