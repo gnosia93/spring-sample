@@ -8,11 +8,11 @@ import org.springframework.data.cassandra.config.CassandraCqlClusterFactoryBean;
 import org.springframework.data.cassandra.config.CassandraCqlSessionFactoryBean;
 
 @Configuration
-@ConfigurationProperties(prefix="spring.data.cassandra")
 public class Cassandra {
 	
-	 @Value("contact-points") String contactPoints;
-	
+	  @Value("${spring.data.cassandra.contact-points}") 
+	  String contactPoints;
+	 
 	  /*
 	   * Factory bean that creates the com.datastax.driver.core.Session instance
 	   */ 
@@ -20,9 +20,9 @@ public class Cassandra {
 	  public CassandraCqlClusterFactoryBean cluster() {
 
 	    CassandraCqlClusterFactoryBean cluster = new CassandraCqlClusterFactoryBean();
-	    cluster.setContactPoints("192.168.29.191");
-	    //cluster.setJmxReportingEnabled(false);
-	    System.err.println("cassandra:" + contactPoints);
+	    cluster.setContactPoints(contactPoints);
+	    cluster.setJmxReportingEnabled(false);        /* java.lang.NoClassDefFoundError: com/codahale/metrics/JmxReporter 예외 해결 */
+	    System.err.println("cassandra contactPoints:" + contactPoints);
 	    
 	    return cluster;
 	  }
@@ -36,7 +36,7 @@ public class Cassandra {
 	    CassandraCqlSessionFactoryBean session = new CassandraCqlSessionFactoryBean();
 	    session.setCluster(cluster().getObject());
 	    
-	    session.setKeyspaceName("mykeyspace");
+	    session.setKeyspaceName("sample");
 
 	    return session;
 	  }

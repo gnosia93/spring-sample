@@ -111,7 +111,12 @@
     		<groupId>org.springframework.data</groupId>
     		<artifactId>spring-data-cassandra</artifactId>
     	</dependency>
-    	    	
+    	
+    	<!-- mongodb -->
+    	<dependency>
+		    <groupId>org.springframework.data</groupId>
+		    <artifactId>spring-data-mongodb</artifactId>
+		</dependency>
     	
         
     </dependencies>
