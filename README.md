@@ -3,11 +3,11 @@ https://docs.spring.io/spring-boot/docs/1.2.3.RELEASE/reference/htmlsingle/#usin
 
 
 ## 스프링 데이타 ##
-[JPA](https://github.com/gnosia93/spring-sample/blob/master/documentation/data/spring-jpa.md)
+&nbsp;&nbsp;&nbsp;&nbsp;[JPA](https://github.com/gnosia93/spring-sample/blob/master/documentation/data/spring-jpa.md)
 
-[몽고DB](https://github.com/gnosia93/spring-sample/blob/master/documentation/data/spring-data-mongo.md)
+&nbsp;&nbsp;&nbsp;&nbsp;[몽고DB](https://github.com/gnosia93/spring-sample/blob/master/documentation/data/spring-data-mongo.md)
 
-[카산드라](https://github.com/gnosia93/spring-sample/blob/master/documentation/data/spring-data-cassandra.md)
+&nbsp;&nbsp;&nbsp;&nbsp;[카산드라](https://github.com/gnosia93/spring-sample/blob/master/documentation/data/spring-data-cassandra.md)
 
 
 ## 튜토리얼  ##
