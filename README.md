@@ -1,6 +1,10 @@
 ## Spring Boot Reference Guide ##
 https://docs.spring.io/spring-boot/docs/1.2.3.RELEASE/reference/htmlsingle/#using-boot-maven
 
+## 기본 ##
+GIT https://backlog.com/git-tutorial/kr/stepup/stepup2_1.html
+
+
 
 ## 스프링 데이타 ##
 &nbsp;&nbsp;&nbsp;&nbsp;[JPA](https://github.com/gnosia93/spring-sample/blob/master/documentation/data/spring-jpa.md)
@@ -9,27 +13,24 @@ https://docs.spring.io/spring-boot/docs/1.2.3.RELEASE/reference/htmlsingle/#usin
 
 &nbsp;&nbsp;&nbsp;&nbsp;[카산드라](https://github.com/gnosia93/spring-sample/blob/master/documentation/data/spring-data-cassandra.md)
 
-&nbsp;&nbsp;&nbsp;&nbsp;[Redis]()
+&nbsp;&nbsp;&nbsp;&nbsp;[Redis](https://github.com/gnosia93/spring-sample/blob/master/documentation/data/spring-redis.md)
 
 &nbsp;&nbsp;&nbsp;&nbsp;[@Cacheable](https://github.com/gnosia93/spring-sample/blob/master/documentation/data/spring-cache.md)
 
+## 스프링 클라우드 ##
+
+https://supawer0728.github.io/2018/03/11/Spring-Cloud-Feign/
+
+
 ## 튜토리얼  ##
 
-
-0. Git https://backlog.com/git-tutorial/kr/stepup/stepup2_1.html
 
 1. [Spring 프로파일](https://github.com/gnosia93/spring-sample/blob/master/spring-conf.md)
 
 2. [DataSource]
 
-2. [JPA 사용하기](https://github.com/gnosia93/spring-sample/blob/master/spring-jpa.md)
-     - attribute converter https://thoughts-on-java.org/jpa-21-type-converter-better-way-to/
-
-3. [Redis 사용하기](https://github.com/gnosia93/spring-sample/blob/master/spring-redis.md)
-
-4. [Spring Cache - @Cacheable 어노테이션](https://github.com/gnosia93/spring-sample/blob/master/spring-cache.md)
-
-5. [Spring cloud] https://supawer0728.github.io/2018/03/11/Spring-Cloud-Feign/
+     
+- attribute converter https://thoughts-on-java.org/jpa-21-type-converter-better-way-to/
 
 6. [Properties] https://www.baeldung.com/properties-with-spring#boot
 
