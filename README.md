@@ -22,12 +22,9 @@ https://docs.spring.io/spring-boot/docs/1.2.3.RELEASE/reference/htmlsingle/#usin
 
 2. [DataSource]
 
-2. [JPA 사용하기](https://github.com/gnosia93/spring-sample/blob/master/spring-jpa.md)
-     - attribute converter https://thoughts-on-java.org/jpa-21-type-converter-better-way-to/
+     
 
-3. [Redis 사용하기](https://github.com/gnosia93/spring-sample/blob/master/spring-redis.md)
 
-4. [Spring Cache - @Cacheable 어노테이션](https://github.com/gnosia93/spring-sample/blob/master/spring-cache.md)
 
 5. [Spring cloud] https://supawer0728.github.io/2018/03/11/Spring-Cloud-Feign/
 
