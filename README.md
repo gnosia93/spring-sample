@@ -9,6 +9,9 @@ https://docs.spring.io/spring-boot/docs/1.2.3.RELEASE/reference/htmlsingle/#usin
 
 &nbsp;&nbsp;&nbsp;&nbsp;[카산드라](https://github.com/gnosia93/spring-sample/blob/master/documentation/data/spring-data-cassandra.md)
 
+&nbsp;&nbsp;&nbsp;&nbsp;[Redis]()
+
+&nbsp;&nbsp;&nbsp;&nbsp;[@Cacheable](https://github.com/gnosia93/spring-sample/blob/master/documentation/data/spring-cache.md)
 
 ## 튜토리얼  ##
 
