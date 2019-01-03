@@ -25,7 +25,7 @@ spring.data.mongodb.uri=mongodb://localhost/test # Mongo database URI. Cannot be
 ```
 
 
-## Entity ##
+## JPA Entity ##
 ```
 @Document
 @NoArgsConstructor
@@ -46,7 +46,7 @@ public class UserEntity {
 }
 ```
 
-## Repository ##
+## JPA Repository ##
 ```
 public interface UserJpaRepository extends MongoRepository<UserEntity, String> {
 
