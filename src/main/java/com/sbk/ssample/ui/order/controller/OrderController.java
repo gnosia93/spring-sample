@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.sbk.ssample.app.service.order.OrderService;
 import com.sbk.ssample.app.service.order.command.AddOrderCommand;
-import com.sbk.ssample.base.CommandResult;
+import com.sbk.ssample.ui.helper.CommandResult;
 import com.sbk.ssample.ui.order.request.AddOrderRequest;
 import com.sbk.ssample.ui.order.request.mapper.AddOrderRequestMapper;
 

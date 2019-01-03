@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 
 import com.mongodb.client.MongoClient;
 
-@Component
+// @Component
 public class CommandLineRunner implements org.springframework.boot.CommandLineRunner {
 	
 	@Autowired MongoClient mongoClient;

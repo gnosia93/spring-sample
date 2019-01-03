@@ -15,7 +15,7 @@ import com.sbk.ssample.app.domain.order.exception.DomainException;
 import com.sbk.ssample.app.domain.order.repository.OrderRepository;
 import com.sbk.ssample.app.service.order.command.AddOrderCommand;
 import com.sbk.ssample.app.service.order.command.CancelOrderCommand;
-import com.sbk.ssample.base.CommandResult;
+import com.sbk.ssample.ui.helper.CommandResult;
 
 @Service
 public class OrderService {

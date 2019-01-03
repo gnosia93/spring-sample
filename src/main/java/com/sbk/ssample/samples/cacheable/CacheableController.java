@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.sbk.ssample.base.CommandResult;
+import com.sbk.ssample.ui.helper.CommandResult;
 import com.sbk.ssample.ui.order.controller.Controller;
 
 @RestController

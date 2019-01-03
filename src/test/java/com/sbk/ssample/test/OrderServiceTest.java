@@ -24,7 +24,7 @@ import com.sbk.ssample.app.domain.order.ShippingInfo;
 import com.sbk.ssample.app.service.order.OrderService;
 import com.sbk.ssample.app.service.order.command.AddOrderCommand;
 import com.sbk.ssample.app.service.order.command.CancelOrderCommand;
-import com.sbk.ssample.base.CommandResult;
+import com.sbk.ssample.ui.helper.CommandResult;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest

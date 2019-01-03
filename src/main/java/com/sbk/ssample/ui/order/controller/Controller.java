@@ -3,7 +3,7 @@ package com.sbk.ssample.ui.order.controller;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 
-import com.sbk.ssample.base.CommandResult;
+import com.sbk.ssample.ui.helper.CommandResult;
 
 public interface Controller {
 	

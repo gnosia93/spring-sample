@@ -1,4 +1,4 @@
-package com.sbk.ssample.base;
+package com.sbk.ssample.ui.helper;
 
 import java.time.Instant;
 

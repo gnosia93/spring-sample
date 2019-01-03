@@ -27,7 +27,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.sbk.ssample.app.domain.order.OrderItem;
 import com.sbk.ssample.app.service.order.OrderService;
 import com.sbk.ssample.app.service.order.command.AddOrderCommand;
-import com.sbk.ssample.base.CommandResult;
+import com.sbk.ssample.ui.helper.CommandResult;
 import com.sbk.ssample.ui.order.controller.OrderController;
 import com.sbk.ssample.ui.order.request.AddOrderRequest;
 import com.sbk.ssample.ui.order.request.mapper.AddOrderRequestMapper;

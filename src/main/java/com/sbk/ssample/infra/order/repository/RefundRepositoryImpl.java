@@ -5,8 +5,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 
 import com.sbk.ssample.app.domain.order.repository.RefundRepository;
-import com.sbk.ssample.base.CommandResult;
 import com.sbk.ssample.infra.gateway.GateWay;
+import com.sbk.ssample.ui.helper.CommandResult;
 
 @Component
 public class RefundRepositoryImpl implements RefundRepository {

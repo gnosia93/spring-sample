@@ -1,4 +1,4 @@
-package com.sbk.ssample.base;
+package com.sbk.ssample.ui.helper;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

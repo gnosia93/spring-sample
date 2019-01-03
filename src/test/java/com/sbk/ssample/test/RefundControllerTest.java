@@ -7,8 +7,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.sbk.ssample.base.CommandResult;
 import com.sbk.ssample.infra.gateway.RestGateWay;
+import com.sbk.ssample.ui.helper.CommandResult;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
