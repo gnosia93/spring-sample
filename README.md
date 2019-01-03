@@ -36,13 +36,8 @@ http://redutan.github.io/2015/09/23/spring-commandline-example
 1. [Spring 프로파일](https://github.com/gnosia93/spring-sample/blob/master/spring-conf.md)
 
 2. [DataSource]
-
-     
-- attribute converter https://thoughts-on-java.org/jpa-21-type-converter-better-way-to/
-
+   
 6. [Properties] https://www.baeldung.com/properties-with-spring#boot
-
-7. [Selma Mapper](https://github.com/gnosia93/spring-sample/blob/master/spring-selma.md)
 
 8. [Spring Testing](https://github.com/gnosia93/spring-sample/blob/master/spring-test.md)
 
@@ -54,6 +49,10 @@ http://redutan.github.io/2015/09/23/spring-commandline-example
 
 14. [스프링 부트 커스텀 스타터](https://github.com/gnosia93/spring-sample/blob/master/springboot-custom-starter.md)
 
+
+## 외부 Libraries ##
+
+1. [Selma Mapper](https://github.com/gnosia93/spring-sample/blob/master/documentation/spring-selma.md)
 
 
 ## 레퍼런스 ##
