@@ -45,6 +45,8 @@ public enum Gender {
 ```
 
 ## 컨버터 ##
+@Converter(autoApply=true) 을 사용하는 경우 @Entity 타입의 클래스에 존재하는 모든 Gender 타입에 대해 적용된다. 
+
 ```
 @Converter(autoApply=true)
 public class GenderConverter implements AttributeConverter<Gender, String> {
@@ -143,3 +145,6 @@ public class EnumconvertApplication {
 
 ```
 
+
+## 레퍼런스 ##
+https://thoughts-on-java.org/jpa-21-type-converter-better-way-to/
