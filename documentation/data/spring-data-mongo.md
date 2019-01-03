@@ -9,7 +9,7 @@
 </dependency>
 ```
 
-## application.yml ##
+### application.yml ###
 ```
 spring.data.mongodb.host= 192.168.29.191
 spring.data.mongodb.database = sample
@@ -26,7 +26,7 @@ spring.data.mongodb.uri=mongodb://localhost/test # Mongo database URI. Cannot be
 ```
 
 
-## JPA Entity ##
+### JPA Entity ###
 아래와 같이 @Id 어노테이션을 사용하지 않는 경우 mongodb는 컬렉션 document 의 PK를 자체적으로 생성해 준다.
 
 PK 인 _id 값은 아래와 같은 방식으로 구현되어 있다.
@@ -48,14 +48,14 @@ public class UserEntity {
 }
 ```
 
-## JPA Repository ##
+### JPA Repository ###
 ```
 public interface UserJpaRepository extends MongoRepository<UserEntity, String> {
 
 }
 ```
 
-## 실행코드 ##
+### 실행코드 ###
 ```
 public interface UserRepository {
 	public void addUser(User user);
@@ -95,7 +95,7 @@ public class UserRepositoryImpl implements UserRepository {
 }
 ```
 
-## Document 조회 ##
+### Document 조회 ###
 ```
 > show collections;
 addUserCommand
@@ -110,7 +110,7 @@ userEntity
 ```
 
 
-## 레퍼런스 ##
+### 레퍼런스 ###
 https://spring.io/guides/gs/accessing-data-mongodb/
 
 
