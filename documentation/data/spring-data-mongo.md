@@ -1,4 +1,4 @@
-## PREREQUISITE ##
+## Prerequisite ##
 
 ## POM ##
 ```
