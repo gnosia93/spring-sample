@@ -1,6 +1,6 @@
 ## Prerequisite ##
 
-## POM ##
+### POM ###
 ```
 <dependency>
   <groupId>org.springframework.data</groupId>
@@ -8,7 +8,7 @@
 </dependency>
 ```
 
-## application.yml ##
+### application.yml ###
 ```
 spring.data.mongodb.host= 192.168.29.191
 spring.data.mongodb.database = sample
