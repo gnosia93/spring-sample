@@ -25,11 +25,6 @@ spring.data.mongodb.uri=mongodb://localhost/test # Mongo database URI. Cannot be
 
 
 
-## MongoDB Template ##
-```
-
-
-```
 
 
 ## JPA Repository Example ##
@@ -120,5 +115,14 @@ userEntity
 
 ### 레퍼런스 ###
 https://spring.io/guides/gs/accessing-data-mongodb/
+
+
+## MongoDB Template ##
+```
+
+
+```
+
+
 
 
