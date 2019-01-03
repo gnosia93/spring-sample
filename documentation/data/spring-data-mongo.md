@@ -25,4 +25,74 @@ spring.data.mongodb.uri=mongodb://localhost/test # Mongo database URI. Cannot be
 ```
 
 
+## Entity ##
+```
+@Document
+@NoArgsConstructor
+@Data
+public class UserEntity {
+	
+	@Id
+	String id;
+
+	UserType userType;
+	
+	String name;
+	
+	Gender gender;
+	
+	Address address;
+	
+}
+```
+
+## Repository ##
+```
+public interface UserJpaRepository extends MongoRepository<UserEntity, String> {
+
+}
+```
+
+## 실행코드 ##
+```
+public interface UserRepository {
+	public void addUser(User user);
+	public Optional<User> findById(String id);
+}
+
+
+@Slf4j
+@Component
+public class UserRepositoryImpl implements UserRepository {
+
+	UserJpaRepository userJpaRepository;
+	
+	@Autowired
+	public UserRepositoryImpl(UserJpaRepository userJpaRepository) {
+		this.userJpaRepository = userJpaRepository;
+	}
+	
+	@Override
+	public void addUser(User user) {
+		
+		UserEntity userEntity = new UserEntity();
+		userEntity.setId(user.getId());
+		userEntity.setAddress(user.getAddress());
+		userEntity.setGender(user.getGender());
+		userEntity.setName(user.getName());
+		userEntity.setUserType(user.getUserType());
+		
+		UserEntity saved = userJpaRepository.save(userEntity);
+		log.info("===> " + saved.getId() + " " + saved.getName());
+	}
+
+	@Override
+	public Optional<User> findById(String id) {
+		return null;
+	}
+}
+```
+
+
+
 
