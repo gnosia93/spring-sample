@@ -1,6 +1,3 @@
-# JPA Repository Example #
-
-
 ### POM ###
 ```
 <dependency>
@@ -24,7 +21,14 @@ spring.data.mongodb.port= # Mongo server port. Cannot be set with URI.
 spring.data.mongodb.repositories.type=auto # Type of Mongo repositories to enable.
 spring.data.mongodb.uri=mongodb://localhost/test # Mongo database URI. Cannot be set with host, port and credentials.
 ```
+## MongoDB Template ##
+```
 
+
+```
+
+
+## JPA Repository Example ##
 
 ### JPA Entity ###
 아래와 같이 @Id 어노테이션을 사용하지 않는 경우 mongodb는 컬렉션 document 의 PK를 자체적으로 생성해 준다.
