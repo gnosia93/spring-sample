@@ -53,6 +53,16 @@ spring.datasource.maximum-pool-size=10
 
 ```
 
+#### POM ####
+```
+<dependency>
+	<groupId>mysql</groupId>
+	<artifactId>mysql-connector-java</artifactId>
+	<scope>runtime</scope>
+</dependency>
+```
+
+
 #### Entity Manager -> TX Manager -> DataSource 설정 ####
 ```
 package io.startup.demo;
