@@ -105,7 +105,6 @@ userEntity
 { "_id" : ObjectId("5c2e1864210ae00b788666fd"), "name" : "name", "gender" : "MAIL", "_class" : "com.sbk.ssample.infra.order.jpa.entity.UserEntity" }
 { "_id" : ObjectId("5c2e18ad210ae00b78866700"), "name" : "name", "gender" : "MAIL", "_class" : "com.sbk.ssample.infra.order.jpa.entity.UserEntity" }
 { "_id" : "mongo-id-test-01", "name" : "name", "gender" : "MAIL", "address" : { "zipCode" : "00000", "addr1" : "서울시", "addr2" : "강동구" }, "_class" : "com.sbk.ssample.infra.order.jpa.entity.UserEntity" }
->
 ```
 
 
