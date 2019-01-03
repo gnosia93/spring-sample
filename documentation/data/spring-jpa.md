@@ -47,10 +47,13 @@ Query OK, 1 row affected (0.00 sec)
 #### application.properties ####
 ```
 spring.datasource.jdbc-url=jdbc:mysql://localhost:3306/sample?serverTimezone=UTC
+spring.datasource.url=jdbc:mysql://localhost:3306/sample?serverTimezone=UTC
 spring.datasource.username=sample
 spring.datasource.password=sample
 spring.datasource.maximum-pool-size=10
 
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=true
 ```
 
 #### POM ####
