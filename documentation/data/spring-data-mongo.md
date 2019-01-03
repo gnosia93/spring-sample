@@ -1,7 +1,7 @@
 # JPA Repository Example #
 
 
-## POM ##
+### POM ###
 ```
 <dependency>
   <groupId>org.springframework.data</groupId>
