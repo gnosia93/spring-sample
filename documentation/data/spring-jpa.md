@@ -321,6 +321,7 @@ public class Address {
 
 
 
+## Enum Converter ##
 
 
 
@@ -330,7 +331,7 @@ public class Address {
 
 
 
-JPA Reference.
+## 레퍼런스 ##
 
 https://www.baeldung.com/the-persistence-layer-with-spring-and-jpa
 
