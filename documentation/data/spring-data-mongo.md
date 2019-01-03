@@ -1,4 +1,4 @@
-### POM ###
+## POM ##
 ```
 <dependency>
   <groupId>org.springframework.data</groupId>
@@ -6,7 +6,7 @@
 </dependency>
 ```
 
-### application.yml ###
+## application.yml ##
 ```
 spring.data.mongodb.host= 192.168.29.191
 spring.data.mongodb.database = sample
@@ -21,6 +21,10 @@ spring.data.mongodb.port= # Mongo server port. Cannot be set with URI.
 spring.data.mongodb.repositories.type=auto # Type of Mongo repositories to enable.
 spring.data.mongodb.uri=mongodb://localhost/test # Mongo database URI. Cannot be set with host, port and credentials.
 ```
+
+
+
+
 ## MongoDB Template ##
 ```
 
