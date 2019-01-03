@@ -9,7 +9,7 @@ GIT https://backlog.com/git-tutorial/kr/stepup/stepup2_1.html
 ## 스프링 데이타 ##
 &nbsp;&nbsp;&nbsp;&nbsp;[JPA](https://github.com/gnosia93/spring-sample/blob/master/documentation/data/spring-jpa.md)
 
-&nbsp;&nbsp; - [Enum Converter](https://github.com/gnosia93/spring-sample/blob/master/documentation/data/spring-jpa-enum-converter.md)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - [Enum Converter](https://github.com/gnosia93/spring-sample/blob/master/documentation/data/spring-jpa-enum-converter.md)
 
 &nbsp;&nbsp;&nbsp;&nbsp;[몽고DB](https://github.com/gnosia93/spring-sample/blob/master/documentation/data/spring-data-mongo.md)
 
