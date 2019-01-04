@@ -1,7 +1,10 @@
 You must specify a valid lifecycle phase or a goal in the format <plugin-prefix>:<goal> 
+
 or <plugin-group-id>:<plugin-artifact-id>[:<plugin-version>]:<goal>. 
+
 Available lifecycle phases are: 
 
+```
 validate, 
 initialize, 
 generate-sources, 
@@ -33,3 +36,4 @@ pre-site,
 site, 
 post-site, 
 site-deploy
+```
