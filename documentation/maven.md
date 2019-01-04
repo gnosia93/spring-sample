@@ -1,8 +1,6 @@
-You must specify a valid lifecycle phase or a goal in the format <plugin-prefix>:<goal> 
+mvn 명령어의 파라미터로는 라이프 사이클 phase 나 plugin-prefix:goal 형식으로 명령어를 구사해야 한다. 
 
-or <plugin-group-id>:<plugin-artifact-id>[:<plugin-version>]:<goal>. 
-
-Available lifecycle phases are: 
+아래는 메이븐에서 제공하는 phase 를 나열한 것이다. 
 
 ```
 validate, 
@@ -39,7 +37,7 @@ site-deploy
 ```
 
 
-
+메이븐의 소스 디렉토리 정보를 보여준다. 
 ```
 if you are ever trying to reference output directories in Maven, you should never use a literal value like target/classes. Instead you should use property references to refer to these directories.
 
@@ -49,10 +47,12 @@ if you are ever trying to reference output directories in Maven, you should neve
     project.build.outputDirectory
     project.build.testOutputDirectory
     project.build.directory
+    
 sourceDirectory, scriptSourceDirectory, and testSourceDirectory provide access to the source directories for the project. outputDirectory and testOutputDirectory provide access to the directories where Maven is going to put bytecode or other build output. directory refers to the directory which contains all of these output directories.
 ```
 
 
+selma 를 spring 이 아닌 일반 어플리케이션에서 사용하기 위한 POM
 
 ```
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -172,6 +172,7 @@ sourceDirectory, scriptSourceDirectory, and testSourceDirectory provide access t
 ```
 
 
+아래와 같이 빌드한다. (플러그인 프리픽스:골)
 
 ```
 $ mvn processor:process
