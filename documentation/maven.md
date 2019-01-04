@@ -37,3 +37,8 @@ site,
 post-site, 
 site-deploy
 ```
+
+
+
+
+mvn processor:process
