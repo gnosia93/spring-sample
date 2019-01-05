@@ -7,9 +7,9 @@ GIT https://backlog.com/git-tutorial/kr/stepup/stepup2_1.html
 
 ## 뷰 템플릿 ##
 
-&nbsp;&nbsp;&nbsp;&nbsp; [JSP](https://github.com/gnosia93/spring-sample/blob/master/documentation/spring-jsp-viewresolver.md)
+&nbsp;&nbsp;&nbsp;&nbsp; [JSP](https://github.com/gnosia93/spring-sample/blob/master/documentation/spring-jsp.md)
 
-&nbsp;&nbsp;&nbsp;&nbsp; [Thymeleaf](https://github.com/gnosia93/spring-sample/blob/master/documentation/spring-thymeleaf-viewresolver.md)
+&nbsp;&nbsp;&nbsp;&nbsp; [Thymeleaf](https://github.com/gnosia93/spring-sample/blob/master/documentation/spring-thymeleaf.md)
 
 
 ## 스프링 데이타 ##
