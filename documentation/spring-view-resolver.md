@@ -74,7 +74,8 @@ application.properties 파일에 아래 설정을 추가하고, 재 실행하면
 #view setting
 spring.mvc.view.prefix=/WEB-INF/jsp/
 spring.mvc.view.suffix=.jsp
-```
+
+2019-01-05 12:41:39.656 WARN ---[nio-8080-exec-1] o.s.w.s.r.ResourceHttpRequestHandler Path with "WEB-INF" or "META-INF": [WEB-INF/jsp/registration.jsp]
 
 
 
