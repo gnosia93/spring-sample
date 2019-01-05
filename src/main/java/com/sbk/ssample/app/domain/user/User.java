@@ -2,11 +2,15 @@ package com.sbk.ssample.app.domain.user;
 
 import java.util.UUID;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.Data;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Builder
-@Getter
+@Data
 public class User {
 	
 	String id;
@@ -19,10 +23,11 @@ public class User {
 	
 	Address address;
 	
-	
+	/*
 	public boolean isMember() {
 		return userType == UserType.MEMBER ? true: false;
 	}
+	*/
 	
 	public String getId() {
 		if(userType == UserType.NON_MEMBER)
@@ -30,4 +35,5 @@ public class User {
 		
 		return this.id;
 	}
+
 }

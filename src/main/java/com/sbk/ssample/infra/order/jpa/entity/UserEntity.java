@@ -6,6 +6,7 @@ import com.sbk.ssample.app.domain.user.Address;
 import com.sbk.ssample.app.domain.user.Gender;
 import com.sbk.ssample.app.domain.user.UserType;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
