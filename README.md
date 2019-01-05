@@ -13,7 +13,7 @@ GIT https://backlog.com/git-tutorial/kr/stepup/stepup2_1.html
 
 
 ## 메시지 처리 ##
-&nbsp;&nbsp;&nbsp;&nbsp; [MVC Localization]
+&nbsp;&nbsp;&nbsp;&nbsp; [MVC Localization](https://github.com/gnosia93/spring-sample/blob/master/documentation/spring-localization.md)
 
 
 ## 스프링 데이타 ##
