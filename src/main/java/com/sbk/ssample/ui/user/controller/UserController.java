@@ -1,22 +1,28 @@
 package com.sbk.ssample.ui.user.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import javax.validation.Valid;
 
-import com.sbk.ssample.app.domain.user.Address;
-import com.sbk.ssample.app.domain.user.Gender;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
 import com.sbk.ssample.app.service.user.UserService;
 import com.sbk.ssample.app.service.user.command.AddUserCommand;
+import com.sbk.ssample.ui.user.request.AddUserRequest;
 
 import lombok.extern.slf4j.Slf4j;
 
 
 @Slf4j
-@RestController
+@Controller
 @RequestMapping("/user")
-public class UserController {
+public class UserController implements UserControllerMapper {
 
 	final UserService userService;
 	
@@ -25,21 +31,39 @@ public class UserController {
 		this.userService = userService;
 	}
 	
-	@GetMapping("/add")
-	public void getUser() {
-		//AddUserRequest --> AddUserCommand --> User Domain Entity --> repository(I)
+	
+	@GetMapping("/registration")
+	public String showRegistrationForm(Model model) {
 		
-		AddUserCommand addUserCommand = new AddUserCommand();
-		addUserCommand.setId("mongo-id-test-01");
-		addUserCommand.setGender(Gender.FEMAIL);
-		addUserCommand.setPassword("password");
-		addUserCommand.setGender(Gender.MAIL);
-		addUserCommand.setName("name");
-		addUserCommand.setAddress(new Address("00000", "서울시", "강동구"));
+		AddUserRequest userDto = new AddUserRequest();
+		model.addAttribute("userForm", userDto);
 		
-		userService.add(addUserCommand);
-		log.info("UserController is called..");
+		return "registration";
 	}
 	
+	@PostMapping("/registration")
+	public String registerUserAccount(@ModelAttribute("userForm") @Valid AddUserRequest addUserRequest,
+			BindingResult bindingResult) {
+	
+		if(bindingResult.hasErrors()) {
+
+			return "registration";
+		};
+		
+		AddUserCommand addUserCommand = asAddUserCommand(addUserRequest);
+		userService.add(addUserCommand);
+		
+		return "redirect:login";
+	}
+	
+	@GetMapping("/existUser/{id}")
+	public void existUser(@PathVariable String id) {
+		
+	}
+	
+	@GetMapping("/login")
+	public String login() {
+		return "login";
+	}
 	
 }

@@ -28,14 +28,15 @@ public class UserService {
 		
 		User user = User.builder()
 				.id(addUserCommand.getId())
+				.password(addUserCommand.getPassword())
 				.name(addUserCommand.getName())
 				.gender(addUserCommand.getGender())
 				.userType(addUserCommand.getUserType())
 				.address(addUserCommand.getAddress())
+				.email(addUserCommand.getEmail())
 				.build();
 		
 		userRepository.addUser(user);
-		log.info(user.toString());
 	}
 	
 	public Optional<User> findById(String id) {

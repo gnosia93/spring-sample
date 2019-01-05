@@ -17,6 +17,8 @@ public class UserEntity {
 	
 	@Id
 	String id;
+	
+	String password;
 
 	UserType userType;
 	
@@ -25,5 +27,7 @@ public class UserEntity {
 	Gender gender;
 	
 	Address address;
+	
+	String email;
 	
 }

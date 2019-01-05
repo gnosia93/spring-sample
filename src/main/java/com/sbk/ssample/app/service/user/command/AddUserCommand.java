@@ -21,4 +21,7 @@ public class AddUserCommand {
 	
 	Address address;
 	
+	String email;
+	
+	
 }

@@ -15,6 +15,8 @@ public class User {
 	
 	String id;
 
+	String password;
+	
 	UserType userType;
 	
 	String name;
@@ -22,6 +24,8 @@ public class User {
 	Gender gender;
 	
 	Address address;
+	
+	String email;
 	
 	/*
 	public boolean isMember() {

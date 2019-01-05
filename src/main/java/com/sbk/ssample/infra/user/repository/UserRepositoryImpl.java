@@ -28,13 +28,14 @@ public class UserRepositoryImpl implements UserRepository {
 		
 		UserEntity userEntity = new UserEntity();
 		userEntity.setId(user.getId());
+		userEntity.setPassword(user.getPassword());
 		userEntity.setAddress(user.getAddress());
 		userEntity.setGender(user.getGender());
 		userEntity.setName(user.getName());
 		userEntity.setUserType(user.getUserType());
+		userEntity.setEmail(user.getEmail());
 		
-		UserEntity saved = userJpaRepository.save(userEntity);
-		log.info("===> " + saved.getId() + " " + saved.getName());
+		userJpaRepository.save(userEntity);
 	}
 
 	@Override
