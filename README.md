@@ -35,7 +35,8 @@ custom annotation
 
 ## 스프링 시큐리티 ##
 
-https://www.baeldung.com/security-spring
+[Spring Security](https://github.com/gnosia93/spring-sample/blob/master/documentation/security/spring-security.md)
+
 
 ## 스프링 클라우드 ##
 
