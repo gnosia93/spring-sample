@@ -5,6 +5,20 @@ https://docs.spring.io/spring-boot/docs/1.2.3.RELEASE/reference/htmlsingle/#usin
 GIT https://backlog.com/git-tutorial/kr/stepup/stepup2_1.html
 
 
+## 뷰 템플릿 ##
+
+&nbsp;&nbsp;&nbsp;&nbsp; [JSP](https://github.com/gnosia93/spring-sample/blob/master/documentation/spring-jsp.md)
+
+&nbsp;&nbsp;&nbsp;&nbsp; [Thymeleaf](https://github.com/gnosia93/spring-sample/blob/master/documentation/spring-thymeleaf.md)
+
+
+## MVC ##
+&nbsp;&nbsp;&nbsp;&nbsp; [MVC Localization](https://github.com/gnosia93/spring-sample/blob/master/documentation/spring-localization.md)
+
+&nbsp;&nbsp;&nbsp;&nbsp; [Form Validation](https://github.com/gnosia93/spring-sample/blob/master/documentation/spring-form-validation.md)
+
+custom annotation 
+
 
 ## 스프링 데이타 ##
 &nbsp;&nbsp;&nbsp;&nbsp;[JPA](https://github.com/gnosia93/spring-sample/blob/master/documentation/data/spring-jpa.md)
