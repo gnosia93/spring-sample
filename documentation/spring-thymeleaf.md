@@ -22,13 +22,15 @@ spring.thymeleaf.suffix: This is the value that will be appended with view name 
 
 With the default Spring Boot and Thymeleaf configuration we can keep our Thymeleaf files 
 
-with html extension at following location.
+with html extension at following location.  src\main\resources\templates 
 
-src\main\resources\templates 
+
 
 
 
 ## registration.html ##
+디폴트 경로인 src\main\resources\templates 밑에 registration.html 을 생성한다. 
+
 ```
 <html>
 <body>
@@ -127,9 +129,6 @@ public class UserController {
 		
 		return "registration";
 	}
-	
-	
-	
 }
 
 ```
