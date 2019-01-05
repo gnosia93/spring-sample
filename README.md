@@ -5,7 +5,9 @@ https://docs.spring.io/spring-boot/docs/1.2.3.RELEASE/reference/htmlsingle/#usin
 GIT https://backlog.com/git-tutorial/kr/stepup/stepup2_1.html
 
 
-## 뷰 리졸버(JSP 사용하기) ##
+## 뷰 리졸버 ##
+
+&nbsp;&nbsp;&nbsp;&nbsp; [JSP 뷰 리졸버](https://github.com/gnosia93/spring-sample/blob/master/documentation/spring-jsp-viewresolver.md)
 
 
 
