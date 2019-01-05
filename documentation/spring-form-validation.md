@@ -9,6 +9,12 @@ post 처리시 validation 에러가 발생하는 경우, 패스워드 매칭의 
 
 ## registration.html ##
 Thymeleaf template 을 사용하고 있다.
+
+label 에 사용된 th:text에 대해서는 아래 URL 참고 (스프링 로컬라이제이션)
+
+https://github.com/gnosia93/spring-sample/blob/master/documentation/spring-localization.md
+
+
 ```
 <html>
 <body>
