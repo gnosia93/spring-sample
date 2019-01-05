@@ -232,3 +232,9 @@ public class PasswordMatchesValidator implements ConstraintValidator<PasswordMat
 }
 
 ```
+
+## 레퍼런스 ##
+
+https://www.thymeleaf.org/doc/tutorials/2.1/thymeleafspring.html
+
+
