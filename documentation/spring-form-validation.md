@@ -113,11 +113,11 @@ public class UserController {
 ```
 
 
-## Validation 어노테이션 ##
+## 폼요청 객체 ##
 
 ```
 @Data
-@PasswordMatches
+@PasswordMatches                 // 패스워드 validation 
 public class AddUserRequest {
     @NotNull
     @NotEmpty
@@ -134,17 +134,36 @@ public class AddUserRequest {
      
     @NotNull
     @NotEmpty
-    @ValidEmail
+    @ValidEmail                 // 이메일 validation
     private String email;
 }
+```
 
+## 어노테이션 선언 ##
+
+```
+@Target({
+    ElementType.TYPE, 					
+    ElementType.ANNOTATION_TYPE 		
+})
+@Retention(RetentionPolicy.RUNTIME) 	
+@Constraint(validatedBy = PasswordMatchesValidator.class)
+@Documented
+public @interface PasswordMatches {
+	String message() default "패스워드가 일치하지 않습니다.";
+	
+	Class<?>[] groups() default {};
+	
+	Class<? extends Payload>[] payload() default {};
+	
+}
 
 @Target({
     ElementType.TYPE, 				
     ElementType.FIELD,
     ElementType.ANNOTATION_TYPE 		
 })
-@Retention(RetentionPolicy.RUNTIME) 	// 컴파일 이후에도 JVM에 의해서 참조가 가능합니다.
+@Retention(RetentionPolicy.RUNTIME) 	
 @Constraint(validatedBy = EmailValidator.class)
 @Documented
 public @interface ValidEmail {
@@ -155,4 +174,61 @@ public @interface ValidEmail {
 	 
 	 Class<? extends Payload>[] payload() default {};
 }
+```
+
+## Validation 구현 ##
+```
+package com.sbk.ssample.ui.user.validator;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import javax.validation.ConstraintValidator;
+import javax.validation.ConstraintValidatorContext;
+
+import com.sbk.ssample.ui.user.annotation.ValidEmail;
+
+public class EmailValidator implements ConstraintValidator<ValidEmail, String> { 
+
+	private Pattern pattern;
+    
+	private Matcher matcher;
+    
+    private static final String EMAIL_PATTERN = "^[_A-Za-z0-9-+]+(.[_A-Za-z0-9-]+)*@" + "[A-Za-z0-9-]+(.[A-Za-z0-9]+)*(.[A-Za-z]{2,})$"; 
+    
+    @Override
+    public void initialize(ValidEmail constraintAnnotation) {       
+    }
+    
+    @Override
+    public boolean isValid(String email, ConstraintValidatorContext context){   
+        return (validateEmail(email));
+    } 
+    
+    private boolean validateEmail(String email) {
+        pattern = Pattern.compile(EMAIL_PATTERN);
+        matcher = pattern.matcher(email);
+        return matcher.matches();
+    }
+}
+
+
+package com.sbk.ssample.ui.user.validator;
+
+import javax.validation.ConstraintValidator;
+import javax.validation.ConstraintValidatorContext;
+
+import com.sbk.ssample.ui.user.annotation.PasswordMatches;
+import com.sbk.ssample.ui.user.controller.AddUserRequest;
+
+public class PasswordMatchesValidator implements ConstraintValidator<PasswordMatches, Object> {
+
+	@Override
+	public boolean isValid(Object value, ConstraintValidatorContext context) {
+		
+		AddUserRequest user = (AddUserRequest)value;
+		return user.getPassword().equals(user.getMatchingPassword());
+	}
+}
+
 ```
