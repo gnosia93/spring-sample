@@ -48,8 +48,32 @@
 ```
 
 
+## MVC 컨트롤러 ##
 
 ```
+package com.sbk.ssample.ui.user.controller;
+
+import javax.validation.Valid;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
+import org.springframework.validation.ObjectError;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.sbk.ssample.app.domain.user.Address;
+import com.sbk.ssample.app.domain.user.Gender;
+import com.sbk.ssample.app.service.user.UserService;
+import com.sbk.ssample.app.service.user.command.AddUserCommand;
+import com.sbk.ssample.ui.user.annotation.PasswordMatches;
+
+import lombok.extern.slf4j.Slf4j;
+
 @Slf4j
 @Controller
 @RequestMapping("/user")
@@ -65,19 +89,25 @@ public class UserController {
 	@GetMapping("/registration")
 	public String showRegistrationForm(Model model) {
 		
-		UserDto userDto = new UserDto();
-		model.addAttribute("user", userDto);
+		AddUserRequest userDto = new AddUserRequest();
+		model.addAttribute("userForm", userDto);
 		
 		return "registration";
 	}
-	
 	
 	@PostMapping("/registration")
-	public String registerUserAccount(@ModelAttribute("user") @Valid UserDto userDto) {
-		
-		return "registration";
+	public String registerUserAccount(@ModelAttribute("userForm") @Valid AddUserRequest userDto,
+			BindingResult bindingResult) {
+	
+		if(bindingResult.hasErrors()) {
+			// 에러가 발생하면 해당 페이지에 머무른다. 
+			return "registration";
+		};
+			
+		return "redirect:login";
 	}
 }
+
 ```
 
 
