@@ -68,17 +68,32 @@ javax.servlet.ServletException: Circular view path [registration]: would dispatc
 
 ## 뷰 설정 ##
 
-application.properties 파일에 아래 설정을 추가하고, 재 실행하면 registration.html을 찾을 수 없다는 경고가 뜬다. 
+application.properties 파일에 아래 설정을 추가하고, src/main/webapp/WEB-INF/jsp/registration.jsp 생성 후
+
+재 실행하면 registration.jsp을 찾을 수 없다는 경고가 뜬다. 
 
 ```
 #view setting
 spring.mvc.view.prefix=/WEB-INF/jsp/
 spring.mvc.view.suffix=.jsp
 
-2019-01-05 12:41:39.656 WARN ---[nio-8080-exec-1] o.s.w.s.r.ResourceHttpRequestHandler Path with "WEB-INF" or "META-INF": [WEB-INF/jsp/registration.jsp]
+2019-01-05 12:41:39.656 WARN ---[nio-8080-exec-1] o.s.w.s.r.ResourceHttpRequestHandler Path with "WEB-INF" or "META-INF": [WEB-INF/jsp/registration.jsp]
 
+## POM 의존관계 추가 ##
 
+아래의 의존관계 등록 후 재 실행하면 제대로 동작한다. 
 
+```
+<dependency>
+	<groupId>javax.servlet</groupId>
+	<artifactId>jstl</artifactId>
+</dependency>
+<dependency>
+	<groupId>org.apache.tomcat.embed</groupId>
+	<artifactId>tomcat-embed-jasper</artifactId>
+	<scope>provided</scope>
+</dependency>
+```
 
 
 
