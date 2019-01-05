@@ -66,7 +66,7 @@ javax.servlet.ServletException: Circular view path [registration]: would dispatc
 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
 ```
 
-### 뷰 설정 ###
+## 뷰 설정 ##
 
 application.properties 파일에 아래 설정을 추가하고, 재 실행하면 registration.html을 찾을 수 없다는 경고가 뜬다. 
 
