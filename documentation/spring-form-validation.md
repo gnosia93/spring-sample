@@ -104,7 +104,7 @@ public class UserController {
 	public String showRegistrationForm(Model model) {
 		
 		AddUserRequest userDto = new AddUserRequest();
-		model.addAttribute("userForm", userDto);
+		model.addAttribute("userForm", userDto);	    // th:object="${userForm}" 에 해당
 		
 		return "registration";
 	}
@@ -162,6 +162,7 @@ public class AddUserRequest {
 @Constraint(validatedBy = PasswordMatchesValidator.class)
 @Documented
 public @interface PasswordMatches {
+
 	String message() default "패스워드가 일치하지 않습니다.";
 	
 	Class<?>[] groups() default {};
