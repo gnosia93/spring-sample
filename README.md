@@ -5,6 +5,9 @@ https://docs.spring.io/spring-boot/docs/1.2.3.RELEASE/reference/htmlsingle/#usin
 GIT https://backlog.com/git-tutorial/kr/stepup/stepup2_1.html
 
 
+## 뷰 리졸버(JSP 사용하기) ##
+
+
 
 ## 스프링 데이타 ##
 &nbsp;&nbsp;&nbsp;&nbsp;[JPA](https://github.com/gnosia93/spring-sample/blob/master/documentation/data/spring-jpa.md)
