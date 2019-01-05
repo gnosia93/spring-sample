@@ -12,6 +12,10 @@ GIT https://backlog.com/git-tutorial/kr/stepup/stepup2_1.html
 &nbsp;&nbsp;&nbsp;&nbsp; [Thymeleaf](https://github.com/gnosia93/spring-sample/blob/master/documentation/spring-thymeleaf.md)
 
 
+## 메시지 처리 ##
+&nbsp;&nbsp;&nbsp;&nbsp; [MVC Localization]
+
+
 ## 스프링 데이타 ##
 &nbsp;&nbsp;&nbsp;&nbsp;[JPA](https://github.com/gnosia93/spring-sample/blob/master/documentation/data/spring-jpa.md)
 
