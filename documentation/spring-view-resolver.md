@@ -72,14 +72,8 @@ application.properties 파일에 아래 설정을 추가하고, 재 실행하면
 
 ```
 #view setting
-spring.mvc.view.prefix=/WEB-INF/html/
-spring.mvc.view.suffix=.html
-
-
-[로그]
-Initializing Spring DispatcherServlet 'dispatcherServlet'
-Initializing Servlet 'dispatcherServlet'
-[WARN]o.s.w.s.r.ResourceHttpRequestHandler Path with "WEB-INF" or "META-INF": [WEB-INF/html/registration.html]
+spring.mvc.view.prefix=/WEB-INF/jsp/
+spring.mvc.view.suffix=.jsp
 ```
 
 
