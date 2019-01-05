@@ -1,6 +1,6 @@
 ## 레퍼런스 ##
 
-https://medium.com/@xoor/jwt-authentication-service-44658409e12c
+https://github.com/murraco/spring-boot-jwt
 
 https://medium.com/omarelgabrys-blog/microservices-with-spring-boot-intro-to-microservices-part-1-c0d24cd422c3
 
