@@ -68,7 +68,7 @@ javax.servlet.ServletException: Circular view path [registration]: would dispatc
 
 ### 뷰 설정 ###
 
-application.properties 파일에 아래 설정을 추가하고 다시 실행. 
+application.properties 파일에 아래 설정을 추가하고, 재 실행하면 registration.html을 찾을 수 없다는 경고가 뜬다. 
 
 ```
 #view setting
@@ -76,12 +76,10 @@ spring.mvc.view.prefix=/WEB-INF/html/
 spring.mvc.view.suffix=.html
 
 
-[2m2019-01-05 12:17:19.216[0;39m [32m INFO[0;39m [35m4180[0;39m [2m---[0;39m [2m[nio-8080-exec-5][0;39m [36mo.a.c.c.C.[Tomcat].[localhost].[/]      [0;39m [2m:[0;39m Initializing Spring DispatcherServlet 'dispatcherServlet'
-[2m2019-01-05 12:17:19.216[0;39m [32m INFO[0;39m [35m4180[0;39m [2m---[0;39m [2m[nio-8080-exec-5][0;39m [36mo.s.web.servlet.DispatcherServlet       [0;39m [2m:[0;39m Initializing Servlet 'dispatcherServlet'
-[2m2019-01-05 12:17:19.220[0;39m [32m INFO[0;39m [35m4180[0;39m [2m---[0;39m [2m[nio-8080-exec-5][0;39m [36mo.s.web.servlet.DispatcherServlet       [0;39m [2m:[0;39m Completed initialization in 4 ms
-[2m2019-01-05 12:17:19.224[0;39m [33m WARN[0;39m [35m4180[0;39m [2m---[0;39m [2m[nio-8080-exec-5][0;39m [36mo.s.w.s.r.ResourceHttpRequestHandler    [0;39m [2m:[0;39m Path with "WEB-INF" or "META-INF": [WEB-INF/html/registration.html]
-
-
+[로그]
+Initializing Spring DispatcherServlet 'dispatcherServlet'
+Initializing Servlet 'dispatcherServlet'
+[WARN]o.s.w.s.r.ResourceHttpRequestHandler Path with "WEB-INF" or "META-INF": [WEB-INF/html/registration.html]
 ```
 
 
