@@ -50,6 +50,8 @@
 
 ## MVC 컨트롤러 ##
 
+@Valid 어노테이션으로 AddUserRequest 폼 데이터에 대해 validation 을 처리하고 있다. 
+
 ```
 package com.sbk.ssample.ui.user.controller;
 
@@ -111,7 +113,46 @@ public class UserController {
 ```
 
 
+## Validation 어노테이션 ##
+
 ```
+@Data
+@PasswordMatches
+public class AddUserRequest {
+    @NotNull
+    @NotEmpty
+    private String firstName;
+     
+    @NotNull
+    @NotEmpty
+    private String lastName;
+     
+    @NotNull
+    @NotEmpty
+    private String password;
+    private String matchingPassword;
+     
+    @NotNull
+    @NotEmpty
+    @ValidEmail
+    private String email;
+}
 
 
+@Target({
+    ElementType.TYPE, 				
+    ElementType.FIELD,
+    ElementType.ANNOTATION_TYPE 		
+})
+@Retention(RetentionPolicy.RUNTIME) 	// 컴파일 이후에도 JVM에 의해서 참조가 가능합니다.
+@Constraint(validatedBy = EmailValidator.class)
+@Documented
+public @interface ValidEmail {
+
+	 String message() default "이메일 주소가 올바르지 않습니다.";
+	 
+	 Class<?>[] groups() default {}; 
+	 
+	 Class<? extends Payload>[] payload() default {};
+}
 ```
