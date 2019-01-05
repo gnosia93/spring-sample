@@ -237,4 +237,5 @@ public class PasswordMatchesValidator implements ConstraintValidator<PasswordMat
 
 https://www.thymeleaf.org/doc/tutorials/2.1/thymeleafspring.html
 
+https://www.baeldung.com/javax-validation
 
