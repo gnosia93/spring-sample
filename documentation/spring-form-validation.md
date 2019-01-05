@@ -1,5 +1,14 @@
 아래 예제는 Thymeleaf 와 자바 어노테이션 및 MVC BindResult를 이용한 Form Validation 예제이다. 
 
+폼의 명칭은 th:object="${userForm}" 이다. 
+
+controller 에서 userFrom 으로 바인딩 된다.
+
+post 처리시 validation 에러가 발생하는 경우 필드 및 글로벌 에러로 매핑된다. 
+
+패스워드 매칭의 경우 global 이고, 나머지는 모두 필드에러이다. 
+
+패스워드 매칭 어노테이션의 경우 AddUserRequest 객체에 바인딩되어 있다. 
 
 ## registration.html (Thymeleaf template) ##
 
