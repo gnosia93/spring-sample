@@ -1,3 +1,12 @@
+아래는 spring boot 에서 jsp 뷰 리졸버를 추가하는 예이다.
+
+jsp를 사용하기 위해서는 jstl 및 tomcat-embed-jasper 가 필요하고,
+
+파일의 경로 및 확장자는 아래와 같이 static 하게 정해져 있는 듯 하다. 
+
+바꾸면 제대로 동작하지 않음. 
+
+
 ## Controller ##
 
 @Controller 어노테이션을 설정하고, 웹 브라우저를 이용하여 http://localhost:8080 으로 접속한다. 
@@ -68,7 +77,9 @@ javax.servlet.ServletException: Circular view path [registration]: would dispatc
 
 ## 뷰 설정 ##
 
-application.properties 파일에 아래 설정을 추가하고, src/main/webapp/WEB-INF/jsp/registration.jsp 생성 후
+application.properties 파일에 아래 설정을 추가하고, 
+
+src/main/webapp/WEB-INF/jsp/registration.jsp 생성 후
 
 재 실행하면 registration.jsp을 찾을 수 없다는 경고가 뜬다. 
 
