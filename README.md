@@ -35,7 +35,16 @@ custom annotation
 
 ## 스프링 시큐리티 ##
 
-https://www.baeldung.com/security-spring
+&nbsp;&nbsp;&nbsp;&nbsp; [Spring Security](https://github.com/gnosia93/spring-sample/blob/master/documentation/security/spring-security.md)
+
+&nbsp;&nbsp;&nbsp;&nbsp; [JWT with Microservier]()
+
+
+## Logging ##
+
+https://geowarin.com/spring-boot-logs-in-elastic-search-with-fluentd/
+
+
 
 ## 스프링 클라우드 ##
 
