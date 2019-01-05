@@ -90,6 +90,20 @@ spring.mvc.view.suffix=.jsp
 
 2019-01-05 12:41:39.656 WARN ---[nio-8080-exec-1] o.s.w.s.r.ResourceHttpRequestHandler Path with "WEB-INF" or "META-INF": [WEB-INF/jsp/registration.jsp]
 
+```
+
 ## POM 의존관계 추가 ##
 
 아래의 의존관계 등록 후 재 실행하면 제대로 동작한다. 
+
+```
+<dependency>
+	<groupId>javax.servlet</groupId>
+	<artifactId>jstl</artifactId>
+</dependency>
+<dependency>
+	<groupId>org.apache.tomcat.embed</groupId>
+	<artifactId>tomcat-embed-jasper</artifactId>
+	<scope>provided</scope>
+</dependency>
+```
