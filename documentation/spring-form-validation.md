@@ -7,8 +7,8 @@ post 처리시 validation 에러가 발생하는 경우, 패스워드 매칭의 
 패스워드 매칭 어노테이션의 경우 AddUserRequest 객체에 바인딩되어 있기 때문이다. 
 
 
-## registration.html (Thymeleaf template) ##
-
+## registration.html ##
+Thymeleaf template 을 사용하고 있다.
 ```
 <html>
 <body>
