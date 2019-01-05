@@ -93,20 +93,3 @@ spring.mvc.view.suffix=.jsp
 ## POM 의존관계 추가 ##
 
 아래의 의존관계 등록 후 재 실행하면 제대로 동작한다. 
-
-
-```
-<dependency>
-	<groupId>javax.servlet</groupId>
-	<artifactId>jstl</artifactId>
-</dependency>
-
-<dependency>
-	<groupId>org.apache.tomcat.embed</groupId>
-	<artifactId>tomcat-embed-jasper</artifactId>
-	<scope>provided</scope>
-</dependency>
-```
-
-
-
