@@ -104,25 +104,8 @@ public class UserController {
 		this.userService = userService;
 	}
 	
-	@GetMapping("/add")
-	public void getUser() {
-		//AddUserRequest --> AddUserCommand --> User Domain Entity --> repository(I)
-		
-		AddUserCommand addUserCommand = new AddUserCommand();
-		addUserCommand.setId("mongo-id-test-01");
-		addUserCommand.setGender(Gender.FEMAIL);
-		addUserCommand.setPassword("password");
-		addUserCommand.setGender(Gender.MAIL);
-		addUserCommand.setName("name");
-		addUserCommand.setAddress(new Address("00000", "서울시", "강동구"));
-		
-		userService.add(addUserCommand);
-		log.info("UserController is called..");
-	}
-	
-	
 	@GetMapping("/registration")
-	public String showRegistrationForm(WebRequest request, Model model) {
+	public String showRegistrationForm(Model model) {
 		
 		UserDto userDto = new UserDto();
 		model.addAttribute("user", userDto);
