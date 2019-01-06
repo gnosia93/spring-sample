@@ -37,7 +37,7 @@ GIT https://backlog.com/git-tutorial/kr/stepup/stepup2_1.html
 
 &nbsp;&nbsp;&nbsp;&nbsp; [Spring Security](https://github.com/gnosia93/spring-sample/blob/master/documentation/security/spring-security.md)
 
-&nbsp;&nbsp;&nbsp;&nbsp; [JWT with Microservier]()
+&nbsp;&nbsp;&nbsp;&nbsp; [JWT](https://github.com/gnosia93/spring-sample/blob/master/documentation/security/spring-jwt.md)
 
 
 ## Logging ##
