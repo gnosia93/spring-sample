@@ -45,6 +45,12 @@ https://www.baeldung.com/spring-boot-add-filter
 
 &nbsp;&nbsp;&nbsp;&nbsp;[@Cacheable](https://github.com/gnosia93/spring-sample/blob/master/documentation/data/spring-cache.md)
 
+Kafka.
+
+https://docs.spring.io/spring-kafka/reference/htmlsingle/
+
+
+
 ## 스프링 시큐리티 ##
 
 &nbsp;&nbsp;&nbsp;&nbsp; [Spring Security](https://github.com/gnosia93/spring-sample/blob/master/documentation/security/spring-security.md)
