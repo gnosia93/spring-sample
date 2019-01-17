@@ -9,4 +9,6 @@ https://docs.spring.io/spring-kafka/reference/htmlsingle/
 
 * 클러스터 구축 http://epicdevs.com/20
 
+* 자바 코드 샘플 http://epicdevs.com/21?category=460351
+
 
