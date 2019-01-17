@@ -1,5 +1,12 @@
-## 레퍼런스 ##
+## Spring Data Kafka ##
 
 https://docs.spring.io/spring-kafka/reference/htmlsingle/
 
-카프카 레퍼런스 .. http://epicdevs.com/17
+
+## Kafka ##
+
+아키텍처 http://epicdevs.com/17
+
+클러스터 구축 http://epicdevs.com/20
+
+
