@@ -2,6 +2,10 @@
 
 https://docs.spring.io/spring-kafka/reference/htmlsingle/
 
+## Spring Boot Kafka Code Sample ##
+
+https://www.baeldung.com/spring-kafka
+
 
 ## Kafka ##
 
