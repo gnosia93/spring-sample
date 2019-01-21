@@ -287,6 +287,55 @@ public class CustomDeserializer<T> implements Deserializer<T> {
 }
 ```
 
+소스상에서 ObjectMapper 를 사용하여 자바 오브젝트를 json 으로 변환해야 하는 Json Serilizor 에 비해 간단한 
+
+코드로 로직을 구현할 수 있게 되었다. 
+
+
+```
+@SpringBootApplication
+public class SpringKafkaApplication {
+
+	@Autowired
+	KafkaTemplate<String, Object> kafkaTemplate;
+	
+	public static void main(String[] args) {
+		SpringApplication.run(SpringKafkaApplication.class, args);
+	}
+
+	@Bean
+	public CommandLineRunner runner() {
+		String topic = "spring";
+
+		return (a) -> {
+			try {
+				
+				System.out.println("send..data");
+				/*
+				ObjectMapper objectMapper = new ObjectMapper();
+				Payload payload = new Payload(1, "test");
+				String data = objectMapper.writeValueAsString(payload);
+				kafkaTemplate.send(topic, data);
+				*/
+				
+				Payload payload = new Payload(1, "test");
+				kafkaTemplate.send(topic, "payload-key", payload);
+				
+				Employee emp = new Employee(2, "firstName", "lastName");
+				kafkaTemplate.send(topic, "emp-key", emp);
+			}
+			catch(Exception e) {
+				e.printStackTrace();
+			}
+		};
+	}
+	
+	@KafkaListener(topics="spring", id="spring-tutorial-grp")
+	public void listen(Object obj) {
+		System.out.println("received message in group " + obj);
+	}
+}
+```
 
 
 
