@@ -15,30 +15,6 @@
 
 ```
 
-## 에러 메시지 ##
-
-카프카 클라이언트 라이브러리는 DNS 리버스 lookup 을 실행하는 것으로 보인다.
-
-아래와 에러 메시지와 같이 DNS 리버스 리졸빙 이슈가 발생하면 /etc/hosts 파일에 
-
-```
-192.168.29.123          startup
-```
-
-를 등록하여 문제를 해결한다. 
-
-```
-java.io.IOException: Can't resolve address: startup:9092
-	at org.apache.kafka.common.network.Selector.doConnect(Selector.java:235) ~[kafka-clients-2.0.1.jar:na]
-	at org.apache.kafka.common.network.Selector.connect(Selector.java:214) ~[kafka-clients-2.0.1.jar:na]
-	at org.apache.kafka.clients.NetworkClient.initiateConnect(NetworkClient.java:864) [kafka-clients-2.0.1.jar:na]
-	at org.apache.kafka.clients.NetworkClient.access$700(NetworkClient.java:64) [kafka-clients-2.0.1.jar:na]
-	at org.apache.kafka.clients.NetworkClient$DefaultMetadataUpdater.maybeUpdate(NetworkClient.java:1035) [kafka-clients-2.0.1.jar:na]
-	at org.apache.kafka.clients.NetworkClient$DefaultMetadataUpdater.maybeUpdate(NetworkClient.java:
-
-```
-
-
 ## 샘플 코드 ##
 ```
 
@@ -141,6 +117,30 @@ public class SpringKafkaApplication {
 		System.out.println("received message in group - group-id: " + message);
 	}
 }
+```
+
+
+## 에러 메시지 ##
+
+카프카 클라이언트 라이브러리는 DNS 리버스 lookup 을 실행하는 것으로 보인다.
+
+아래와 에러 메시지와 같이 DNS 리버스 리졸빙 이슈가 발생하면 /etc/hosts 파일에 
+
+```
+192.168.29.123          startup
+```
+
+를 등록하여 문제를 해결한다. 
+
+```
+java.io.IOException: Can't resolve address: startup:9092
+	at org.apache.kafka.common.network.Selector.doConnect(Selector.java:235) ~[kafka-clients-2.0.1.jar:na]
+	at org.apache.kafka.common.network.Selector.connect(Selector.java:214) ~[kafka-clients-2.0.1.jar:na]
+	at org.apache.kafka.clients.NetworkClient.initiateConnect(NetworkClient.java:864) [kafka-clients-2.0.1.jar:na]
+	at org.apache.kafka.clients.NetworkClient.access$700(NetworkClient.java:64) [kafka-clients-2.0.1.jar:na]
+	at org.apache.kafka.clients.NetworkClient$DefaultMetadataUpdater.maybeUpdate(NetworkClient.java:1035) [kafka-clients-2.0.1.jar:na]
+	at org.apache.kafka.clients.NetworkClient$DefaultMetadataUpdater.maybeUpdate(NetworkClient.java:
+
 ```
 
 
