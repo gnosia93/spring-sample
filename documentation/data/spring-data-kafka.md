@@ -90,6 +90,42 @@ public class KafkaConfig {
 
 ```
 
+```
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
+import org.springframework.kafka.annotation.KafkaListener;
+import org.springframework.kafka.core.KafkaTemplate;
+
+
+@SpringBootApplication
+public class SpringKafkaApplication {
+
+	@Autowired
+	KafkaTemplate<String, String> kafkaTemplate;
+	
+	public static void main(String[] args) {
+		SpringApplication.run(SpringKafkaApplication.class, args);
+	}
+
+	
+	@Bean
+	public CommandLineRunner runner() {
+		String topic = "spring-tutorial";
+		return (a) -> {
+			kafkaTemplate.send(topic, "test message");
+		};
+	}
+	
+	@KafkaListener(topics="spring-tutorial", id="spring-tutorial-grp")
+	public void listen(String message) {
+		System.out.println("received message in group - group-id: " + message);
+	}
+}
+```
+
 
 
 ## Spring Data Kafka ##
