@@ -1,3 +1,20 @@
+## POM ##
+
+```
+<dependencies>
+	<dependency>
+		<groupId>org.springframework.kafka</groupId>
+		<artifactId>spring-kafka</artifactId>
+	</dependency>
+	<dependency>
+		<groupId>org.springframework.kafka</groupId>
+		<artifactId>spring-kafka-test</artifactId>
+		<scope>test</scope>
+	</dependency>
+</dependencies>
+
+```
+
 ## 에러 메시지 ##
 
 카프카 클라이언트 라이브러는 DNS 리버스 lookup 을 실행하는 것으로 보인다.
