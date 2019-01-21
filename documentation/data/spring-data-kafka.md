@@ -144,9 +144,14 @@ java.io.IOException: Can't resolve address: startup:9092
 ```
 
 
-# JSON #
+# JSON / Object Serializer 구현 #
+
+실무에서 사용하는 payload 의 경우 string 형식 보다는 좀 더 복잡한 json 또는 java object 를 사용한다. 
+
+
 http://wpcertification.blogspot.com/2016/12/sending-and-receiving-json-messages-in.html
 
+https://stackoverflow.com/questions/41141924/send-custom-java-objects-to-kafka-topic
 
 
 
