@@ -148,7 +148,23 @@ java.io.IOException: Can't resolve address: startup:9092
 
 # JSON / Object Serializer 구현 #
 
-실무에서 사용하는 payload 의 경우 string 형식 보다는 좀 더 복잡한 json 또는 java object 를 사용한다. 
+바이트 와 자바 객체간의 변환 로직이 Serializer / Deserializer 이다. 
+
+```
+public interface Serializer<T>
+extends java.io.Closeable
+An interface for converting objects to bytes. A class that implements this interface is expected to have a constructor with no parameter.
+
+public interface Deserializer<T>
+extends java.io.Closeable
+An interface for converting bytes to objects. A class that implements this interface is expected to have a constructor with no parameters.
+```	
+	
+	
+
+
+
+
 
 
 http://wpcertification.blogspot.com/2016/12/sending-and-receiving-json-messages-in.html
