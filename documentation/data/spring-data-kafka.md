@@ -4,13 +4,13 @@
 
 아래와 같이 DNS 리버스 리졸빙 이슈가 발생하면 /etc/hosts 파일에 
 
+```
 192.168.29.123          startup
+```
 
 를 등록하도록 한다. 
 
 ```
-2019-01-21 22:29:53.163[0;39m [33m WARN[0;39m [35m4152[0;39m [2m---[0;39m [2m[orial-dev-0-C-1][0;39m [36morg.apache.kafka.clients.NetworkClient  [0;39m [2m:[0;39m [Consumer clientId=consumer-2, groupId=spring-tutorial-dev] Error connecting to node startup:9092 (id: 0 rack: null)
-
 java.io.IOException: Can't resolve address: startup:9092
 	at org.apache.kafka.common.network.Selector.doConnect(Selector.java:235) ~[kafka-clients-2.0.1.jar:na]
 	at org.apache.kafka.common.network.Selector.connect(Selector.java:214) ~[kafka-clients-2.0.1.jar:na]
