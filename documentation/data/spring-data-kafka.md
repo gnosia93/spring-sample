@@ -144,6 +144,11 @@ java.io.IOException: Can't resolve address: startup:9092
 ```
 
 
+# JSON #
+http://wpcertification.blogspot.com/2016/12/sending-and-receiving-json-messages-in.html
+
+
+
 
 ## Spring Data Kafka ##
 
