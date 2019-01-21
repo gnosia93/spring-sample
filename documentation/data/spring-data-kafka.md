@@ -148,16 +148,24 @@ java.io.IOException: Can't resolve address: startup:9092
 
 # JSON / Object Serializer 구현 #
 
-바이트 와 자바 객체간의 변환 로직이 Serializer / Deserializer 이다. 
+바이트 와 자바 객체간의 변환 로직이 Serializer / Deserializer 이다.
+
+Json 시리얼 라이저의 경우 Json 스트링을 byte 로 변환하는 것이며,
+
+object 시리얼 라이저는 자바 오브젝트를 byte 로 변환하는 것이다. 
+
+바이트로 변환하는 이유는 네트워크로 전송하기 위함이다. 
 
 ```
 public interface Serializer<T>
 extends java.io.Closeable
-An interface for converting objects to bytes. A class that implements this interface is expected to have a constructor with no parameter.
+An interface for converting objects to bytes. 
+A class that implements this interface is expected to have a constructor with no parameter.
 
 public interface Deserializer<T>
 extends java.io.Closeable
-An interface for converting bytes to objects. A class that implements this interface is expected to have a constructor with no parameters.
+An interface for converting bytes to objects. 
+A class that implements this interface is expected to have a constructor with no parameters.
 ```	
 	
 	
