@@ -17,15 +17,15 @@
 
 ## 에러 메시지 ##
 
-카프카 클라이언트 라이브러는 DNS 리버스 lookup 을 실행하는 것으로 보인다.
+카프카 클라이언트 라이브러리는 DNS 리버스 lookup 을 실행하는 것으로 보인다.
 
-아래와 같이 DNS 리버스 리졸빙 이슈가 발생하면 /etc/hosts 파일에 
+아래와 에러 메시지와 같이 DNS 리버스 리졸빙 이슈가 발생하면 /etc/hosts 파일에 
 
 ```
 192.168.29.123          startup
 ```
 
-를 등록하도록 한다. 
+를 등록하여 문제를 해결한다. 
 
 ```
 java.io.IOException: Can't resolve address: startup:9092
