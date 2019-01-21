@@ -150,9 +150,7 @@ java.io.IOException: Can't resolve address: startup:9092
 
 바이트 와 자바 객체간의 변환 로직이 Serializer / Deserializer 이다.
 
-Json 시리얼 라이저의 경우 Json 스트링을 byte 로 변환하는 것이며,
-
-object 시리얼 라이저는 자바 오브젝트를 byte 로 변환하는 것이다. 
+Json 시리얼 라이저의 경우 Json 스트링을 byte 로 변환하는 것이며, object 시리얼 라이저는 자바 오브젝트를 byte 로 변환하는 것이다. 
 
 바이트로 변환하는 이유는 네트워크로 전송하기 위함이다. 
 
@@ -168,7 +166,126 @@ An interface for converting bytes to objects.
 A class that implements this interface is expected to have a constructor with no parameters.
 ```	
 	
+```
+@EnableKafka
+@Configuration
+public class KafkaConfig {
+
+	String bootstrapServer = "192.168.29.123:9092";
+	String topic = "spring";
 	
+	
+	@Bean
+	public ProducerFactory<String, Object> producerFactory() {
+		Map<String, Object> configs = new HashMap<>();
+		configs.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapServer);
+		configs.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
+//		configs.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, JsonSerializer.class);
+		configs.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, CustomSerializer.class);
+		
+		return new DefaultKafkaProducerFactory<>(configs);
+	}
+	
+	@Bean
+	public KafkaTemplate<String, Object> kafkaTemplate() {
+		return new KafkaTemplate<>(producerFactory());
+	}
+	
+	
+	@Bean
+	public ConsumerFactory<String, String> consumerFactory() {
+		Map<String, Object> configs = new HashMap<>();
+		configs.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapServer);
+	//	configs.put(ConsumerConfig.GROUP_ID_CONFIG, topic);
+		configs.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
+//		configs.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, JsonDeserializer.class);
+		configs.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, CustomDeserializer.class);
+		return new DefaultKafkaConsumerFactory<>(configs);
+	}
+	
+	@Bean
+	public ConcurrentKafkaListenerContainerFactory<String, String> kafkaListenerContainerFactory() {
+		ConcurrentKafkaListenerContainerFactory<String, String> factory = 
+				new ConcurrentKafkaListenerContainerFactory<>();
+		factory.setConsumerFactory(consumerFactory());
+		
+		return factory;
+	}
+}
+
+```
+
+ObjectMapper 의 기능을 활용하여 byte , object 간의 변환 기능을 구현한다. 
+
+```
+// Serializer (Object --> Byte 구현)
+
+import java.util.Map;
+import org.apache.kafka.common.serialization.Serializer;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+public class CustomSerializer<T> implements Serializer<T> {
+
+	ObjectMapper objectMapper = new ObjectMapper();
+	
+	@Override
+	public void configure(Map<String, ?> configs, boolean isKey) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public byte[] serialize(String topic, T data) {
+		byte[] byteData = null;
+		try {
+			byteData = objectMapper.writeValueAsBytes(data);
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		return byteData;
+	}
+
+	@Override
+	public void close() {
+	}
+}
+
+
+// Deserializer (Byte --> Object 변환 구현)
+
+import java.util.Map;
+import org.apache.kafka.common.serialization.Deserializer;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+public class CustomDeserializer<T> implements Deserializer<T> {
+	ObjectMapper objectMapper = new ObjectMapper();
+	
+	@Override
+	public void configure(Map<String, ?> configs, boolean isKey) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public T deserialize(String topic, byte[] data) {
+		try {
+			return (T)objectMapper.readValue(data, Object.class);
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	@Override
+	public void close() {
+		
+	}
+}
+```
 
 
 
