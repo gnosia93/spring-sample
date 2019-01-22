@@ -381,6 +381,10 @@ public class Payload implements Serializable {
 
 ```
 
+오브젝트 시리얼라이즈를 사용하는 경우 카프카 메시지는 오브젝트 Byte 값이 저장되므로, 알아 볼수 없는 값이다.
+
+이와는 반대로 Json 시리얼 라지르를 사용하는 경우는 json string 포맷으로 저장된다. 
+
 ```
 	@SuppressWarnings("unchecked")
 	@Override
