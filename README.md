@@ -103,7 +103,7 @@ http://redutan.github.io/2015/09/23/spring-commandline-example
 
 ## Testing ##
 
-[Java Mock Server]()
+[Java Mock Server](https://github.com/gnosia93/spring-sample/blob/master/documentation/test/mock-server.md)
 
 
 https://codecentric.github.io/chaos-monkey-spring-boot/#docs
