@@ -346,6 +346,126 @@ http://wpcertification.blogspot.com/2016/12/sending-and-receiving-json-messages-
 https://stackoverflow.com/questions/41141924/send-custom-java-objects-to-kafka-topic
 
 
+## Object Serialization ##
+
+각 데이타 타입에 대해 Serializable 인터페이스를 구현한다. 
+
+```
+@Getter
+public class Employee implements Serializable {
+	int id;
+	String firstName;
+	String lastName;
+		
+	public Employee(int id, String firstName, String lastName) {
+		this.id = id;
+		this.firstName = firstName;
+		this.lastName = lastName;
+	}
+		
+}
+
+@Getter
+public class Payload implements Serializable {
+	long id;
+	String title;
+	LocalTime time;
+	
+	public Payload(long id, String title) {
+		this.id = id;
+		this.title = title;
+		this.time = LocalTime.now();
+	}
+}
+
+
+```
+
+```
+	@SuppressWarnings("unchecked")
+	@Override
+	public T deserialize(String topic, byte[] data) {
+		Object obj = null;
+		try {
+		//	return (T)objectMapper.readValue(data, Object.class);
+			ByteArrayInputStream bis = new ByteArrayInputStream(data);
+			ObjectInputStream ois = new ObjectInputStream(bis);
+			obj = ois.readObject();
+			
+			ois.close();
+			bis.close();
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		return (T)obj;
+	}
+	
+	@Override
+	public byte[] serialize(String topic, T data) {
+		byte[] byteData = null;
+		try {
+			//byteData = objectMapper.writeValueAsBytes(data);
+			ByteArrayOutputStream baos = new ByteArrayOutputStream();
+			ObjectOutputStream oos = new ObjectOutputStream(baos);
+			oos.writeObject(data);
+			oos.close();
+			
+			byteData = baos.toByteArray();
+			baos.close();
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		return byteData;
+	}
+```
+
+```
+@SpringBootApplication
+public class SpringKafkaApplication {
+
+	@Autowired
+	KafkaTemplate<String, Object> kafkaTemplate;
+	
+	public static void main(String[] args) {
+		SpringApplication.run(SpringKafkaApplication.class, args);
+	}
+
+	
+	@Bean
+	public CommandLineRunner runner() {
+		String topic = "spring";
+	
+		
+		return (a) -> {
+			try {
+				Payload payload = new Payload(1, "test");
+				kafkaTemplate.send(topic, "payload-key", payload);
+				
+				Employee emp = new Employee(2, "firstName", "lastName");
+				kafkaTemplate.send(topic, "emp-key", emp);
+			}
+			catch(Exception e) {
+				e.printStackTrace();
+			}
+		};
+	}
+	
+	@KafkaListener(topics="spring", id="spring-tutorial-grp")
+	public void listen(ConsumerRecord<String, Object> record) {
+		System.out.println("received message in group " + record);
+		if(record.value() instanceof Employee) {
+			Employee e = (Employee)record.value();
+			System.out.println(e.getFirstName());
+		}
+		
+	}
+}
+```
+
 
 ## Spring Data Kafka ##
 
