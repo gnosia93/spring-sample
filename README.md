@@ -47,7 +47,9 @@ https://www.baeldung.com/spring-boot-add-filter
 
 &nbsp;&nbsp;&nbsp;&nbsp;[Kafka](https://github.com/gnosia93/spring-sample/blob/master/documentation/data/spring-data-kafka.md)
 
+elastic search / spring 
 
+https://www.youtube.com/watch?v=bYiNlCaaRiI
 
 
 
