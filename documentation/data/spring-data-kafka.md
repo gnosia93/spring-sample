@@ -1,5 +1,16 @@
 # 기본 예제 #
 
+https://www.youtube.com/watch?v=NjHYWEV_E_o
+
+그냥 json 으로 보내면 될 듯..
+```
+class Payload<T>
+{
+     Localtime timestamp;
+     T data;
+}
+```
+
 ## POM ##
 
 ```
