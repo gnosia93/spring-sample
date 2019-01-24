@@ -153,9 +153,9 @@ public class JpaController {
 			userRepository.save(user);
 		}
 	}
-	
-
 ```
+
+레포지토리를 이용하여 save 하므로 에러가 발생하지 않는다. 
 
 
 ## Using Application Entity Manager ##
