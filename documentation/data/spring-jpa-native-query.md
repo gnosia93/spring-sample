@@ -158,6 +158,60 @@ public class JpaController {
 ```
 
 
+## Entity Manager Save ##
+
+엔터티 메니저를 바로 사용하는 경우 에러가 발생한다.. 왜 일까 ??
+```
+@RestController
+public class JpaController {
+	
+	@Autowired
+	private EntityManager entityManager;
+	
+	@Autowired
+	private UserRepository userRepository;
+	
+	@GetMapping(value="/jpa")
+	public void insert() {
+		System.out.println("....jpa insert..");
+		
+		nativeInsert();
+	
+	}
+	
+	@Transactional
+	public void nativeInsert() {
+		for(int i = 0; i < 10; i++) {
+			User user = new User(i, "name" + i, 1);
+			entityManager.persist(user);		
+		}
+	}
+}
+
+Thu Jan 24 15:28:18 KST 2019
+There was an unexpected error (type=Internal Server Error, status=500).
+No EntityManager with actual transaction available for current thread - cannot reliably process 'persist' call
+javax.persistence.TransactionRequiredException: No EntityManager with actual transaction available for current thread - cannot reliably process 'persist' call
+	at org.springframework.orm.jpa.SharedEntityManagerCreator$SharedEntityManagerInvocationHandler.invoke(SharedEntityManagerCreator.java:292)
+	at com.sun.proxy.$Proxy366.persist(Unknown Source)
+	at io.startup.demo.controller.JpaController.nativeInsert(JpaController.java:38)
+	at io.startup.demo.controller.JpaController.insert(JpaController.java:28)
+	at io.startup.demo.controller.JpaController$$FastClassBySpringCGLIB$$ed60617.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:684)
+	at io.startup.demo.controller.JpaController$$EnhancerBySpringCGLIB$$b49a2fdc.insert(<generated>)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:189)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:102)
+	at 
+```
+
+
+
 ## Multiple IN predicate / Dynamic Query ##
 ```
 
