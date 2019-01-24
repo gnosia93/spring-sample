@@ -88,11 +88,22 @@ Hibernate: create table tb_user (id bigint not null, name varchar(255), status i
 	
 	@GetMapping(value="/jpa/select")
 	public void select() {
+	
+		// status 값이 1인 유저 리스트
 		List<User> userList = userRepository.findAllByStatus(1);
 		for(User user: userList) {
 			System.out.println("User " + user.getId() + " - " + user.getName() + user.getStatus());
 		}
 		
+		// 페이지번호는 0 에서 시작한다. 3 은 페이지 사이즈이다 
+		PageRequest pageRequest = PageRequest.of(0,  3);
+		Page<User> pageableUserList = userRepository.findAllWithPagination(pageRequest);
+		
+		System.out.println("total pages : " + pageableUserList.getTotalPages());
+		System.out.println("total counts : " + pageableUserList.getTotalElements());
+		System.out.println("page size: " + pageableUserList.getSize());
+		for(User user : pageableUserList.getContent())
+			System.out.println("User " + user.getId() + " - " + user.getName() + " - " + user.getStatus());
 	}
 
 
@@ -102,6 +113,11 @@ public interface UserRepository extends JpaRepository<User, Long>{
 
 	@Query(value="select * from tb_user where status = :status", nativeQuery = true)
 	public List<User> findAllByStatus(@Param("status") int status);
+	
+	// 페이징 
+	@Query(value="select * from tb_user order by id desc",
+		   countQuery="select count(1) from tb_user", nativeQuery=true)
+	public Page<User> findAllWithPagination(Pageable pageable);
 }
 
 ```
