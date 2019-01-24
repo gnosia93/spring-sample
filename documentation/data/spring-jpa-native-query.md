@@ -122,6 +122,42 @@ public interface UserRepository extends JpaRepository<User, Long>{
 
 ```
 
+## Using Entity Manager ##
+```
+@RestController
+public class JpaController {
+	
+	@Autowired
+	private EntityManager entityManager;
+	
+	@Autowired
+	private UserRepository userRepository;
+	
+	@GetMapping(value="/jpa")
+	public void insert() {
+		System.out.println("....jpa insert..");
+		
+		nativeInsert();
+	
+		Query query = entityManager.createNativeQuery("select id, name, status from tb_user", User.class);
+		List<User> userListByEm = query.getResultList();
+		for(User user: userListByEm) 
+			System.out.println("User " + user.getId() + " - " + user.getName());
+	}
+	
+	@Transactional
+	public void nativeInsert() {
+		
+		for(int i = 0; i < 10; i++) {
+			User user = new User(i, "name" + i, 1);
+			userRepository.save(user);
+		}
+	}
+	
+
+```
+
+
 ## Multiple IN predicate / Dynamic Query ##
 ```
 
