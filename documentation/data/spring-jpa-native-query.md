@@ -4,8 +4,8 @@
 
 ```
 <dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-jpa</artifactId>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-data-jpa</artifactId>
 </dependency>
 
 ***************************
@@ -28,18 +28,49 @@ Consider the following:
 
 2. POM 에 H2 의존성 추가
 
-정상동작.
+@Entity 테이블을 자동으로 생성해 준다. 
 
 ```
+#pom
 <dependency>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-data-jpa</artifactId>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-data-jpa</artifactId>
 </dependency>
-dependency>
-		<groupId>com.h2database</groupId>
-		<artifactId>h2</artifactId>
-		<scope>runtime</scope>
+<dependency>
+    <groupId>com.h2database</groupId>
+    <artifactId>h2</artifactId>
+    <scope>runtime</scope>
 </dependency>   
+
+#application.properties
+spring.jpa.show-sql=true
+
+
+#code
+@SpringBootApplication
+public class SpringJpgNativeQuery1Application {
+
+	public static void main(String[] args) {
+		SpringApplication.run(SpringJpgNativeQuery1Application.class, args);
+	}
+	
+	@NoArgsConstructor
+	@Data
+	@Entity
+	@Table(name="tb_user")
+	class User {
+		@Id
+		long id;
+		String name;
+		int status;
+	}
+
+}
+
+#log
+Hibernate: drop table tb_user if exists
+Hibernate: create table tb_user (id bigint not null, name varchar(255), status integer not null, primary key (id))
+
 ```
 
 
