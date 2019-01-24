@@ -78,7 +78,7 @@ Hibernate: create table tb_user (id bigint not null, name varchar(255), status i
 
 
 
-## sample code ##
+## 네이티브 쿼리 / 페이징  ##
 
 ```
 #controller
