@@ -122,8 +122,16 @@ public interface UserRepository extends JpaRepository<User, Long>{
 
 ```
 
+## Multiple IN predicate / Dynamic Query ##
+```
+
+```
+
+
 ## 레퍼런스 ##
 
 https://thoughts-on-java.org/jpa-native-queries/
 
 https://www.baeldung.com/spring-data-jpa-query
+
+https://www.logicbig.com/tutorials/spring-framework/spring-data/native-query.html
