@@ -169,7 +169,7 @@ public class JpaController {
 public class JpaController {
 	
 	@Autowired
-	private EntityManager entityManager;
+	private EntityManager entityManager;           // 스프링 컨테이넌가 생성한 엔터티 매니저이다. 
 	
 	@Autowired
 	private UserRepository userRepository;
@@ -235,7 +235,7 @@ public class JpaController {
 		//Use below code on create/update
 		EntityManager entityManager = entityManagerFactory.createEntityManager();
 		
-		EntityTransaction tx = entityManager.getTransaction();
+		EntityTransaction tx = entityManager.getTransaction();         // 어플리케이션에서 생성한 엔터티 매니저.
 		tx.begin();
 		for(int i = 0; i < 10; i++) {
 			User user = new User(i, "name" + i, 1);
