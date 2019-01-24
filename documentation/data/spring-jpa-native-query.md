@@ -122,7 +122,7 @@ public interface UserRepository extends JpaRepository<User, Long>{
 
 ```
 
-## Using Entity Manager ##
+## Using Container Entity Manager ##
 ```
 @RestController
 public class JpaController {
@@ -158,9 +158,12 @@ public class JpaController {
 ```
 
 
-## Entity Manager Save ##
+## Using Application Entity Manager ##
 
-엔터티 메니저를 바로 사용하는 경우 에러가 발생한다.. 왜 일까 ??
+오토와이어된 EntityManager는 스프링 컨테이너에서 생성한 엔터티 매니저로서 읽기만 지원한다. 
+
+쓰기기는 지원하지 않음 ( 컨테이너가 생성했고, 선언적 트랜잭션만 스프링에서 지원하니깐 막아 놓은 듯 하다) 
+
 ```
 @RestController
 public class JpaController {
@@ -208,6 +211,55 @@ javax.persistence.TransactionRequiredException: No EntityManager with actual tra
 	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138)
 	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:102)
 	at 
+```
+
+아래와 같이 EntityManagerFactory 에서 EntityManager 를 직접 생성해서 트랜잭션을 처리해야 오류가 발생하지 않는다. 
+
+```
+@RestController
+public class JpaController {
+	
+	// private EntityManager entityManager;
+	@Autowired
+	private EntityManagerFactory entityManagerFactory;
+	
+	@GetMapping(value="/jpa")
+	public void insert() {
+		
+		nativeInsert();
+		selectAll();
+	}
+	
+	// @Transactional
+	public void nativeInsert() {
+		//Use below code on create/update
+		EntityManager entityManager = entityManagerFactory.createEntityManager();
+		
+		EntityTransaction tx = entityManager.getTransaction();
+		tx.begin();
+		for(int i = 0; i < 10; i++) {
+			User user = new User(i, "name" + i, 1);
+			// userRepository.save(user);
+			entityManager.persist(user);
+		}
+		
+		tx.commit();
+		
+		System.out.println(entityManager);
+		entityManager.close();
+	}
+	
+	private void selectAll() {
+		EntityManager entityManager = entityManagerFactory.createEntityManager();
+		Query query = entityManager.createNativeQuery("select id, name, status from tb_user", User.class);
+		List<User> userListByEm = query.getResultList();
+		for(User user: userListByEm) 
+			System.out.println("User " + user.getId() + " - " + user.getName());
+		
+		System.out.println(entityManager);
+		entityManager.close();
+	}
+
 ```
 
 
