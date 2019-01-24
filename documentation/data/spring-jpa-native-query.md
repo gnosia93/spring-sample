@@ -109,3 +109,5 @@ public interface UserRepository extends JpaRepository<User, Long>{
 ## 레퍼런스 ##
 
 https://thoughts-on-java.org/jpa-native-queries/
+
+https://www.baeldung.com/spring-data-jpa-query
