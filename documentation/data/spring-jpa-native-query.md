@@ -278,3 +278,5 @@ https://www.baeldung.com/spring-data-jpa-query
 
 https://www.logicbig.com/tutorials/spring-framework/spring-data/native-query.html
 
+https://stackoverflow.com/questions/17860696/not-allowed-to-create-transaction-on-shared-entitymanager-use-spring-transacti
+
