@@ -28,10 +28,12 @@ Consider the following:
 
 2. POM 에 H2 의존성 추가
 
+스프링 부트의 기본 DBMS 는 H2 로 POM 에 의존성을 추가해 주면, 별다른 설정없이 사용할 수 있다. 
+
 @Entity 테이블을 자동으로 생성해 준다. 
 
 ```
-#pom
+# POM
 <dependency>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-data-jpa</artifactId>
@@ -42,11 +44,12 @@ Consider the following:
     <scope>runtime</scope>
 </dependency>   
 
-#application.properties
+
+# application.properties
 spring.jpa.show-sql=true
 
 
-#code
+# 코드샘플
 @SpringBootApplication
 public class SpringJpgNativeQuery1Application {
 
