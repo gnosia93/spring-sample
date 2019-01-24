@@ -78,6 +78,28 @@ Hibernate: create table tb_user (id bigint not null, name varchar(255), status i
 ## sample code ##
 
 ```
+#controller
+
+	@Autowired
+	private UserRepository userRepository;
+	
+	@GetMapping(value="/jpa/select")
+	public void select() {
+		List<User> userList = userRepository.findAllByStatus(1);
+		for(User user: userList) {
+			System.out.println("User " + user.getId() + " - " + user.getName() + user.getStatus());
+		}
+		
+	}
+
+
+# repository 
+
+public interface UserRepository extends JpaRepository<User, Long>{
+
+	@Query(value="select * from tb_user where status = :status", nativeQuery = true)
+	public List<User> findAllByStatus(@Param("status") int status);
+}
 
 ```
 
