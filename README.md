@@ -65,6 +65,10 @@ https://www.youtube.com/watch?v=bYiNlCaaRiI
 
 ## Logging ##
 
+&nbsp;&nbsp;&nbsp;&nbsp; [logback](https://github.com/gnosia93/spring-sample/blob/master/documentation/logging/logback.md)
+
+
+
 logback + elastic search ... https://jsonobject.tistory.com/243
 
 https://geowarin.com/spring-boot-logs-in-elastic-search-with-fluentd/
