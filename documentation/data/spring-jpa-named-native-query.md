@@ -16,3 +16,5 @@ https://vladmihalcea.com/the-best-way-to-map-a-projection-query-to-a-dto-with-jp
 4. procedure..
 
 5. 오라클 테스트 등..
+
+6. auditing.. https://www.baeldung.com/database-auditing-jpa
