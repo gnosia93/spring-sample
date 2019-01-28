@@ -39,6 +39,9 @@ https://www.baeldung.com/spring-boot-add-filter
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - [JPA Native Query](https://github.com/gnosia93/spring-sample/blob/master/documentation/data/spring-jpa-native-query.md)
 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - [Named Native Query POJO Mapping](https://github.com/gnosia93/spring-sample/blob/master/documentation/data/spring-jpa-named-native-query.md)
+
+
 &nbsp;&nbsp;&nbsp;&nbsp;[몽고DB](https://github.com/gnosia93/spring-sample/blob/master/documentation/data/spring-data-mongo.md)
 
 &nbsp;&nbsp;&nbsp;&nbsp;[카산드라](https://github.com/gnosia93/spring-sample/blob/master/documentation/data/spring-data-cassandra.md)
