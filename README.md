@@ -59,6 +59,13 @@ elastic search / spring
 https://www.youtube.com/watch?v=bYiNlCaaRiI
 
 
+## 스프링 Rest ##
+
+RestTemplate.
+
+https://docs.spring.io/spring/docs/3.0.x/spring-framework-reference/html/remoting.html#rest-client-access
+
+
 
 
 ## 스프링 시큐리티 ##
