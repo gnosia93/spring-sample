@@ -1,5 +1,13 @@
 엔터티에 @SqlResultSetMapping 이용하여 DTO 매핑을 정의한다. 
 
+아래의 매핑은 Product, Order, Member 간의 매핑으로 세 테이블 간의 조인 결과를 받아오기 위한 매핑이다.
+
+DB 조회 결과값은 ProductOrderedMemberResult.class 클래스의 인스턴스 타입으로 리턴된다. 
+
+특이한 점은, EntityManger 를 이용하여 NativeNamedQuery를 실행하는 형태라서, 엔터티중 하나에는 아래와 같이 반드시 
+
+매핑이 선언되어야 한다. 
+
 ```
 @SqlResultSetMapping(
 	name="ProductOrderedMemberMapping",
