@@ -1,5 +1,7 @@
 @CreatedBy, @CreatedDate, @LastModifiedBy, @LastModifiedDate 어노테이션을 엔터티 클래스에 추가한다. 
 
+@EntityListeners(AuditingEntityListener.class) 스프링에서 기본적으로 제공하는 리스너인 어노테이션을 추가한다.
+
 ```
 @Data
 @AllArgsConstructor
