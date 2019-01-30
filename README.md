@@ -65,7 +65,9 @@ RestTemplate.
 
 https://docs.spring.io/spring/docs/3.0.x/spring-framework-reference/html/remoting.html#rest-client-access
 
+https://www.baeldung.com/rest-template
 
+https://spring.io/guides/gs/async-method/
 
 
 ## 스프링 시큐리티 ##
@@ -94,6 +96,7 @@ https://supawer0728.github.io/2018/03/11/Spring-Cloud-Feign/
 
 ## 웹소켓 ##
 https://supawer0728.github.io/2018/03/30/spring-websocket/
+
 
 ## 튜토리얼  ##
 
