@@ -33,7 +33,6 @@ public class Cart {
 	@CreatedDate
 	private Instant anotherTime;
 	
-	
 	public Cart(long id, String buyerId) {
 		this.id = id;
 		this.buyerId = buyerId;
