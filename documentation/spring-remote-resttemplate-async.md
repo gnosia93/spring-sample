@@ -7,7 +7,7 @@
 
 ## 샘플 코드 ## 
 
-@EnableAsync를 설정하여 하여 비동기를 활성화 시킨다. 
+@EnableAsync를 이용하여 비동기  활성화 시킨다. 
 
 ```
 @EnableAsync
