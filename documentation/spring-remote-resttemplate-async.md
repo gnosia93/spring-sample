@@ -233,7 +233,47 @@ public class User {
 ```
 
 
+## Custom Executor 등록 ##
 
+아래와 같이 하거나, 
+```
+@EnableAsync
+@SpringBootApplication
+public class SpringtestApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(SpringtestApplication.class, args);
+	}
+	
+	@Bean
+	public TaskExecutor taskExecutor() {
+		return new ConcurrentTaskExecutor(Executors.newFixedThreadPool(3));
+	}
+}
+```
+
+AsyncConfigurer 인터페이스를 구현하면된다.
+
+@Quqlifier 로 설정된 Bean 은 @Async("taskExecutor") 로 사용하자.
+
+```
+@EnableAsync
+@Configuration
+public class AsyncConfigurerImpl implements AsyncConfigurer {
+
+	@Bean("taskExecutor")
+	public Executor getAsyncExecutor() {
+		 return new ConcurrentTaskExecutor(
+                 Executors.newFixedThreadPool(3));
+	}
+
+	@Override
+	public AsyncUncaughtExceptionHandler getAsyncUncaughtExceptionHandler() {
+		return (e, m, objs) -> System.out.println(m);
+	}
+
+}
+```
 
 ## 레퍼런스 ##
 
