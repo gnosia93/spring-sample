@@ -61,9 +61,7 @@ https://www.youtube.com/watch?v=bYiNlCaaRiI
 
 ## 스프링 Rest ##
 
-[AsyncRestTemplate]()
-
-   - https://mchernyavska.wordpress.com/2017/10/02/call-on-me-or-asynchronous-rest/
+[AsyncRestTemplate](https://github.com/gnosia93/spring-sample/blob/master/documentation/spring-remote-resttemplate-async.md)
 
 [RestTemplate]()
 
