@@ -190,6 +190,18 @@ public class User {
 }
 ```
 
+위의 예제를 실행하는 경우 아래와 같은 로그가 찍히는데, Lookup 서비스가 Executor 에 의해 실행 되고 있음을 알수 있다. 
+
+그러나 별대른 Executor 를 설정하지 않은 상태이므로, 성능을 위해 명시적으로 설정해 줘야 한다. 
+
+```
+[nio-8080-exec-1] io.startup.springtest.AsyncController    : ---> http-nio-8080-exec-1
+[nio-8080-exec-1] .s.a.AnnotationAsyncExecutionInterceptor : No TaskExecutor bean found for async processing
+[cTaskExecutor-1] io.startup.springtest.LookupService      : Lookup up gnosia93
+[cTaskExecutor-1] io.startup.springtest.LookupService      : ---> SimpleAsyncTaskExecutor-1
+```
+
+
 
 
 ## 레퍼런스 ##
