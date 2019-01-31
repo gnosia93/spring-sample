@@ -95,6 +95,8 @@ https://geowarin.com/spring-boot-logs-in-elastic-search-with-fluentd/
 
 ## 스프링 클라우드 ##
 
+[Hystrix]()
+
 https://supawer0728.github.io/2018/03/11/Spring-Cloud-Feign/
 
 
