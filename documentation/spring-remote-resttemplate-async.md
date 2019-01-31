@@ -1,6 +1,6 @@
 스프링에서의 비동기 처리는 의외로 간단한다. 
 
-- @EnableAsync
+- @EnableAsync 
 - @Aync 비동기로 처리가 필요한 함수에 어노테이션 설정
 - CompletableFuture 를 사용한 로직 구현.
 
@@ -71,10 +71,11 @@ public class LookupService {
 		String url = String.format("https://api.github.com/users/%s", user);
 		User results = restTemplate.getForObject(url, User.class);
 		
-		Thread.sleep(2000L);          // 처리 지연 시뮬레이션을 위한 코드. 
+		// 처리 지연 시뮬레이션을 위한 코드 
+		Thread.sleep(2000L);          
 		log.info(" ---> " + Thread.currentThread().getName() + "  " + results);
   
-    // 처리 결과를 Future 로 반환한다. 
+                // 처리 결과를 Future 로 반환한다. 
 		return CompletableFuture.completedFuture(results);          
 	}	
 }
