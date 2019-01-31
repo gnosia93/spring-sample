@@ -1,7 +1,7 @@
 스프링에서의 비동기 처리는 의외로 간단한다. 
 
-- @EnableAsync 
-- @Aync 비동기 처리가 필요한 함수에 어노테이션 설정
+- @EnableAsync 설정
+- @Aync 설정 - 비동기 처리가 필요한 함수에 어노테이션 설정
 - CompletableFuture 를 사용한 로직 구현.
 
 
