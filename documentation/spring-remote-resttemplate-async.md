@@ -7,7 +7,7 @@
 
 ## 샘플 코드 ## 
 
-@EnableAsync 를 이용하여 요청에 대해 비동기로 처리하도록 설정한다. 
+@EnableAsync를 설정하여 하여 비동기를 활성화 시킨다. 
 
 ```
 @EnableAsync
@@ -55,6 +55,8 @@ public class AsyncController {
 ```
 
 @Async 어노테이션을 이용하여 시간이 많이 걸리는 외부 호출를 비동기로 처리하고 있다. 
+
+RestTemplate 을 그냥 쓰면된다. Async 형을 쓸 필요가 없다. 
 
 ```
 @Slf4j
