@@ -28,6 +28,9 @@ spring.datasource.password=
 spring.datasource.driver-class-name=org.h2.Driver
 ```
 
+## DB Console 접속 ##
+
+http://localhost:8080/h2
 
 
 
