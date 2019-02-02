@@ -13,9 +13,9 @@ GIT 사용법 https://backlog.com/git-tutorial/kr/stepup/stepup2_1.html
 https://www.tutorialspoint.com/spring_boot/index.htm
 
 
-## 실행 환경 ##
+## Configuration ##
 
-&nbsp;&nbsp;&nbsp;&nbsp; [YML](https://github.com/gnosia93/spring-sample/blob/master/documentation/env/spring-env-yml.md)
+&nbsp;&nbsp;&nbsp;&nbsp; [YML](https://github.com/gnosia93/spring-sample/blob/master/documentation/config/spring-env-yml.md)
 
 
 
