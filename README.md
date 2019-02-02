@@ -69,7 +69,7 @@ https://www.youtube.com/watch?v=bYiNlCaaRiI
 
 ## 스프링 Rest ##
 
-&nbsp;&nbsp;&nbsp;&nbsp;[AsyncRestTemplate](https://github.com/gnosia93/spring-sample/blob/master/documentation/spring-remote-resttemplate-async.md)
+&nbsp;&nbsp;&nbsp;&nbsp;[AsyncRestTemplate](https://github.com/gnosia93/spring-sample/blob/master/documentation/remote/spring-remote-resttemplate-async.md)
 
 &nbsp;&nbsp;&nbsp;&nbsp;[RestTemplate]()
 
