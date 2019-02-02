@@ -17,7 +17,7 @@ https://www.tutorialspoint.com/spring_boot/index.htm
 
 &nbsp;&nbsp;&nbsp;&nbsp; [YML](https://github.com/gnosia93/spring-sample/blob/master/documentation/config/spring-yml.md)
 
-&nbsp;&nbsp;&nbsp;&nbsp; [YML](https://github.com/gnosia93/spring-sample/blob/master/documentation/config/spring-profile-props.md)
+&nbsp;&nbsp;&nbsp;&nbsp; [프로파일](https://github.com/gnosia93/spring-sample/blob/master/documentation/config/spring-profile-props.md)
 
 
 ## 뷰 템플릿 ##
