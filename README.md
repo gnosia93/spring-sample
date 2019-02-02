@@ -35,6 +35,8 @@ https://www.baeldung.com/spring-boot-add-filter
 ## 스프링 데이타 ##
 &nbsp;&nbsp;&nbsp;&nbsp;[JPA](https://github.com/gnosia93/spring-sample/blob/master/documentation/data/spring-jpa.md)
 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - [H2 Database](https://github.com/gnosia93/spring-sample/blob/master/documentation/data/spring-jpa-h2.md)
+
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - [Enum Converter](https://github.com/gnosia93/spring-sample/blob/master/documentation/data/spring-jpa-enum-converter.md)
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - [JPA Native Query](https://github.com/gnosia93/spring-sample/blob/master/documentation/data/spring-jpa-native-query.md)
