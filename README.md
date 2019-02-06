@@ -38,9 +38,9 @@ https://www.tutorialspoint.com/spring_boot/index.htm
 
 &nbsp;&nbsp;&nbsp;&nbsp; [Message Convertor](https://www.baeldung.com/spring-httpmessageconverter-rest)
 
-&nbsp;&nbsp;&nbsp;&nbsp; [Paging 처리](https://www.baeldung.com/spring-httpmessageconverter-rest)
+&nbsp;&nbsp;&nbsp;&nbsp; [Paging 처리](https://github.com/gnosia93/spring-sample/blob/master/documentation/mvc/spring-paging.md)
 
-(https://ankushs92.github.io/tutorial/2016/05/03/pagination-with-spring-boot.html)
+
 
 
 
