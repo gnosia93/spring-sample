@@ -34,9 +34,12 @@ https://www.tutorialspoint.com/spring_boot/index.htm
 
 &nbsp;&nbsp;&nbsp;&nbsp;  https://medium.com/@gaemi/java-%EC%99%80-spring-%EC%9D%98-validation-b5191a113f5c
 
-스프링 부트 필터.
+스프링 부트 필터.   https://www.baeldung.com/spring-boot-add-filter
 
-https://www.baeldung.com/spring-boot-add-filter
+&nbsp;&nbsp;&nbsp;&nbsp; [Message Convertor](https://www.baeldung.com/spring-httpmessageconverter-rest)
+
+
+
 
 
 ## 스프링 데이타 ##
