@@ -28,9 +28,9 @@ https://www.tutorialspoint.com/spring_boot/index.htm
 
 
 ## MVC ##
-&nbsp;&nbsp;&nbsp;&nbsp; [MVC Localization](https://github.com/gnosia93/spring-sample/blob/master/documentation/spring-localization.md)
+&nbsp;&nbsp;&nbsp;&nbsp; [MVC Localization](https://github.com/gnosia93/spring-sample/blob/master/documentation/mvc/spring-localization.md)
 
-&nbsp;&nbsp;&nbsp;&nbsp; [Form Validation](https://github.com/gnosia93/spring-sample/blob/master/documentation/spring-form-validation.md)
+&nbsp;&nbsp;&nbsp;&nbsp; [Form Validation](https://github.com/gnosia93/spring-sample/blob/master/documentation/mvc/spring-form-validation.md)
 
 &nbsp;&nbsp;&nbsp;&nbsp;  https://medium.com/@gaemi/java-%EC%99%80-spring-%EC%9D%98-validation-b5191a113f5c
 
