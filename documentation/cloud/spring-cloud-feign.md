@@ -69,7 +69,7 @@ hystrix를 enable 하면 timeout 설정은 hystirx를 따라가게 된다.
 default hystrix의 timeout 값은 1초 이므로, 오동작의 우려가 있으므로 위와 같이 10 초로 설정해야 한다. 
 
 
-## 샘플 코드 ##
+## Get 샘플 ##
 ```
 
 # 도메인 오브젝트
@@ -115,6 +115,64 @@ public interface PostClient {
 
 ```
 
+
+## Fallback 샘플 ##
+```
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Value;
+
+@Value
+public class DelayResponse {
+    public static DelayResponse EMPTY = new DelayResponse("local", "fallback executed.");
+
+    private String origin;
+    private String url;
+
+    @JsonCreator
+    public DelayResponse(@JsonProperty("origin") String origin, @JsonProperty("url") String url) {
+        this.origin = origin;
+        this.url = url;
+    }
+}
+
+
+@RestController
+public class DelayController {
+
+    private final HttpBinClient httpBinClient;
+
+    @Autowired
+    public DelayController(HttpBinClient httpBinClient) {
+        this.httpBinClient = httpBinClient;
+    }
+
+    @GetMapping("/delay/{seconds}")
+    DelayResponse delay(@PathVariable("seconds") int seconds) {
+        return httpBinClient.delay(seconds);
+    }
+}
+
+@FeignClient(name="http-bin-api", url="${feign.http-bin-api.url}", fallback = HttpBinClientFallback.class)
+public interface HttpBinClient {
+     @GetMapping("/delay/{seconds}")
+     DelayResponse delay(@PathVariable("seconds") int seconds);
+}
+
+@Slf4j
+@Component
+public class HttpBinClientFallback implements HttpBinClient {
+
+    @Override
+    public DelayResponse delay(int seconds) {
+        log.debug("fallback called.");
+        return DelayResponse.EMPTY;
+    }
+}
+
+```
+
+Fallback 클래스는 HttpBinClient 인터페이스를 구현하고 있다. 아마도 내부적으로 proxy 패턴으로 구현되어 있어서 그렇게 하는 듯 한데..
 
 
 
