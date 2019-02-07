@@ -21,6 +21,10 @@
 
 ```
 
+## 소스 코드 ##
+
+스프링이 제공하는 AstractFactoryBean<T> 클래스를 상속받아 getObjectType() 과 createInstance() 를 구현한다. 
+
 ```
 @Data
 public class Employee {
@@ -30,9 +34,10 @@ public class Employee {
     private String designation;
 }
 
+
+
 public class EmployeeFactoryBean extends AbstractFactoryBean<Employee>
 {
-
     private String designation;
 
     public String getDesignation() {
@@ -57,6 +62,8 @@ public class EmployeeFactoryBean extends AbstractFactoryBean<Employee>
 }
 ```
 
+ClassPathXmlApplicationContext 클래스를 이용하여 context xml 를 불러오고 있다. 
+
 ```
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -69,7 +76,6 @@ public class SpringMain {
 
         Employee e = context.getBean("manager", Employee.class);
         System.out.println(e);
-
     }
 }
 ```
