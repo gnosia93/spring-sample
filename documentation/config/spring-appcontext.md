@@ -1,6 +1,6 @@
 ## applicationContext.xml ##
 
-resource 디렉토리밑에 만든다.
+/src/main/resource 디렉토리밑에 만든다.
 
 ```
 <?xml version="1.0" encoding="UTF-8"?>
@@ -19,6 +19,59 @@ resource 디렉토리밑에 만든다.
     </bean>
 </beans>
 
+```
+
+```
+@Data
+public class Employee {
+    private Integer id;
+    private String firstName;
+    private String lastName;
+    private String designation;
+}
+
+public class EmployeeFactoryBean extends AbstractFactoryBean<Employee>
+{
+
+    private String designation;
+
+    public String getDesignation() {
+        return designation;
+    }
+
+    public void setDesignation(String designation) {
+        this.designation = designation;
+    }
+
+    @Override
+    public Class<?> getObjectType() {
+        return Employee.class;
+    }
+
+    @Override
+    protected Employee createInstance() throws Exception {
+        Employee e = new Employee();
+        e.setDesignation(getDesignation());
+        return e;
+    }
+}
+```
+
+```
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+public class SpringMain {
+    public static void main(String[] args)
+    {
+        System.out.println("main...");
+        ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+
+        Employee e = context.getBean("manager", Employee.class);
+        System.out.println(e);
+
+    }
+}
 ```
 
 
