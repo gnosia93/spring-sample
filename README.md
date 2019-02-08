@@ -162,6 +162,9 @@ http://redutan.github.io/2015/09/23/spring-commandline-example
 https://codecentric.github.io/chaos-monkey-spring-boot/#docs
 
 
+https://dzone.com/articles/junit-spring-%E2%80%93-what-you-don%E2%80%99t
+
+
 ## 레퍼런스 ##
 https://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html
 
