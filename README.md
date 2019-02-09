@@ -74,6 +74,8 @@ https://www.tutorialspoint.com/spring_boot/index.htm
 
 &nbsp;&nbsp;&nbsp;&nbsp;[Kafka](https://github.com/gnosia93/spring-sample/blob/master/documentation/data/spring-data-kafka.md)
 
+&nbsp;&nbsp;&nbsp;&nbsp;[Elasticsearch](https://github.com/gnosia93/spring-sample/blob/master/documentation/data/spring-data-es.md)
+
 elastic search / spring 
 
 https://www.youtube.com/watch?v=bYiNlCaaRiI
