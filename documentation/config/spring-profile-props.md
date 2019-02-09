@@ -85,3 +85,16 @@ production wired ? false
 
 
 ```
+
+## 디버깅 모드 Enable ##
+
+application.properties 또는 yml 파일에 아래와 같이 debug 태그를 true 로 설정한다. 
+
+```
+debug = true
+
+```
+
+https://stackoverflow.com/questions/47101743/how-to-display-auto-configuration-report-when-running-a-spring-boot-application
+
+
