@@ -98,6 +98,7 @@ https://spring.io/guides/gs/async-method/
 
 * [JUNIT 기초](https://github.com/gnosia93/spring-sample/blob/master/documentation/tdd/spring-junit.md)
 
+* [Spring Boot /w JUNIT5](https://github.com/gnosia93/spring-sample/blob/master/documentation/tdd/spring-boot-junit5.md)
 
 
 ## 스프링 시큐리티 ##
