@@ -114,7 +114,7 @@ Process finished with exit code 0
 
 ## 레퍼런스 ##
 
-https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/
+https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/     -->   31.6 Elasticsearch
 
 
 https://github.com/spring-projects/spring-data-elasticsearch
