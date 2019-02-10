@@ -147,7 +147,7 @@ o.s.d.e.c.TransportClientFactoryBean     : Adding transport node : 192.168.229.1
 
 ## 테스트 ##
 
-### 스프링 러너를 통한 테스트 ###
+### 1. 스프링 러너 테스트 ###
 ```
 import org.junit.Before;
 import org.junit.Test;
@@ -185,6 +185,74 @@ public class BookRepositoryTest {
     }
 ```
 
+
+### 2. @ContextConfiguration 테스트 ###
+
+/test/resources/springContext-book-test.xml 파일을 아래와 같이 만든다. 
+
+```
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:elasticsearch="http://www.springframework.org/schema/data/elasticsearch"
+       xsi:schemaLocation="http://www.springframework.org/schema/data/elasticsearch http://www.springframework.org/schema/data/elasticsearch/spring-elasticsearch-1.0.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
+
+    <!-- elasticsearch:node-client id="client" local="true"/-->
+    <elasticsearch:transport-client id="client" cluster-name="elasticsearch" cluster-nodes="startup:9300"/>
+
+    <bean name="elasticsearchTemplate" class="org.springframework.data.elasticsearch.core.ElasticsearchTemplate">
+        <constructor-arg name="client" ref="client"/>
+    </bean>
+
+    <elasticsearch:repositories base-package="io.startup.elasticsearch"/>
+</beans>
+```
+
+아래는 테스트 케이스이다. 
+
+```
+import org.junit.Before;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.junit4.SpringRunner;
+import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.CoreMatchers.notNullValue;
+import static org.junit.Assert.assertThat;
+
+// @RunWith(SpringRunner.class)
+// @SpringBootTest
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration("classpath:/springContext-book-test.xml")
+public class BookRepositoryTest {
+
+    @Autowired
+    private BookRepository bookRepository;
+
+    @Before
+    public void emptyData() {
+        bookRepository.deleteAll();
+    }
+
+    @Test
+    public void shouldIndexHasJustOneBook() {
+        Book book = new Book();
+        book.setId("12345");
+        book.setTitle("Spring Data Elasticsearch");
+        book.setAuthor("automake");
+        bookRepository.save(book);
+
+        Book indexedBook = bookRepository.findById(book.getId()).get();
+        assertThat(indexedBook,is(notNullValue()));
+        assertThat(indexedBook.getId(), is(book.getId()));
+
+    }
+}
+```
 
 
 
