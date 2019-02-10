@@ -141,10 +141,16 @@ o.elasticsearch.plugins.PluginsService   : loaded plugin [org.elasticsearch.tran
 o.s.d.e.c.TransportClientFactoryBean     : Adding transport node : 127.0.0.1:9200
 ```
 
+## 테스트 ##
+```
+
+```
+
+
+
 
 ## 레퍼런스 ##
 
 https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/     -->   31.6 Elasticsearch
-
 
 https://github.com/spring-projects/spring-data-elasticsearch
