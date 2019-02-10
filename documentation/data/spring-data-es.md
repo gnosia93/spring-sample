@@ -132,10 +132,10 @@ Process finished with exit code 0
 9200 포트는 rest 용이고, 9300 포트는 transport 용 포트로 자바에서 접근하는 경우 9300 포트를 사용해야 한다. 
 
 ```
-spring.data.elasticsearch.cluster-nodes=192.168.29.106:9300
-
-
-
+spring.data.elasticsearch.cluster-name=elasticsearch               # Elasticsearch cluster name.
+spring.data.elasticsearch.cluster-nodes=192.168.29.106:9300        # Comma-separated list of cluster node addresses.
+spring.data.elasticsearch.properties.*=                            # Additional properties used to configure the client.
+spring.data.elasticsearch.repositories.enabled=true                # Whether to enable Elasticsearch repositories.
 ```
 
 프로퍼티를 설정하는 경우 스프링 부트 시작시 아래와 같이 elasticsearch 서비스가 정상적으로 로딩되는 것을 확인할 수 있다. 
