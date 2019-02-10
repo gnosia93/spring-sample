@@ -222,17 +222,24 @@ public class BookRepositoryTest {
 아래는 테스트 케이스이다. 
 
 ```
+package io.startup.elasticsearch;
+
+import org.apache.commons.lang.RandomStringUtils;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.elasticsearch.core.query.NativeSearchQueryBuilder;
+import org.springframework.data.elasticsearch.core.query.SearchQuery;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.test.context.junit4.SpringRunner;
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.CoreMatchers.notNullValue;
+import java.util.Arrays;
+import static org.elasticsearch.index.query.QueryBuilders.*;
+import static org.hamcrest.CoreMatchers.*;
 import static org.junit.Assert.assertThat;
+
 
 // @RunWith(SpringRunner.class)
 // @SpringBootTest
@@ -259,8 +266,45 @@ public class BookRepositoryTest {
         Book indexedBook = bookRepository.findById(book.getId()).get();
         assertThat(indexedBook,is(notNullValue()));
         assertThat(indexedBook.getId(), is(book.getId()));
-
     }
+
+    @Test
+    public void testMultipleSave() {
+        Book book1 = new Book(RandomStringUtils.random(5), "Srping Date", "author1", Long.toString(System.currentTimeMillis()));
+        Book book2 = new Book(RandomStringUtils.random(5), "Srping Data Elasticsearch", "author2", Long.toString(System.currentTimeMillis()));
+        bookRepository.saveAll(Arrays.asList(book1, book2));
+
+        Book indexedBook1 = bookRepository.findById(book1.getId()).get();
+        Book indexedBook2 = bookRepository.findById(book2.getId()).get();
+        assertThat(indexedBook1.getId(), is(book1.getId()));
+        assertThat(indexedBook2.getId(), is(book2.getId()));
+   }
+
+   @Test
+   public void testCustomQuery() {
+       Book book1 = new Book(RandomStringUtils.random(5), "Custom Query", "author1", Long.toString(System.currentTimeMillis()));
+       Book book2 = new Book(RandomStringUtils.random(5), null, "author2", Long.toString(System.currentTimeMillis()));
+       bookRepository.saveAll(Arrays.asList(book1, book2));
+
+       SearchQuery searchQuery = new NativeSearchQueryBuilder()
+               .withQuery(matchAllQuery())
+               .withFilter(boolQuery().must(existsQuery("title")))
+               .withPageable(PageRequest.of(0, 10))
+               .build();
+
+       Page<Book> books = bookRepository.search(searchQuery);
+       assertThat(books.getNumberOfElements(), is(equalTo(1)));
+   }
+
+   @Test
+    public void shouldReturnBooksForCustomMethodsWithAndCriteria() {
+       Book book1 = new Book(RandomStringUtils.random(5), "Custom", "author1", "100");
+       Book book2 = new Book(RandomStringUtils.random(5), null, "author2", Long.toString(System.currentTimeMillis()));
+       bookRepository.saveAll(Arrays.asList(book1, book2));
+
+       Page<Book> books = bookRepository.findByTitleAndReleaseDate("Custom", "100", PageRequest.of(0, 100));
+       assertThat(books.getContent().size(), is(1));
+   }
 }
 ```
 
