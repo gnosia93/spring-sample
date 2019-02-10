@@ -61,6 +61,13 @@ public class SpringMvcTest {
 
 
 ## MockBean 을 이용한 Remote 테스트 ##
+
+웹 레이어를 테스트 하다보면 때로는 remote 서비스를 호출하는 경우가 발생한다.
+
+제대로 테스트 할려면 mock 서버를 두던지, 아니면 실제 remote 서비스를 실행해야 하지만, 테스트시에는 부담이 되므로, 
+
+@MockBean 어노테이션을 사용하여 결과값을 리턴해 줄 수 있다.
+
 ```
 public interface RemoteService {
     String remoteCall();
@@ -82,6 +89,8 @@ public class RemoteServiceImpl implements  RemoteService{
     }
 }
 ```
+
+@MockBean 을 사용하기 위해서는 테스트 클래스에 @SpringBootTest 어노테이션을 선언해야 한다. 
 
 ```
 package io.startup.elasticsearch;
@@ -106,22 +115,13 @@ import static org.junit.Assert.assertThat;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-@AutoConfigureMockMvc
+//@AutoConfigureMockMvc
 //@WebMvcTest(WebController.class)
 public class SpringMvcTest {
 
-    @Autowired
-    private MockMvc mvc;
-
     @MockBean
     private RemoteService remoteService;
-
-    @Test
-    public void exampleTest() throws Exception {
-        this.mvc.perform(get("/")).andExpect(status().isOk())
-                .andExpect(content().string("Hello world"));
-    }
-
+  
     @Test
     public void remoteTest() throws Exception {
         given(this.remoteService.remoteCall()).willReturn("mock called");
