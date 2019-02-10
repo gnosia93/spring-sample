@@ -96,7 +96,7 @@ public interface BookRepository extends ElasticsearchRepository<Book, String> {
 
 application.properties 에 아무런 설정없이 실행하는 경우 아래와 같은 에러가 발생하는데, 이를 해결하기 위해서는
 
-spring.data.elasticsearch.cluster-nodes=localhost:9200 를 설정해야 한다. 
+spring.data.elasticsearch.cluster-nodes=startup:9300 를 설정해야 한다. 
 
 아래는 스프링 부트 레퍼런스 문서의 내용을 발췌한 것으로 spring data 를 이용하여 elasticsearch 에 접속하기 위해서는
 
@@ -105,7 +105,7 @@ spring.data.elasticsearch.cluster-nodes=localhost:9200 를 설정해야 한다.
 31.6.3 Connecting to Elasticsearch by Using Spring Data
 To connect to Elasticsearch, you must provide the address of one or more cluster nodes. The address can be specified by setting the spring.data.elasticsearch.cluster-nodes property to a comma-separated host:port list. With this configuration in place, an ElasticsearchTemplate or TransportClient can be injected like any other Spring bean, as shown in the following example:
 
-spring.data.elasticsearch.cluster-nodes=localhost:9200
+spring.data.elasticsearch.cluster-nodes=startup:9300
 
 ```
 ***************************
@@ -129,7 +129,7 @@ Process finished with exit code 0
 ## 프로퍼티 설정 ##
 현재 버전의 elastic 서치는 embeded 를 지원하지 않으므로 실제 서버를 대상으로 테스트를 수행해야 한다. 
 
-9200 포트는 rest 용이고, 9300 포트는 transport 용 포트로 자바에서 접근하는 경우 9300 포트를 사용해야 한다. 
+9200 포트는 rest 용이고, 9300 포트는 transport 용 포트로 스프링 부투 데이터에서 접근하는 경우 9300 포트를 사용해야 한다. 
 
 ```
 spring.data.elasticsearch.cluster-name=elasticsearch               # Elasticsearch cluster name.
