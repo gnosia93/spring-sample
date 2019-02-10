@@ -90,7 +90,9 @@ public class RemoteServiceImpl implements  RemoteService{
 }
 ```
 
-@MockBean 을 사용하기 위해서는 테스트 클래스에 @SpringBootTest 어노테이션을 선언해야 한다. 
+@MockBean 을 사용하기 위해서는 테스트 클래스에 @SpringBootTest 어노테이션을 선언해야 한다.
+
+BDDMockito 의 give() 함수를 이용하여 mockbean 호출시 리턴값을 설정하고 있다. 
 
 ```
 package io.startup.elasticsearch;
