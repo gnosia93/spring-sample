@@ -1,5 +1,3 @@
-## Spring Boot Reference Guide ##
-https://docs.spring.io/spring-boot/docs/1.2.3.RELEASE/reference/htmlsingle/#using-boot-maven
 
 ## 기본 ##
 
@@ -176,6 +174,9 @@ http://redutan.github.io/2015/09/23/spring-commandline-example
 
 
 ## 레퍼런스 ##
+
 https://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html
+
+https://docs.spring.io/spring-boot/docs/1.2.3.RELEASE/reference/htmlsingle/#using-boot-maven
 
     
