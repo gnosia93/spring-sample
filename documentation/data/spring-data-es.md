@@ -133,6 +133,9 @@ Process finished with exit code 0
 
 ```
 spring.data.elasticsearch.cluster-nodes=192.168.29.106:9300
+
+
+
 ```
 
 프로퍼티를 설정하는 경우 스프링 부트 시작시 아래와 같이 elasticsearch 서비스가 정상적으로 로딩되는 것을 확인할 수 있다. 
@@ -146,6 +149,13 @@ o.s.d.e.c.TransportClientFactoryBean     : Adding transport node : 192.168.229.1
 ```
 
 ## 테스트 ##
+
+테스트는 SpringRunner를 이용하거나, SpringJUnit4ClassRunner 이용할 수 있다.
+
+@SpringBootTest 를 사용하게 되는 경우, 스프링 컨테이너 context 가 실행되므로, bean 이 많은 경우 느리다. 
+
+단위테스트에서는 가급적 @ContextConfiguration 를 사용하도록 한다. 
+
 
 ### 1. 스프링 러너 테스트 ###
 ```
