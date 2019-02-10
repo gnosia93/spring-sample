@@ -20,7 +20,7 @@ public class WebController {
 
 Mvc 테스트는 두가지 방식을 제공해 준다. 
 
-1. @SpringBootTest 와 @AutoConfigureMockMvc 를 사용하는 방식과
+1. @SpringBootTest 와 @AutoConfigureMockMvc 를 사용하는 방식 (ApplicationContext 를 시작한다) 과
 
 2. 웹 레이어만 테스트 하는 @WebMvcTest 또는 @WebMvcTest(WebController.class) 이다. 
 
