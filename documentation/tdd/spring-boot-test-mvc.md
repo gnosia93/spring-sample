@@ -1,5 +1,5 @@
 ## 컨트롤러 ##
-
+```
 package io.startup.elasticsearch.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,7 +13,7 @@ public class WebController {
         return "Hello world";
     }
 }
-
+```
 
 
 ## 테스트 클래스 ##
