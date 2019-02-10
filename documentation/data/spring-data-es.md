@@ -88,7 +88,9 @@ public interface BookRepository extends ElasticsearchRepository<Book, String> {
 
     Page<Book> findByAuthor(String author, Pageable pageable);
     List<Book> findByTitle(String title);
+    Page<Book> findByTitleAndReleaseDate(String title, String releaseDate, Pageable pageable);
 }
+
 
 ```
 
