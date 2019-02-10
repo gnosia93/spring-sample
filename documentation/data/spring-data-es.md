@@ -127,8 +127,12 @@ Process finished with exit code 0
 ```
 
 ## 프로퍼티 설정 ##
+현재 버전의 elastic 서치는 embeded 를 지원하지 않으므로 실제 서버를 대상으로 테스트를 수행해야 한다. 
+
+9200 포트는 rest 용이고, 9300 포트는 transport 용 포트로 자바에서 접근하는 경우 9300 포트를 사용해야 한다. 
+
 ```
-spring.data.elasticsearch.cluster-nodes=localhost:9200
+spring.data.elasticsearch.cluster-nodes=192.168.29.106:9300
 ```
 
 프로퍼티를 설정하는 경우 스프링 부트 시작시 아래와 같이 elasticsearch 서비스가 정상적으로 로딩되는 것을 확인할 수 있다. 
@@ -138,12 +142,47 @@ o.elasticsearch.plugins.PluginsService   : loaded plugin [org.elasticsearch.join
 o.elasticsearch.plugins.PluginsService   : loaded plugin [org.elasticsearch.percolator.PercolatorPlugin]
 o.elasticsearch.plugins.PluginsService   : loaded plugin [org.elasticsearch.script.mustache.MustachePlugin]
 o.elasticsearch.plugins.PluginsService   : loaded plugin [org.elasticsearch.transport.Netty4Plugin]
-o.s.d.e.c.TransportClientFactoryBean     : Adding transport node : 127.0.0.1:9200
+o.s.d.e.c.TransportClientFactoryBean     : Adding transport node : 192.168.229.106:9300
 ```
 
 ## 테스트 ##
-```
 
+### 스프링 러너를 통한 테스트 ###
+```
+import org.junit.Before;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
+import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.CoreMatchers.notNullValue;
+import static org.junit.Assert.assertThat;
+
+@RunWith(SpringRunner.class)
+@SpringBootTest
+public class BookRepositoryTest {
+
+    @Autowired
+    private BookRepository bookRepository;
+
+    @Before
+    public void emptyData() {
+        bookRepository.deleteAll();
+    }
+
+    @Test
+    public void shouldIndexHasJustOneBook() {
+        Book book = new Book();
+        book.setId("12345");
+        book.setTitle("Spring Data Elasticsearch");
+        book.setAuthor("automake");
+        bookRepository.save(book);
+
+        Book indexedBook = bookRepository.findById(book.getId()).get();
+        assertThat(indexedBook,is(notNullValue()));
+        assertThat(indexedBook.getId(), is(book.getId()));
+    }
 ```
 
 
