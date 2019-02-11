@@ -11,6 +11,11 @@ GIT 사용법 https://backlog.com/git-tutorial/kr/stepup/stepup2_1.html
 https://www.tutorialspoint.com/spring_boot/index.htm
 
 
+## 의존성 관리 ##
+
+* [Intelij Maven Multi Modules](http://wonwoo.ml/index.php/post/601)
+
+
 ## Configuration ##
 
 * [CLI](https://github.com/gnosia93/spring-sample/blob/master/documentation/config/spring-boot-cli.md)
@@ -24,6 +29,7 @@ https://www.tutorialspoint.com/spring_boot/index.htm
 * [Auto Configuration](https://github.com/gnosia93/spring-sample/blob/master/documentation/config/spring-autoconfiguration.md)
 
 * [Spring Boot Starter](https://github.com/gnosia93/spring-sample/blob/master/documentation/config/spring-boot-starter.md)
+
 
 
 ## Annotation ##
