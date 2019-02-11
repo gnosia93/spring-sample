@@ -26,6 +26,10 @@ https://www.tutorialspoint.com/spring_boot/index.htm
 * [Spring Boot Starter](https://github.com/gnosia93/spring-sample/blob/master/documentation/config/spring-boot-starter.md)
 
 
+## Annotation ##
+
+* [@Conditional](https://www.intertech.com/Blog/spring-4-conditional-bean-configuration/)
+
 
 ## 뷰 템플릿 ##
 
