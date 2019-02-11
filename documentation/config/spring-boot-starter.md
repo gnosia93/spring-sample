@@ -227,7 +227,7 @@ io.startup.autoconfigure.HelloServiceImpl sayHello() [ custom starter example, o
 
 
 
-@ConditionalOnMissingBean 의 동작을 확인하기 위해서 아래의 코드를 io.startup.starterTest 에 추가해 보자.
+@ConditionalOnMissingBean 의 동작을 확인하기 위해서 아래의 코드에 io.startup.starterTest 에 추가해 보자.
 
 이때 주의 할 점은 인터페이스를 꼭 선언해야 한다는 점이다. 선언하지 않는 경우 즉, concrete HelloService 를 사용하는 경우
 
