@@ -188,6 +188,11 @@ application.key = override key
 ```
 
 ### 3. 테스트 소스 ###
+
+HelloService 빈의 경우 커스텀 스타터에 의해 autoconfigure 되어 빈으로 등록되었으므로, 
+
+@Autowire 해서 사용하기만 하면 된다. 
+
 ```
 package io.startup.starterTest;
 
