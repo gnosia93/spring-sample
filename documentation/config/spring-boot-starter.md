@@ -225,15 +225,21 @@ io.startup.autoconfigure.HelloServiceImpl sayHello() [ custom starter example, o
 ```
 
 
-@ConditionalOnMissingBean 의 동작을 확인하기 위해서 자체 HelloService 를 구현하고 있다.
 
-이때 주의 할 점은 인터페이스를 꼭 선언해야 한다는 점이다. 선언하지 않는 경우 제대로 동작하지 않는다. 
 
-스프링 부트에 의해 컴포넌트 스캔 우선순위에 따라 @Component 로 선언된 빈이 @ConditionalOnMissingBean 으로 선언된 것보다 
+@ConditionalOnMissingBean 의 동작을 확인하기 위해서 아래의 코드를 io.startup.starterTest 에 추가해 보자.
 
-우선 검색되므로, 아래 출력값에서 볼수 있는 바와 같이 자체 HelloService 의 sayHello 가 호출되어  
+이때 주의 할 점은 인터페이스를 꼭 선언해야 한다는 점이다. 선언하지 않는 경우 즉, concrete HelloService 를 사용하는 경우
 
-io.startup.starterTest.HelloServiceImpl sayHello() 가 출력된다. 
+bean duplication error 가 발생한다. (왜 그런지는 모르겠음)
+
+스프링 부트 빈 스캔시 @Component 로 선언된 빈이 @ConditionalOnMissingBean 으로 선언된 빈보다 스캔 순위가 앞서므로,  
+
+아래 출력값에서 볼수 있는 바와 같이 자체 HelloService 의 sayHello 가 호출되어  
+
+io.startup.starterTest.HelloServiceImpl sayHello() 가 출력됨을 알수 있다. 
+
+
 
 ```
 package io.startup.starterTest;
