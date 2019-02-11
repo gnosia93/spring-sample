@@ -1,5 +1,7 @@
 
 
+https://docs.spring.io/spring-boot/docs/current/reference/html/auto-configuration-classes.html
+
 
 ## 레퍼런스 ##
 
