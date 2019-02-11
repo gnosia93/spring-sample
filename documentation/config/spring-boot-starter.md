@@ -1,4 +1,4 @@
-## hello-service-starter ##
+## 스타터 패키지 작성(hello-service-starter) ##
 
 ### 1. POM ###
 
@@ -119,7 +119,7 @@ $mvn clean install
 ```
 
 
-## 테스트 ##
+## 스타터 테스트(starter-example) ##
 
 ### 1. POM ###
 ```
