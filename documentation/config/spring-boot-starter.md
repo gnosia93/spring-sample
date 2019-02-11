@@ -2,7 +2,26 @@
 
 ### 1. POM ###
 
-parent 는 spring-boot-starters 하고, spring-boot-autoconfigure 의존관계를 설정한다.
+스프링 부트 커스텀 스타터는 일반 maven 프로젝트로 생성해야 한다 [중요]
+
+spring initializer (https://start.spring.io/) 로 생성한 maven pom 을 사용하는 경우 컴파일된 패키지
+
+내부의 경로 문제로 인해 autoconfigure 시 컴파일된 클래스 파일을 찾지 못하는 문제가 발생한다.
+
+https://docs.spring.io/spring-boot/docs/current/reference/html/executable-jar.html
+
+위의 문서에서 볼 수 있는 바와 같이 spring initializer로 생성하고 컴파일 한 jar 파일의 내부 구조상,
+
+BOOT-INF / classes 밑에 컴파일된 클래스 파일이 존재하게 되므로, 
+
+custom starter 를 임포트 한 프로젝트에서 autoconfigure 동작시 클래스 경로 문제가 발생하게 된다. 
+
+* 일반 maven 클래스 파일 경로 --> com.example.autoconfigure
+
+* 부트 maven 클래스 파일 경로 --> BOOT-INF / classes / com.example.autoconfigure
+
+
+POM 구성시 아래와 같이 parent 는 spring-boot-starters 를 설정하고 , spring-boot-autoconfigure 의존관계를 설정한다.
 
 ```
 <?xml version="1.0" encoding="UTF-8"?>
