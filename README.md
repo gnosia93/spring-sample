@@ -21,7 +21,7 @@ https://www.tutorialspoint.com/spring_boot/index.htm
 
 * [Auto Configuration](https://github.com/gnosia93/spring-sample/blob/master/documentation/config/spring-autoconfiguration.md)
 
-* [커스텀 ](https://github.com/gnosia93/spring-sample/blob/master/documentation/config/spring-boot-starter.md)
+* [커스텀 스타터](https://github.com/gnosia93/spring-sample/blob/master/documentation/config/spring-boot-starter.md)
 
 
 
