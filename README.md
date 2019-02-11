@@ -13,7 +13,7 @@ https://www.tutorialspoint.com/spring_boot/index.htm
 
 ## 의존성 관리 ##
 
-* [Intelij Maven Multi Modules](http://wonwoo.ml/index.php/post/601)
+* [Maven Multi Modules](http://wonwoo.ml/index.php/post/601)
 
 
 ## Configuration ##
