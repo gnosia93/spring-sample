@@ -236,7 +236,7 @@ io.startup.autoconfigure.HelloServiceImpl sayHello() [ custom starter example, o
 
 이때 주의 할 점은 인터페이스를 꼭 선언해야 한다는 점이다. 
 
-선언하지 않는 경우 즉, HelloService 에 인터페이스가 아닌 구현 클래스 인 경우, bean duplication error 가 발생한다. (왜 그런지는 모르겠음)
+즉, HelloService 가 인터페이스가 아닌 구현 클래스 인 경우, bean duplication error 가 발생한다. (왜 그런지는 모르겠음)
 
 스프링 부트 빈 스캔시 @Component 로 선언된 빈이 @ConditionalOnMissingBean 으로 선언된 빈보다 스캔 순위가 앞서므로,  
 
