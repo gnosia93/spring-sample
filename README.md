@@ -81,10 +81,6 @@ https://www.tutorialspoint.com/spring_boot/index.htm
 
 * [Elasticsearch](https://github.com/gnosia93/spring-sample/blob/master/documentation/data/spring-data-es.md)
 
-elastic search / spring 
-
-https://www.youtube.com/watch?v=bYiNlCaaRiI
-
 
 ## 스프링 Rest ##
 
