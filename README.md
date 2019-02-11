@@ -1,11 +1,4 @@
 
-## 기본 ##
-
-GIT 사용법 https://backlog.com/git-tutorial/kr/stepup/stepup2_1.html
-
-소프트웨어 버저닝 https://futurecreator.github.io/2018/09/09/software-versioning/
-
-
 ## boot tutorial ##
 
 https://www.tutorialspoint.com/spring_boot/index.htm
