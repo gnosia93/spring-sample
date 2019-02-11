@@ -24,6 +24,8 @@ https://www.tutorialspoint.com/spring_boot/index.htm
 
 * [Spring Boot Starter](https://github.com/gnosia93/spring-sample/blob/master/documentation/config/spring-boot-starter.md)
 
+* [CLI](https://www.javadevjournal.com/spring/introduction-to-spring-boot/)
+
 
 ## 뷰 템플릿 ##
 
