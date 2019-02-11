@@ -60,6 +60,8 @@ public interface HelloService {
 
 
 
+// @Value 오노테이션의 프로퍼티들의 경우 커스텀 starter 패키지를 사용하는 외부 프로그램에서 
+// 주입받기 위해 설정한 것이다. 
 package io.startup.autoconfigure;
 
 import org.springframework.beans.factory.annotation.Value;
@@ -185,7 +187,7 @@ application.key = override key
 # spring.main.allow-bean-definition-overriding=true
 ```
 
-### 3. ###
+### 3. 테스트 소스 ###
 ```
 package io.startup.starterTest;
 
@@ -216,6 +218,10 @@ public class StarterExampleApplication {
 	}
 }
 
+
+
+## 출력값.
+io.startup.autoconfigure.HelloServiceImpl sayHello() [ custom starter example, override key ]
 ```
 
 
