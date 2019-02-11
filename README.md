@@ -14,12 +14,13 @@ https://www.tutorialspoint.com/spring_boot/index.htm
 ## Configuration ##
 
 
-&nbsp;&nbsp;&nbsp;&nbsp; [applicationContext.xml](https://github.com/gnosia93/spring-sample/blob/master/documentation/config/spring-appcontext.md)
+* [applicationContext.xml](https://github.com/gnosia93/spring-sample/blob/master/documentation/config/spring-appcontext.md)
 
-&nbsp;&nbsp;&nbsp;&nbsp; [YML](https://github.com/gnosia93/spring-sample/blob/master/documentation/config/spring-yml.md)
+* [YML](https://github.com/gnosia93/spring-sample/blob/master/documentation/config/spring-yml.md)
 
-&nbsp;&nbsp;&nbsp;&nbsp; [프로파일](https://github.com/gnosia93/spring-sample/blob/master/documentation/config/spring-profile-props.md)
+* [프로파일](https://github.com/gnosia93/spring-sample/blob/master/documentation/config/spring-profile-props.md)
 
+* [Auto Configuration](https://github.com/gnosia93/spring-sample/blob/master/documentation/config/spring-autoconfiguration.md)
 
 
 ## 뷰 템플릿 ##
