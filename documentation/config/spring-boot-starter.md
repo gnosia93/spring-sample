@@ -238,13 +238,9 @@ io.startup.autoconfigure.HelloServiceImpl sayHello() [ custom starter example, o
 
 즉, HelloService 가 인터페이스가 아닌 구현 클래스 인 경우, bean duplication error 가 발생한다. (왜 그런지는 모르겠음)
 
-스프링 부트 빈 스캔시 @Component 로 선언된 빈이 @ConditionalOnMissingBean 으로 선언된 빈보다 스캔 순위가 앞서므로,  
+스프링 부트는 빈 스캔시 @Component 로 선언된 빈을 @ConditionalOnMissingBean 으로 선언된 빈보다 우선시 하므로, 
 
-아래 출력값에서 볼수 있는 바와 같이 자체 HelloService 의 sayHello 가 호출되어  
-
-io.startup.starterTest.HelloServiceImpl sayHello() 가 출력됨을 알수 있다. 
-
-
+자체로 구현한 HelloService 의 sayHello 가 호출된다. (custom starter 의 HelloService 는 빈으로 등록되지 않았다.)
 
 ```
 package io.startup.starterTest;
