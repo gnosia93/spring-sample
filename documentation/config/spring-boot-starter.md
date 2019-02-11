@@ -1,4 +1,6 @@
-## POM ##
+## hello-service-starter ##
+
+### 1. POM ###
 
 parent 는 spring-boot-starters 하고, spring-boot-autoconfigure 의존관계를 설정한다.
 
@@ -48,7 +50,7 @@ parent 는 spring-boot-starters 하고, spring-boot-autoconfigure 의존관계�
 </project>
 ```
 
-## ##
+### 2. 소스코드 ###
 ```
 package io.startup.autoconfigure;
 
