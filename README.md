@@ -55,7 +55,7 @@ https://www.tutorialspoint.com/spring_boot/index.htm
 
 
 ## 스프링 데이타 ##
-&nbsp;&nbsp;&nbsp;&nbsp;[JPA](https://github.com/gnosia93/spring-sample/blob/master/documentation/data/spring-jpa.md)
+* [JPA](https://github.com/gnosia93/spring-sample/blob/master/documentation/data/spring-jpa.md)
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - [H2 Database](https://github.com/gnosia93/spring-sample/blob/master/documentation/data/spring-jpa-h2.md)
 
@@ -67,21 +67,19 @@ https://www.tutorialspoint.com/spring_boot/index.htm
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - [JPA Auditing](https://github.com/gnosia93/spring-sample/blob/master/documentation/data/spring-jpa-audit.md)
 
-[Spring Boot Mybatis](http://www.springboottutorial.com/spring-boot-and-iBatis-with-h2-tutorial)
+* [Spring Boot Mybatis](http://www.springboottutorial.com/spring-boot-and-iBatis-with-h2-tutorial)
 
+* [몽고DB](https://github.com/gnosia93/spring-sample/blob/master/documentation/data/spring-data-mongo.md)
 
+* [카산드라](https://github.com/gnosia93/spring-sample/blob/master/documentation/data/spring-data-cassandra.md)
 
-&nbsp;&nbsp;&nbsp;&nbsp;[몽고DB](https://github.com/gnosia93/spring-sample/blob/master/documentation/data/spring-data-mongo.md)
+* [Redis](https://github.com/gnosia93/spring-sample/blob/master/documentation/data/spring-redis.md)
 
-&nbsp;&nbsp;&nbsp;&nbsp;[카산드라](https://github.com/gnosia93/spring-sample/blob/master/documentation/data/spring-data-cassandra.md)
+* [@Cacheable](https://github.com/gnosia93/spring-sample/blob/master/documentation/data/spring-cache.md)
 
-&nbsp;&nbsp;&nbsp;&nbsp;[Redis](https://github.com/gnosia93/spring-sample/blob/master/documentation/data/spring-redis.md)
+* [Kafka](https://github.com/gnosia93/spring-sample/blob/master/documentation/data/spring-data-kafka.md)
 
-&nbsp;&nbsp;&nbsp;&nbsp;[@Cacheable](https://github.com/gnosia93/spring-sample/blob/master/documentation/data/spring-cache.md)
-
-&nbsp;&nbsp;&nbsp;&nbsp;[Kafka](https://github.com/gnosia93/spring-sample/blob/master/documentation/data/spring-data-kafka.md)
-
-&nbsp;&nbsp;&nbsp;&nbsp;[Elasticsearch](https://github.com/gnosia93/spring-sample/blob/master/documentation/data/spring-data-es.md)
+* [Elasticsearch](https://github.com/gnosia93/spring-sample/blob/master/documentation/data/spring-data-es.md)
 
 elastic search / spring 
 
