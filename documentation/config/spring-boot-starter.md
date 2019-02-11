@@ -225,6 +225,45 @@ io.startup.autoconfigure.HelloServiceImpl sayHello() [ custom starter example, o
 ```
 
 
+@ConditionalOnMissingBean 의 동작을 확인하기 위해서 자체 HelloService 를 구현하고 있다.
+
+이때 주의 할 점은 인터페이스를 꼭 선언해야 한다는 점이다. 선언하지 않는 경우 제대로 동작하지 않는다. 
+
+스프링 부트에 의해 컴포넌트 스캔 우선순위에 따라 @Component 로 선언된 빈이 @ConditionalOnMissingBean 으로 선언된 것보다 
+
+우선 검색되므로, 아래 출력값에서 볼수 있는 바와 같이 자체 HelloService 의 sayHello 가 호출되어  
+
+io.startup.starterTest.HelloServiceImpl sayHello() 가 출력된다. 
+
+```
+package io.startup.starterTest;
+
+public interface HelloService {
+
+    String sayHello();
+}
+
+
+
+package io.startup.starterTest;
+
+import org.springframework.stereotype.Component;
+
+@Component
+public class HelloServiceImpl implements HelloService {
+    @Override
+    public String sayHello() {
+        return HelloServiceImpl.class.getCanonicalName() + " sayHello()";
+    }
+}
+
+io.startup.starterTest.HelloServiceImpl sayHello()
+```
+
+
+
+
+
 
 ## 레퍼런스 ##
 
