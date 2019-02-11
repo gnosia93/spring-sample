@@ -1,6 +1,9 @@
 ## 커스텀 스타터 만들기 ##
 
 ### POM ###
+
+parent 는 spring-boot-starters 하고, spring-boot-autoconfigure 의존관계를 설정한다.
+
 ```
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
