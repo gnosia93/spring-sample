@@ -1,6 +1,4 @@
-## 커스텀 스타터 만들기 ##
-
-### POM ###
+## POM ##
 
 parent 는 spring-boot-starters 하고, spring-boot-autoconfigure 의존관계를 설정한다.
 
@@ -50,7 +48,61 @@ parent 는 spring-boot-starters 하고, spring-boot-autoconfigure 의존관계�
 </project>
 ```
 
+## ##
+```
+package io.startup.autoconfigure;
 
+public interface HelloService {
+    String sayHello();
+}
+
+
+
+package io.startup.autoconfigure;
+
+import org.springframework.beans.factory.annotation.Value;
+
+public class HelloServiceImpl implements  HelloService {
+
+    @Value("${application.name}")
+    private String applicationName;
+
+    @Value("${application.key:default-key}")
+    private String applicationKey;
+
+    public String sayHello() {
+
+        return String.format("%s sayHello() [ %s, %s ]", HelloServiceImpl.class.getCanonicalName(), applicationName, applicationKey);
+
+    }
+}
+
+
+package io.startup.autoconfigure;
+
+import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
+@ConditionalOnClass(HelloService.class)
+public class HelloServiceConfiguration {
+
+    @Bean
+    @ConditionalOnMissingBean
+    public HelloService helloService() {
+        return new HelloServiceImpl();
+    }
+}
+
+
+# src/main/resources/META-INF/spring.factories 
+
+org.springframework.boot.autoconfigure.EnableAutoConfiguration = \
+io.startup.autoconfigure.HelloServiceConfiguration
+
+```
 
 
 ## 레퍼런스 ##
