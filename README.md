@@ -67,6 +67,9 @@ https://www.tutorialspoint.com/spring_boot/index.htm
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - [JPA Auditing](https://github.com/gnosia93/spring-sample/blob/master/documentation/data/spring-jpa-audit.md)
 
+[Spring Boot Mybatis](http://www.springboottutorial.com/spring-boot-and-iBatis-with-h2-tutorial)
+
+
 
 &nbsp;&nbsp;&nbsp;&nbsp;[몽고DB](https://github.com/gnosia93/spring-sample/blob/master/documentation/data/spring-data-mongo.md)
 
