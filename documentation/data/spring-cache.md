@@ -163,6 +163,7 @@ https://spring.io/guides/gs/caching/
 * spirng boot cache starter 를 이용한 cache
 * redistemplate 을 이용한 crud
 * data repository 예제
+* 로컬 / remote 서버 분기 예제.
 
 
 https://docs.spring.io/spring/docs/5.1.4.RELEASE/spring-framework-reference/integration.html#cache
