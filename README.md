@@ -80,6 +80,7 @@ https://www.tutorialspoint.com/spring_boot/index.htm
 
 * [Elasticsearch](https://github.com/gnosia93/spring-sample/blob/master/documentation/data/spring-data-es.md)
 
+* [AbstractDatasourceRouting](https://d2.naver.com/helloworld/5812258)
 
 ## 스프링 Rest ##
 
