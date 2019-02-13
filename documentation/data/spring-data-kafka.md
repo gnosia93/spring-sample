@@ -490,6 +490,8 @@ https://docs.spring.io/spring-kafka/reference/htmlsingle/
 
 https://www.baeldung.com/spring-kafka
 
+http://cloudurable.com/blog/kafka-tutorial-kafka-producer/index.html
+
 
 ## Kafka ##
 
