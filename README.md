@@ -2,6 +2,8 @@
 
 * [InteliJ 커뮤니티 스프링 부트](https://steps-for-developer.tistory.com/entry/Intellij%EB%A1%9C-SpringBoot-%EA%B2%8C%EC%8B%9C%ED%8C%90-%EB%A7%8C%EB%93%A4%EA%B8%B0-1)
 
+* [Mac Listen Port 보는 ](https://woonizzooni.tistory.com/entry/Mac-listen-%ED%8F%AC%ED%8A%B8-pid-%ED%99%95%EC%9D%B8-%EB%B0%A9%EB%B2%95-TCPUDP-%EC%84%B8%EC%85%98-%ED%99%95%EC%9D%B8-%EB%B0%A9%EB%B2%95)
+
 ## boot tutorial ##
 
 https://www.tutorialspoint.com/spring_boot/index.htm
