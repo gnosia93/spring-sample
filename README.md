@@ -59,7 +59,6 @@ https://www.tutorialspoint.com/spring_boot/index.htm
 
 
 
-
 ## 스프링 데이타 ##
 * [JPA](https://github.com/gnosia93/spring-sample/blob/master/documentation/data/spring-jpa.md)
 
