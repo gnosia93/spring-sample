@@ -1,3 +1,7 @@
+## IDE ##
+
+https://www.jetbrains.com/help/idea/spring-boot.html
+
 
 ## boot tutorial ##
 
