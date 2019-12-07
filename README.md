@@ -1,7 +1,6 @@
 ## IDE ##
 
-https://www.jetbrains.com/help/idea/spring-boot.html
-
+* [InteliJ 커뮤니티 스프링 부트](https://steps-for-developer.tistory.com/entry/Intellij%EB%A1%9C-SpringBoot-%EA%B2%8C%EC%8B%9C%ED%8C%90-%EB%A7%8C%EB%93%A4%EA%B8%B0-1)
 
 ## boot tutorial ##
 
